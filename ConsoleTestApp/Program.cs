@@ -1,5 +1,6 @@
 ﻿using System;
 using Dashen;
+using Dashen.Models;
 
 namespace ConsoleTestApp
 {
@@ -10,7 +11,11 @@ namespace ConsoleTestApp
 			var ui = new Dashboard(new Uri("http://localhost:8080"));
 
 			//config all the things...
-			//ui.
+			ui.RegisterModel(new Definition
+			{
+				Create = () => new TextControlViewModel { Content = "Test" },
+				Heading = "Some Text"
+			});
 
 			ui.Start();
 

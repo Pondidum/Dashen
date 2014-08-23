@@ -10,6 +10,7 @@ namespace Dashen
 	public class Dashboard
 	{
 		private readonly HttpSelfHostServer _server;
+		private readonly DefinitionCollection _definitions;
 
 		public Dashboard(Uri listenOn)
 		{
@@ -37,6 +38,7 @@ namespace Dashen
 			);
 
 			_server = new HttpSelfHostServer(config);
+			_definitions = container.GetInstance<DefinitionCollection>();
 		}
 
 		public void Start()
@@ -47,6 +49,11 @@ namespace Dashen
 		public void Stop()
 		{
 			_server.CloseAsync().Wait();
+		}
+
+		public void RegisterModel(Definition definition)
+		{
+			_definitions.Add(definition);
 		}
 	}
 }
