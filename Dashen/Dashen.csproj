@@ -97,6 +97,9 @@
     <EmbeddedResource Include="Static\css\foundation.min.css" />
     <EmbeddedResource Include="Static\css\normalize.css" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Static\js\jquery-2.1.1.min.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
