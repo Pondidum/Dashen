@@ -19,15 +19,16 @@ namespace Dashen.Controllers
 
 			_resources = assembly
 				.GetManifestResourceNames()
+				.Where(name => name.StartsWith(Prefix))
 				.ToDictionary(
-					name => name,
+					name => name.Substring(Prefix.Length),
 					name => new Func<Stream>(() => assembly.GetManifestResourceStream(name)),
 					StringComparer.OrdinalIgnoreCase);
 		}
 
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
-			var path = Prefix + url.Replace('/', '.');
+			var path = url.Replace('/', '.');
 			
 			if (_resources.ContainsKey(path) == false)
 			{
