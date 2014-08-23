@@ -1,9 +1,9 @@
 ﻿<viewdata model="Dashen.Models.IndexViewModel" />
 
 <div class="row">
-    <div class="large-3 columns" each="var heading in Model.Definitions">
+    <div class="large-3 columns" each="var def in Model.Definitions">
         <div class="panel">
-            <use file="Item" />
+            <use file="Item" id="def.ID" heading="def.Heading" url="def.Url" />
         </div>
     </div>
 </div>

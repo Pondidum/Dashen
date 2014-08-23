@@ -21,7 +21,12 @@ namespace Dashen.Controllers
 		{
 			return  _factory.From(new IndexViewModel
 			{
-				Definitions = _definitions.Select(d => d.Heading)
+				Definitions = _definitions.Select(d => new DefinitionModel
+				{
+					Heading = d.Heading,
+					ID = d.Name,
+					Url = "stats/unknown"
+				})
 			});
 		}
 	}

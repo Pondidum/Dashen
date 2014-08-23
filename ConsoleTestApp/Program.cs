@@ -14,7 +14,8 @@ namespace ConsoleTestApp
 			ui.RegisterModel(new Definition
 			{
 				Create = () => new TextControlViewModel { Content = "Test" },
-				Heading = "Some Text"
+				Heading = "Some Text",
+				Name = "TestContent"
 			});
 
 			ui.Start();
@@ -22,7 +23,7 @@ namespace ConsoleTestApp
 			Console.WriteLine("Webui running on port 8080.");
 			Console.WriteLine("Press any key to exit.");
 
-			Console.ReadKey(); 
+			Console.ReadKey();
 		}
 	}
 }

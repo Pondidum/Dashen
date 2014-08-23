@@ -7,5 +7,6 @@ namespace Dashen
 	{
 		public Func<ControlViewModel> Create { get; set; }
 		public string Heading { get; set; }
+		public string Name { get; set; }
 	}
 }
