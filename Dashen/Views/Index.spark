@@ -3,7 +3,7 @@
 <div class="row">
     <div class="large-3 columns" each="var def in Model.Definitions">
         <div class="panel">
-            <use file="Item" id="def.ID" heading="def.Heading" url="def.Url" />
+            <use file="Widget" id="def.ID" heading="def.Heading" url="def.Url" />
         </div>
     </div>
 </div>

@@ -91,7 +91,7 @@
     <EmbeddedResource Include="Views\Shared\Application.spark" />
     <EmbeddedResource Include="Views\TextControl.spark" />
     <EmbeddedResource Include="Views\ListControl.spark" />
-    <EmbeddedResource Include="Views\Shared\Item.spark" />
+    <EmbeddedResource Include="Views\Shared\Widget.spark" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\css\foundation.min.css" />
