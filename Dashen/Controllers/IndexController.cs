@@ -7,10 +7,16 @@ namespace Dashen.Controllers
 {
 	public class IndexController : ApiController
 	{
+		private readonly SparkResponseFactory _factory;
+
+		public IndexController(SparkResponseFactory factory)
+		{
+			_factory = factory;
+		}
+
 		public HttpResponseMessage GetIndex()
 		{
-			var factory = new SparkResponseFactory(new SparkEngine());
-			return  factory.From(new IndexViewModel { ApiUrl = "http://example.com" });
+			return  _factory.From(new IndexViewModel { ApiUrl = "http://example.com" });
 		}
 	}
 }

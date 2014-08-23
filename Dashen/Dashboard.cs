@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
+using Dashen.Infrastructure;
+using StructureMap;
+using StructureMap.Graph;
 
 namespace Dashen
 {
@@ -11,6 +14,15 @@ namespace Dashen
 		public Dashboard(Uri listenOn)
 		{
 			var config = new HttpSelfHostConfiguration(listenOn);
+			
+			var container = new Container(c => c.Scan(a =>
+			{
+				a.TheCallingAssembly();
+				a.WithDefaultConventions();
+				a.LookForRegistries();
+			}));
+
+			config.DependencyResolver = new StructureMapDependencyResolver(container);
 
 			config.Routes.MapHttpRoute(
 				"Home",
