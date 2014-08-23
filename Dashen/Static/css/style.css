@@ -1,3 +1,12 @@
-﻿body
-{
+﻿.topGradient {
+	background-color: #248F24;
+	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #33CC33), color-stop(100%, #248F24));
+	background: -webkit-linear-gradient(left, #33CC33, #248F24);
+	background: -moz-linear-gradient(left, #33CC33, #248F24);
+	background: -o-linear-gradient(left, #33CC33, #248F24);
+	background: linear-gradient(left, #33CC33, #248F24);
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 3px;
 }

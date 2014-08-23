@@ -93,6 +93,10 @@
     <EmbeddedResource Include="Views\ListControl.spark" />
     <EmbeddedResource Include="Views\Shared\Item.spark" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Static\css\foundation.min.css" />
+    <EmbeddedResource Include="Static\css\normalize.css" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
