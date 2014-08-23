@@ -1,6 +1,6 @@
 ﻿namespace Dashen.Models
 {
-	public class TextControlViewModel
+	public class TextControlViewModel : ControlViewModel
 	{
 		public string Content { get; set; } 
 	}
