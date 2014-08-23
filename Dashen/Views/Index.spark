@@ -1,0 +1,3 @@
+﻿<viewdata model="Dashen.Models.IndexViewModel" />
+
+<p>!{Model.ApiUrl}</p>

@@ -1,5 +1,7 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
+using Dashen.Infrastructure.Spark;
+using Dashen.Models;
 
 namespace Dashen.Controllers
 {
@@ -7,7 +9,8 @@ namespace Dashen.Controllers
 	{
 		public HttpResponseMessage GetIndex()
 		{
-			return new HttpResponseMessage { Content = new StringContent("Index win")};
+			var factory = new SparkResponseFactory(new SparkEngine());
+			return  factory.From(new IndexViewModel { ApiUrl = "http://example.com" });
 		}
 	}
 }

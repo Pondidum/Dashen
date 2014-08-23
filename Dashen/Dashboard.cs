@@ -6,15 +6,25 @@ namespace Dashen
 {
 	public class Dashboard
 	{
-		private readonly HttpSelfHostConfiguration _config;
 		private readonly HttpSelfHostServer _server;
 
 		public Dashboard(Uri listenOn)
 		{
-			_config = new HttpSelfHostConfiguration(listenOn);
+			var config = new HttpSelfHostConfiguration(listenOn);
 
-			_config.Routes.MapHttpRoute("Default", "{controller}/{id}", new { id = RouteParameter.Optional });
-			_server = new HttpSelfHostServer(_config);
+			config.Routes.MapHttpRoute(
+				"Home",
+				"",
+				new { controller = "Index" }
+			);
+
+			config.Routes.MapHttpRoute(
+				"Default",
+				"{controller}/{id}",
+				new { id = RouteParameter.Optional }
+			);
+
+			_server = new HttpSelfHostServer(config);
 		}
 
 		public void Start()
