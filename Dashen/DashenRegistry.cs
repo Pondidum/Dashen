@@ -7,7 +7,8 @@ namespace Dashen
 	{
 		public DashenRegistry()
 		{
-			For<SparkEngine>().Use<SparkEngine>().Singleton();
+			For<SparkEngine>().Singleton();
+			For<DefinitionCollection>().Singleton();
 		}
 	}
 }
