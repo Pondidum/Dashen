@@ -37,6 +37,12 @@ namespace Dashen
 				new { controller = "Stats", action = "GetDispatch", url = RouteParameter.Optional }
 			);
 
+			config.Routes.MapHttpRoute(
+				"Static",
+				"{*url}",
+				new {  controller = "Static", action = "GetDispatch" }
+				);
+
 			_server = new HttpSelfHostServer(config);
 			_definitions = container.GetInstance<DefinitionCollection>();
 		}
