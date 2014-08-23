@@ -19,9 +19,9 @@ namespace Dashen
 			);
 
 			config.Routes.MapHttpRoute(
-				"Default",
-				"{controller}/{id}",
-				new { id = RouteParameter.Optional }
+				"Api",
+				"stats/{*url}",
+				new { controller = "Stats", action = "GetDispatch", url = RouteParameter.Optional }
 			);
 
 			_server = new HttpSelfHostServer(config);
