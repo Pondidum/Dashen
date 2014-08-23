@@ -65,6 +65,7 @@
     <Compile Include="Infrastructure\Spark\SparkEngine.cs" />
     <Compile Include="Infrastructure\Spark\SparkResponseFactory.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\ListControlViewModel.cs" />
     <Compile Include="Models\TextControlViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +75,7 @@
     <EmbeddedResource Include="Views\Index.spark" />
     <EmbeddedResource Include="Views\Shared\Application.spark" />
     <EmbeddedResource Include="Views\TextControl.spark" />
+    <EmbeddedResource Include="Views\ListControl.spark" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
