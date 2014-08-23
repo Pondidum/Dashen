@@ -7,7 +7,7 @@
 <body>
     <div class="topGradient"></div>
 
-    <div class="row">
+    <div id="header" class="row">
         <div class="large-12 columns">
             <h1>Dashen Statistics Panel</h1>
         </div>
