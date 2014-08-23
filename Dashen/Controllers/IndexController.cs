@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
 using Dashen.Infrastructure.Spark;
 using Dashen.Models;
@@ -8,15 +9,20 @@ namespace Dashen.Controllers
 	public class IndexController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
+		private readonly DefinitionCollection _definitions;
 
-		public IndexController(SparkResponseFactory factory)
+		public IndexController(SparkResponseFactory factory, DefinitionCollection definitions)
 		{
 			_factory = factory;
+			_definitions = definitions;
 		}
 
 		public HttpResponseMessage GetIndex()
 		{
-			return  _factory.From(new IndexViewModel { ApiUrl = "http://example.com" });
+			return  _factory.From(new IndexViewModel
+			{
+				Definitions = _definitions.Select(d => d.Heading)
+			});
 		}
 	}
 }

@@ -1,3 +1,8 @@
 ﻿<viewdata model="Dashen.Models.IndexViewModel" />
 
-<p>!{Model.ApiUrl}</p>
+<ul>
+  <li each="var heading in Model.Definitions">
+    <use file="Item" />
+  </li>
+</ul>
+
