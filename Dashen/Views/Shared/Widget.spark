@@ -3,7 +3,7 @@
 <div id="${id}">
     <script type="text/javascript">
         var fn = function () {
-            $.ajax('#${id}', {
+            $.ajax('${url}', {
                 success: function (html) {
                     $('#${id}').html(html);
                 }
