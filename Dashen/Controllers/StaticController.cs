@@ -10,11 +10,13 @@ namespace Dashen.Controllers
 {
 	public class StaticController : ApiController
 	{
+		private readonly MimeLookup _mimeLookup;
 		private const string Prefix = "Dashen.Static.";
 		private readonly Dictionary<string, Func<Stream>> _resources;
 
-		public StaticController()
+		public StaticController(MimeLookup mimeLookup)
 		{
+			_mimeLookup = mimeLookup;
 			var assembly = GetType().Assembly;
 
 			_resources = assembly
@@ -29,18 +31,17 @@ namespace Dashen.Controllers
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
 			var path = url.Replace('/', '.');
-			
+
 			if (_resources.ContainsKey(path) == false)
 			{
 				return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
 			}
 
 			var stream = _resources[path].Invoke();
+			var content = new StreamContent(stream);
+			content.Headers.ContentType = _mimeLookup.Get(path);
 
-			return new HttpResponseMessage
-			{
-				Content = new StreamContent(stream)
-			};
+			return new HttpResponseMessage { Content = content };
 		}
 	}
 }

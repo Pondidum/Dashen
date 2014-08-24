@@ -11,7 +11,7 @@ namespace Dashen.Tests.Controllers
 
 		public StaticControllerTests()
 		{
-			_controller = new StaticController();
+			_controller = new StaticController(new MimeLookup());
 		}
 
 		[Fact]
