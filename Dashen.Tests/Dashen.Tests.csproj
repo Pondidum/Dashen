@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Controllers\StaticControllerTests.cs" />
     <Compile Include="Infrastructure\Extensions\GetTests.cs" />
+    <Compile Include="MimeLookupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
