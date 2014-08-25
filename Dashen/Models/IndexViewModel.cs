@@ -12,5 +12,6 @@ namespace Dashen.Models
 		public string ID { get; set; }
 		public string Url { get; set; }
 		public string Heading { get; set; }
+		public int Interval { get; set; }
 	}
 }

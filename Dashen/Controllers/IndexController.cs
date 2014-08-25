@@ -25,7 +25,8 @@ namespace Dashen.Controllers
 				{
 					Heading = d.Heading,
 					ID = d.Name,
-					Url = "stats/" + d.Name
+					Url = "stats/" + d.Name,
+					Interval = (int)d.Interval.TotalMilliseconds
 				})
 			});
 		}
