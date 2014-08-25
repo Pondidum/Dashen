@@ -7,7 +7,7 @@ namespace Dashen.Infrastructure.Spark
 	{
 	}
 
-	public class DashenView<TViewModel> : DashenView where TViewModel : class
+	public class DashenView<TViewModel> : DashenView, IDashenView where TViewModel : class
 	{
 		public TViewModel Model { get; set; }
 
@@ -24,11 +24,6 @@ namespace Dashen.Infrastructure.Spark
 		public override Guid GeneratedViewId
 		{
 			get { return Guid.NewGuid(); }
-		}
-
-		public override bool TryGetViewData(string name, out object value)
-		{
-			return base.TryGetViewData(name, out value);
 		}
 	}
 }
