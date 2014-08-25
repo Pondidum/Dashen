@@ -15,7 +15,7 @@ namespace Dashen
 		public Dashboard(Uri listenOn)
 		{
 			var config = new HttpSelfHostConfiguration(listenOn);
-			
+
 			var container = new Container(c => c.Scan(a =>
 			{
 				a.TheCallingAssembly();
@@ -24,6 +24,7 @@ namespace Dashen
 			}));
 
 			config.DependencyResolver = new StructureMapDependencyResolver(container);
+			config.MessageHandlers.Add(new ConsoleLoggingHandler());
 
 			config.Routes.MapHttpRoute(
 				"Home",
@@ -40,7 +41,7 @@ namespace Dashen
 			config.Routes.MapHttpRoute(
 				"Static",
 				"{*url}",
-				new {  controller = "Static", action = "GetDispatch" }
+				new { controller = "Static", action = "GetDispatch" }
 				);
 
 			_server = new HttpSelfHostServer(config);

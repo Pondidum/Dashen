@@ -72,6 +72,7 @@
     <Compile Include="Definition.cs" />
     <Compile Include="DefinitionCollection.cs" />
     <Compile Include="Infrastructure\Extensions.cs" />
+    <Compile Include="Infrastructure\MessageHandler.cs" />
     <Compile Include="Infrastructure\Spark\DashenView.cs" />
     <Compile Include="Infrastructure\Spark\IDashenView.cs" />
     <Compile Include="Infrastructure\Spark\SparkEngine.cs" />
