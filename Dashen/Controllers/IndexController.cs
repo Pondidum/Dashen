@@ -25,7 +25,7 @@ namespace Dashen.Controllers
 				{
 					Heading = d.Heading,
 					ID = d.Name,
-					Url = "stats/unknown"
+					Url = "stats/" + d.Name
 				})
 			});
 		}

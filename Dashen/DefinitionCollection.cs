@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dashen
 {
@@ -17,6 +19,11 @@ namespace Dashen
 			_definitions.Add(definition);
 		}
 
+		public Definition GetByName(string name)
+		{
+			return _definitions.FirstOrDefault(d => d.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+		}
+
 		public IEnumerator<Definition> GetEnumerator()
 		{
 			return _definitions.GetEnumerator();
@@ -26,5 +33,6 @@ namespace Dashen
 		{
 			return GetEnumerator();
 		}
+
 	}
 }
