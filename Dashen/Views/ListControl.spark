@@ -1,5 +1,5 @@
 ﻿<viewdata model="Dashen.Models.ListControlViewModel" />
 
-<ul if="Model.Items.Any()">
-  <li each="var item in Model.Items.Take(5)">${item}</li>
+<ul class="no-bullet small-text" if="Model.Items.Any()">
+  <li class="text-center" each="var item in Model.Items.Take(5)">${item}</li>
 </ul>

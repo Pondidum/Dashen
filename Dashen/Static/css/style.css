@@ -16,4 +16,12 @@
 	margin-bottom: 4em;
 }
 
+.widget {
+	min-height: 215px;
+	max-height: 215px;
+	padding: 15px;
+}
 
+.small-text {
+	font-size: 0.8rem;
+}
