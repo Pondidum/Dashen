@@ -1,14 +1,14 @@
 ﻿<h4>${heading}</h4>
 <hr />
 <div id="${id}">
-    <script type="text/javascript">
-        var fn = function () {
-            $.ajax('${url}', {
-                success: function (html) {
-                    $('#${id}').html(html);
-                }
-            });
-        };
-        fn();
-    </script>
+  <script type="text/javascript">
+    var fn = function () {
+      $.ajax('${url}', {
+        success: function (html) {
+          $('#${id}').html(html);
+        }
+      });
+    };
+    fn();
+  </script>
 </div>

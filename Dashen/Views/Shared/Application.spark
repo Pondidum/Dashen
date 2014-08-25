@@ -1,22 +1,22 @@
 ﻿<html>
-<head>
+  <head>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    
-    
+
+
     <script type='text/javascript' src="/js/jquery-2.1.1.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="topGradient"></div>
 
     <div id="header" class="row">
-        <div class="large-12 columns">
-            <h1>Dashen Statistics Panel</h1>
-        </div>
+      <div class="large-12 columns">
+        <h1>Dashen Statistics Panel</h1>
+      </div>
     </div>
 
     <use:view />
 
-</body>
+  </body>
 </html>
