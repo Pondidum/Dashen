@@ -1,5 +1,7 @@
-﻿using Dashen.Infrastructure.Spark;
+﻿using Dashen.Configuration;
+using Dashen.Infrastructure.Spark;
 using StructureMap.Configuration.DSL;
+using StructureMap.Graph;
 
 namespace Dashen
 {
@@ -9,6 +11,12 @@ namespace Dashen
 		{
 			For<SparkEngine>().Singleton();
 			For<DefinitionCollection>().Singleton();
+
+			Scan(a =>
+			{
+				a.TheCallingAssembly();
+				a.AddAllTypesOf<IDashboardConfiguration>();
+			});
 		}
 	}
 }

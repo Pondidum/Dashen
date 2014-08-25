@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
+using Dashen.Configuration;
 using Dashen.Infrastructure;
 using StructureMap;
 using StructureMap.Graph;
@@ -14,8 +16,6 @@ namespace Dashen
 
 		public Dashboard(Uri listenOn)
 		{
-			var config = new HttpSelfHostConfiguration(listenOn);
-
 			var container = new Container(c => c.Scan(a =>
 			{
 				a.TheCallingAssembly();
@@ -23,29 +23,8 @@ namespace Dashen
 				a.LookForRegistries();
 			}));
 
-			config.DependencyResolver = new StructureMapDependencyResolver(container);
-			config.MessageHandlers.Add(new ConsoleLoggingHandler());
-
-			config.Routes.MapHttpRoute(
-				"Home",
-				"",
-				new { controller = "Index" }
-			);
-
-			config.Routes.MapHttpRoute(
-				"Api",
-				"stats/{*url}",
-				new { controller = "Stats", action = "GetDispatch", url = RouteParameter.Optional }
-			);
-
-			config.Routes.MapHttpRoute(
-				"Static",
-				"{*url}",
-				new { controller = "Static", action = "GetDispatch" }
-				);
-
-			_server = new HttpSelfHostServer(config);
 			_definitions = container.GetInstance<DefinitionCollection>();
+			_server = container.GetInstance<ServerBuilder>().BuildServer(listenOn);
 		}
 
 		public void Start()
