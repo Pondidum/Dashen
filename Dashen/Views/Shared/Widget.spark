@@ -9,6 +9,7 @@
         }
       });
     };
-    fn();
+    $(document).ready(fn);
+    setInterval(fn, 10000);
   </script>
 </div>
