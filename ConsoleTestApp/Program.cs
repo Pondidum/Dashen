@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dashen;
@@ -19,6 +20,13 @@ namespace ConsoleTestApp
 				Create = () => model,
 				Heading = "Some Text",
 				Name = "TestContent"
+			});
+
+			ui.RegisterModel(new Definition
+			{
+				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
+				Heading = "Four things",
+				Name = "FourThings"
 			});
 
 			ui.Start();
