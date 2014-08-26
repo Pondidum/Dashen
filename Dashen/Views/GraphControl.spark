@@ -1,0 +1,27 @@
+﻿<viewdata model="Dashen.Models.GraphControlViewModel" />
+
+<div id="${Model.Name}Graph" style="height: 120px;">
+  <script type='text/javascript'>
+    $.jqplot("${Model.Name}Graph",
+      [!{Model.Points.ToFlatJson()}],
+      {
+        axes: {
+          xaxis: {
+            ticks: !{Model.XTicks.ToFlatJson()}
+          },
+          yaxis: {
+            pad: 0,
+          },
+        },
+        seriesDefaults: {
+          color:'#5FAB78',
+          shadow: false,
+        },
+        grid: {
+          drawGridLines: false,
+          borderWidth: 0,
+          shadow: false
+        },
+      });
+  </script>
+</div>
