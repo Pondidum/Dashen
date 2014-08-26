@@ -25,7 +25,7 @@ namespace Dashen.Controllers
 				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
-			return _factory.From(definition.Create());
+			return _factory.From(definition.BuildViewModel());
 		}
 	}
 }

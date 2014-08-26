@@ -14,5 +14,13 @@ namespace Dashen
 		{
 			Interval = new TimeSpan(0, 0, 10);
 		}
+
+		internal ControlViewModel BuildViewModel()
+		{
+			var model = Create();
+			model.Name = Name;
+
+			return model;
+		}
 	}
 }
