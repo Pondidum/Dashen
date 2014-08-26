@@ -15,6 +15,7 @@ namespace Dashen.Infrastructure.Spark
 		{
 			var settings = new SparkSettings();
 			settings.AddNamespace("System.Linq");
+			settings.AddNamespace("Dashen.Infrastructure");
 			settings.PageBaseType = typeof(DashenView).FullName;
 
 
@@ -24,6 +25,7 @@ namespace Dashen.Infrastructure.Spark
 			_noMaster = new List<string>();
 			_noMaster.Add("TextControl.spark");
 			_noMaster.Add("ListControl.spark");
+			_noMaster.Add("GraphControl.spark");
 		}
 
 		public DashenView CreateView(object model)
