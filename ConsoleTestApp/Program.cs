@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace ConsoleTestApp
 			{
 				Create = () => model,
 				Heading = "Some Text",
-				Name = "TestContent"
+				Name = "TestContent",
+				Interval = new TimeSpan(0,0,1)
 			});
 
 			ui.RegisterModel(new Definition
@@ -27,6 +29,17 @@ namespace ConsoleTestApp
 				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
 				Heading = "Four things",
 				Name = "FourThings"
+			});
+
+			ui.RegisterModel(new Definition
+			{
+				Create = () => new GraphControlViewModel
+				{
+					Points = new[] { new KeyValuePair<int, int>(0,10), new KeyValuePair<int, int>(50, 15) },
+					XTicks = new[] { new KeyValuePair<int, string>(0, "left"), new KeyValuePair<int, string>(50, "right") }
+				},
+				Heading = "Graph",
+				Name = "TestGraph"
 			});
 
 			ui.Start();
