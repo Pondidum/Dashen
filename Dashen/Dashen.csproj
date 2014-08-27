@@ -101,7 +101,6 @@
     <EmbeddedResource Include="Views\Shared\Application.spark" />
     <EmbeddedResource Include="Views\TextControl.spark" />
     <EmbeddedResource Include="Views\ListControl.spark" />
-    <EmbeddedResource Include="Views\Shared\Widget.spark" />
     <EmbeddedResource Include="Views\GraphControl.spark" />
   </ItemGroup>
   <ItemGroup>
