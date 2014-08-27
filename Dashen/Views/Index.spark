@@ -1,9 +1,5 @@
 ﻿<viewdata model="Dashen.Models.IndexViewModel" />
 
 <div class="row">
-    <div class="large-3 columns end?{defIsLast}" each="var def in Model.Definitions">
-        <div class="panel widget">
-            <use file="Widget" model="def" />
-        </div>
-    </div>
+  <use file="Widget" />
 </div>
