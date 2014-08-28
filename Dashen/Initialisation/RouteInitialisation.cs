@@ -1,9 +1,9 @@
 ﻿using System.Web.Http;
 using System.Web.Http.SelfHost;
 
-namespace Dashen.Configuration
+namespace Dashen.Initialisation
 {
-	public class RouteConfiguration : IDashboardConfiguration
+	public class RouteInitialisation : IDashboardInitialisation
 	{
 		public void ApplyTo(HttpSelfHostConfiguration config)
 		{

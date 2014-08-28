@@ -1,9 +1,9 @@
 ﻿using System.Web.Http.SelfHost;
 using Dashen.Infrastructure;
 
-namespace Dashen.Configuration
+namespace Dashen.Initialisation
 {
-	public class MessageHandlerConfiguration : IDashboardConfiguration
+	public class MessageHandlerInitialisation : IDashboardInitialisation
 	{
 		public void ApplyTo(HttpSelfHostConfiguration config)
 		{

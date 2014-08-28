@@ -1,8 +1,8 @@
 ﻿using System.Web.Http.SelfHost;
 
-namespace Dashen.Configuration
+namespace Dashen.Initialisation
 {
-	public interface IDashboardConfiguration
+	public interface IDashboardInitialisation
 	{
 		void ApplyTo(HttpSelfHostConfiguration config);
 	}

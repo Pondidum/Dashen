@@ -1,5 +1,5 @@
-﻿using Dashen.Configuration;
-using Dashen.Infrastructure.Spark;
+﻿using Dashen.Infrastructure.Spark;
+using Dashen.Initialisation;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
@@ -15,7 +15,7 @@ namespace Dashen
 			Scan(a =>
 			{
 				a.TheCallingAssembly();
-				a.AddAllTypesOf<IDashboardConfiguration>();
+				a.AddAllTypesOf<IDashboardInitialisation>();
 			});
 		}
 	}

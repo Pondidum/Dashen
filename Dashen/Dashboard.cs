@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Http.SelfHost;
-using Dashen.Configuration;
+using Dashen.Initialisation;
 using StructureMap;
 using StructureMap.Graph;
 

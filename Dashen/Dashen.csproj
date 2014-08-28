@@ -64,11 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
-    <Compile Include="Configuration\IDashboardConfiguration.cs" />
-    <Compile Include="Configuration\MessageHandlerConfiguration.cs" />
-    <Compile Include="Configuration\RouteConfiguration.cs" />
-    <Compile Include="Configuration\ServerBuilder.cs" />
+    <Compile Include="Initialisation\ContainerInitialisation.cs" />
+    <Compile Include="Initialisation\IDashboardInitialisation.cs" />
+    <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />
+    <Compile Include="Initialisation\RouteInitialisation.cs" />
+    <Compile Include="Initialisation\ServerBuilder.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Controllers\StatsController.cs" />

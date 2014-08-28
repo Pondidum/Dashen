@@ -2,13 +2,13 @@
 using Dashen.Infrastructure;
 using StructureMap;
 
-namespace Dashen.Configuration
+namespace Dashen.Initialisation
 {
-	public class ContainerConfiguration : IDashboardConfiguration
+	public class ContainerInitialisation : IDashboardInitialisation
 	{
 		private readonly IContainer _container;
 
-		public ContainerConfiguration(IContainer container)
+		public ContainerInitialisation(IContainer container)
 		{
 			_container = container;
 		}
