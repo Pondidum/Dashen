@@ -7,7 +7,6 @@ namespace Dashen
 	{
 		public Func<ControlViewModel> Create { get; set; }
 		public string Heading { get; set; }
-		public string Name { get; set; }
 		public TimeSpan Interval { get; set; }
 
 		public Definition()
@@ -18,7 +17,7 @@ namespace Dashen
 		internal ControlViewModel BuildViewModel()
 		{
 			var model = Create();
-			model.Name = Name;
+			model.Name = Heading.Replace(" ", "");
 
 			return model;
 		}
