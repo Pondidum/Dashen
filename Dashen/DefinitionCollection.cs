@@ -19,9 +19,9 @@ namespace Dashen
 			_definitions.Add(definition);
 		}
 
-		public Definition GetByName(string name)
+		public Definition GetByID(string id)
 		{
-			return _definitions.FirstOrDefault(d => d.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+			return _definitions.FirstOrDefault(d => d.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
 		}
 
 		public IEnumerator<Definition> GetEnumerator()

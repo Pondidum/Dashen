@@ -24,8 +24,8 @@ namespace Dashen.Controllers
 				Definitions = _definitions.Select(d => new DefinitionModel
 				{
 					Heading = d.Heading,
-					ID = d.Name,
-					Url = "stats/" + d.Name,
+					ID = d.ID,
+					Url = "stats/" + d.ID,
 					Interval = (int)d.Interval.TotalMilliseconds,
 					Column= "large-3"
 				})

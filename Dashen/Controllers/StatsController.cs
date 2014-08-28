@@ -18,7 +18,7 @@ namespace Dashen.Controllers
 
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
-			var definition = _collection.GetByName(url);
+			var definition = _collection.GetByID(url);
 
 			if (definition == null)
 			{

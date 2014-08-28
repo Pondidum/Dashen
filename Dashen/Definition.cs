@@ -14,10 +14,15 @@ namespace Dashen
 			Interval = new TimeSpan(0, 0, 10);
 		}
 
+		public string ID
+		{
+			get { return Heading.Replace(" ", ""); }
+		}
+
 		internal ControlViewModel BuildViewModel()
 		{
 			var model = Create();
-			model.Name = Heading.Replace(" ", "");
+			model.Name = ID;
 
 			return model;
 		}
