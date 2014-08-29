@@ -100,9 +100,9 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Index.spark" />
     <EmbeddedResource Include="Views\Shared\Application.spark" />
-    <EmbeddedResource Include="Views\TextControl.spark" />
-    <EmbeddedResource Include="Views\ListControl.spark" />
-    <EmbeddedResource Include="Views\GraphControl.spark" />
+    <EmbeddedResource Include="Views\Shared\TextControl.spark" />
+    <EmbeddedResource Include="Views\Shared\ListControl.spark" />
+    <EmbeddedResource Include="Views\Shared\GraphControl.spark" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\css\foundation.min.css" />
