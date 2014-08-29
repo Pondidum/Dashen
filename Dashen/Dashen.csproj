@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
     <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -18,6 +19,24 @@ namespace Dashen.Infrastructure
 			return dictionary.ContainsKey(key)
 				? dictionary[key]
 				: defaultValue;
+		}
+
+		public static void Each<T>(this IEnumerable<T> values, Action<T, int> eachAction)
+		{
+			var index = 0;
+			foreach (var item in values)
+			{
+				eachAction(item, index++);
+			}
+		}
+
+		[DebuggerStepThrough]
+		public static void Each<T>(this IEnumerable<T> values, Action<T> eachAction)
+		{
+			foreach (var item in values)
+			{
+				eachAction(item);
+			}
 		}
 
 		public static string ToJson<T>(this T target)
