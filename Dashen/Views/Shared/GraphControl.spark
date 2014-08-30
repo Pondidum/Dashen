@@ -1,27 +1,29 @@
 ﻿<viewdata model="Dashen.Models.GraphControlViewModel" />
 
-<div id="${Model.Name}Graph" style="height: 120px;">
+<div id="${Model.Name}Graph" style="height:120px;">
   <script type='text/javascript'>
-    $.jqplot("${Model.Name}Graph",
+    $.plot("#${Model.Name}Graph",
       [!{Model.Points.ToFlatJson()}],
       {
-        axes: {
-          xaxis: {
-            ticks: !{Model.XTicks.ToFlatJson()}
-          },
-          yaxis: {
-            pad: 0,
-          },
+        xaxis: {
+          tickLength: 0,
+          ticks: !{Model.XTicks.ToFlatJson()}
         },
-        seriesDefaults: {
-          color:'#5FAB78',
-          shadow: false,
+        yaxis: {
+          tickLength: 0,
+          ticks: !{Model.YTicks.ToFlatJson()}
         },
-        grid: {
-          drawGridLines: false,
+        colors: ["#248F24"],
+        grid:
+        {
           borderWidth: 0,
-          shadow: false
         },
+        series: {
+          lines: {
+            fill: true,
+            fillColor: {colors: ["#ffffff", "#ffffff"]}
+          },
+        }
       });
   </script>
 </div>
