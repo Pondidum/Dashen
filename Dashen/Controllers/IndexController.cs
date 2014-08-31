@@ -27,7 +27,7 @@ namespace Dashen.Controllers
 					ID = d.ID,
 					Url = "stats/" + d.ID,
 					Interval = (int)d.Interval.TotalMilliseconds,
-					Column= "large-3"
+					Columns = 4,
 				})
 			});
 		}

@@ -13,6 +13,6 @@ namespace Dashen.Models
 		public string Url { get; set; }
 		public string Heading { get; set; }
 		public int Interval { get; set; }
-		public string Column { get; set; }
+		public int Columns { get; set; }
 	}
 }
