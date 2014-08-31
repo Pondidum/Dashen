@@ -87,6 +87,7 @@
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
     <Compile Include="MimeLookup.cs" />
     <Compile Include="Models\GraphControlViewModel.cs" />
+    <Compile Include="Models\IndexDisplayViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\ListControlViewModel.cs" />
     <Compile Include="Models\TextControlViewModel.cs" />

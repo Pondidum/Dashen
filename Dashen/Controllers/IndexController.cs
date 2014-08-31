@@ -21,14 +21,7 @@ namespace Dashen.Controllers
 		{
 			return  _factory.From(new IndexViewModel
 			{
-				Definitions = _definitions.Select(d => new DefinitionModel
-				{
-					Heading = d.Heading,
-					ID = d.ID,
-					Url = "stats/" + d.ID,
-					Interval = (int)d.Interval.TotalMilliseconds,
-					Columns = 4,
-				})
+				Definitions = _definitions.Select(d => d.BuildIndexDisplayViewModel())
 			});
 		}
 	}

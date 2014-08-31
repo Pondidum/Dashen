@@ -4,15 +4,6 @@ namespace Dashen.Models
 {
 	public class IndexViewModel
 	{
-		public IEnumerable<DefinitionModel> Definitions { get; set; }
-	}
-
-	public class DefinitionModel
-	{
-		public string ID { get; set; }
-		public string Url { get; set; }
-		public string Heading { get; set; }
-		public int Interval { get; set; }
-		public int Columns { get; set; }
+		public IEnumerable<IndexDisplayViewModel> Definitions { get; set; }
 	}
 }
