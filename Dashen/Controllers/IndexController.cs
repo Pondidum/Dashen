@@ -10,18 +10,20 @@ namespace Dashen.Controllers
 	{
 		private readonly SparkResponseFactory _factory;
 		private readonly DefinitionCollection _definitions;
+		private readonly DefinitionModelBuilder _builder;
 
-		public IndexController(SparkResponseFactory factory, DefinitionCollection definitions)
+		public IndexController(SparkResponseFactory factory, DefinitionCollection definitions, DefinitionModelBuilder builder)
 		{
 			_factory = factory;
 			_definitions = definitions;
+			_builder = builder;
 		}
 
 		public HttpResponseMessage GetIndex()
 		{
 			return  _factory.From(new IndexViewModel
 			{
-				Definitions = _definitions.Select(d => d.BuildIndexDisplayViewModel())
+				Definitions = _definitions.Select(d =>  _builder.BuildIndexDisplayViewModel(d))
 			});
 		}
 	}

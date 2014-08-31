@@ -9,11 +9,13 @@ namespace Dashen.Controllers
 	{
 		private readonly SparkResponseFactory _factory;
 		private readonly DefinitionCollection _collection;
+		private readonly DefinitionModelBuilder _builder;
 
-		public StatsController(SparkResponseFactory factory, DefinitionCollection collection)
+		public StatsController(SparkResponseFactory factory, DefinitionCollection collection, DefinitionModelBuilder builder)
 		{
 			_factory = factory;
 			_collection = collection;
+			_builder = builder;
 		}
 
 		public HttpResponseMessage GetDispatch(string url = "")
@@ -25,7 +27,9 @@ namespace Dashen.Controllers
 				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
-			return _factory.From(definition.BuildStatsViewModel());
+			var viewModel = _builder.BuildStatsViewModel(definition);
+
+			return _factory.From(viewModel);
 		}
 	}
 }

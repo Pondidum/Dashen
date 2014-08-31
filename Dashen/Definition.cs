@@ -18,27 +18,5 @@ namespace Dashen
 		{
 			get { return Heading.Replace(" ", ""); }
 		}
-
-		internal ControlViewModel BuildStatsViewModel()
-		{
-			var model = Create();
-			model.Name = ID;
-
-			return model;
-		}
-
-		internal IndexDisplayViewModel BuildIndexDisplayViewModel()
-		{
-			var model = new IndexDisplayViewModel
-			{
-				Heading = Heading,
-				ID = ID,
-				Url = "stats/" + ID,
-				Interval = (int)Interval.TotalMilliseconds,
-				Columns = 4,
-			};
-
-			return model;
-		}
 	}
 }
