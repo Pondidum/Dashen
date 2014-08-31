@@ -19,7 +19,7 @@ namespace Dashen
 			get { return Heading.Replace(" ", ""); }
 		}
 
-		internal ControlViewModel BuildViewModel()
+		internal ControlViewModel BuildStatsViewModel()
 		{
 			var model = Create();
 			model.Name = ID;
