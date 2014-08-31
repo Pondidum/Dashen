@@ -20,7 +20,7 @@ namespace Dashen
 				ID = definition.ID,
 				Url = "stats/" + definition.ID,
 				Interval = (int)definition.Interval.TotalMilliseconds,
-				Columns = 4,
+				Columns = definition.Width,
 			};
 
 			return model;

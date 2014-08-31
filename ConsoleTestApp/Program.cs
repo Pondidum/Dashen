@@ -20,13 +20,15 @@ namespace ConsoleTestApp
 			{
 				Create = () => model,
 				Heading = "Some Text",
-				Interval = new TimeSpan(0,0,1)
+				Interval = new TimeSpan(0,0,1),
+				Width = 2,
 			});
 
 			ui.RegisterModel(new Definition
 			{
 				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
 				Heading = "Four things",
+				Width = 3
 			});
 
 			ui.RegisterModel(new Definition
@@ -37,6 +39,7 @@ namespace ConsoleTestApp
 					XTicks = new[] { new KeyValuePair<int, string>(0, "left"), new KeyValuePair<int, string>(50, "right") }
 				},
 				Heading = "Graph",
+				Width = 7
 			});
 
 			ui.Start();
