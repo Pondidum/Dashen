@@ -87,6 +87,7 @@
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
     <Compile Include="MimeLookup.cs" />
+    <Compile Include="Models\BarGraphControlViewModel.cs" />
     <Compile Include="Models\GraphControlViewModel.cs" />
     <Compile Include="Models\IndexDisplayViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
@@ -105,6 +106,7 @@
     <EmbeddedResource Include="Views\Shared\TextControl.spark" />
     <EmbeddedResource Include="Views\Shared\ListControl.spark" />
     <EmbeddedResource Include="Views\Shared\GraphControl.spark" />
+    <EmbeddedResource Include="Views\Shared\BarGraphControl.spark" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\css\foundation.min.css" />
