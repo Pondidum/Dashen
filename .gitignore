@@ -9,6 +9,9 @@ _ReSharper.*
 *.cache
 *.DotSettings
 *.DotSettings.user
+
+AssemblyVersion.cs
+
 packages
 
 *.sublime-workspace

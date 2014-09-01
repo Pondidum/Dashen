@@ -1,0 +1,8 @@
+# Logfile created on 2014-09-01 18:22:23 +0100 by logger.rb/31641
+I, [2014-09-01T18:22:23.875967 #6140]  INFO -- : 0:  rake (10.3.2) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/rake-10.3.2.gemspec
+I, [2014-09-01T18:22:23.883967 #6140]  INFO -- : 0:  map (6.5.4) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/map-6.5.4.gemspec
+I, [2014-09-01T18:22:23.889968 #6140]  INFO -- : 0:  mini_portile (0.6.0) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/mini_portile-0.6.0.gemspec
+I, [2014-09-01T18:22:38.479802 #6140]  INFO -- : 0:  nokogiri (1.6.3.1) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/nokogiri-1.6.3.1-x86-mingw32.gemspec
+I, [2014-09-01T18:22:39.752875 #6140]  INFO -- : 0:  semver2 (3.4.0) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/semver2-3.4.0.gemspec
+I, [2014-09-01T18:22:46.485260 #6140]  INFO -- : 0:  albacore (2.0.1) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/albacore-2.0.1.gemspec
+I, [2014-09-01T18:22:46.489260 #6140]  INFO -- : 0:  bundler (1.5.1) from c:/Ruby193/lib/ruby/gems/1.9.1/specifications/bundler-1.5.1.gemspec
