@@ -10,3 +10,5 @@ _ReSharper.*
 *.DotSettings
 *.DotSettings.user
 packages
+
+*.sublime-workspace
