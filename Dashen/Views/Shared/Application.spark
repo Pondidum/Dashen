@@ -19,5 +19,13 @@
 
     <use:view />
 
+    <div id="footer" class="row">
+      <hr />
+      <div class="medium-12 column">
+        <p class="text-muted left"><a href="https://github.com/pondidum/Dashen">Github Project</a></p>
+        <p class="text-muted right">Written by Andy Dote, Version ${AsmVersion}.</p>
+      </div>
+    </div>
+
   </body>
 </html>

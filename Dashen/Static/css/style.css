@@ -25,3 +25,13 @@
 .small-text {
 	font-size: 0.8rem;
 }
+
+.text-muted {
+	color: #999;
+}
+
+#footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
