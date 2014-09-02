@@ -1,4 +1,4 @@
-﻿<viewdata model="Dashen.Models.IndexViewModel" />
+﻿<viewdata model="Dashen.Endpoints.Index.IndexViewModel" />
 
 <div class="row">
   

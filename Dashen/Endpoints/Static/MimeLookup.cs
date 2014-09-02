@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Dashen.Infrastructure;
 
-namespace Dashen
+namespace Dashen.Endpoints.Static
 {
 	public class MimeLookup
 	{

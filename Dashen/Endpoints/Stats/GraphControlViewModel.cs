@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Dashen.Models
+namespace Dashen.Endpoints.Stats
 {
 	public class GraphControlViewModel : ControlViewModel
 	{

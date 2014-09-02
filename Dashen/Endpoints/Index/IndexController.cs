@@ -2,9 +2,8 @@
 using System.Net.Http;
 using System.Web.Http;
 using Dashen.Infrastructure.Spark;
-using Dashen.Models;
 
-namespace Dashen.Controllers
+namespace Dashen.Endpoints.Index
 {
 	public class IndexController : ApiController
 	{

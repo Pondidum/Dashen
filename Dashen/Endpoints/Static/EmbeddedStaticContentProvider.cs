@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Dashen.Infrastructure.StaticContent
+namespace Dashen.Endpoints.Static
 {
 	public class EmbeddedStaticContentProvider : IStaticContentProvider
 	{

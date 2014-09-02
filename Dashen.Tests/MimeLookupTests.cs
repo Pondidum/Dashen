@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using Dashen.Endpoints.Static;
+using Shouldly;
 using Xunit;
 
 namespace Dashen.Tests

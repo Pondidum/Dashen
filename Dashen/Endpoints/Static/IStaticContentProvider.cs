@@ -1,4 +1,4 @@
-﻿namespace Dashen.Infrastructure.StaticContent
+﻿namespace Dashen.Endpoints.Static
 {
 	public interface IStaticContentProvider
 	{

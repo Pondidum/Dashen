@@ -1,5 +1,5 @@
 ﻿using System;
-using Dashen.Models;
+using Dashen.Endpoints.Stats;
 
 namespace Dashen
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dashen;
-using Dashen.Models;
+using Dashen.Endpoints.Stats;
 
 namespace ConsoleTestApp
 {

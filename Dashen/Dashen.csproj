@@ -67,17 +67,17 @@
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
-    <Compile Include="Infrastructure\StaticContent\StaticContent.cs" />
-    <Compile Include="Infrastructure\StaticContent\EmbeddedStaticContentProvider.cs" />
-    <Compile Include="Infrastructure\StaticContent\IStaticContentProvider.cs" />
+    <Compile Include="Endpoints\Static\StaticContent.cs" />
+    <Compile Include="Endpoints\Static\EmbeddedStaticContentProvider.cs" />
+    <Compile Include="Endpoints\Static\IStaticContentProvider.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
     <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />
     <Compile Include="Initialisation\RouteInitialisation.cs" />
     <Compile Include="Initialisation\ServerBuilder.cs" />
-    <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Controllers\StaticController.cs" />
-    <Compile Include="Controllers\StatsController.cs" />
+    <Compile Include="Endpoints\Index\IndexController.cs" />
+    <Compile Include="Endpoints\Static\StaticController.cs" />
+    <Compile Include="Endpoints\Stats\StatsController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="DashenRegistry.cs" />
     <Compile Include="Definition.cs" />
@@ -90,15 +90,15 @@
     <Compile Include="Infrastructure\Spark\SparkResponseFactory.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
-    <Compile Include="MimeLookup.cs" />
-    <Compile Include="Models\BarGraphControlViewModel.cs" />
-    <Compile Include="Models\GraphControlViewModel.cs" />
-    <Compile Include="Models\IndexDisplayViewModel.cs" />
-    <Compile Include="Models\IndexViewModel.cs" />
-    <Compile Include="Models\ListControlViewModel.cs" />
-    <Compile Include="Models\TextControlViewModel.cs" />
+    <Compile Include="Endpoints\Static\MimeLookup.cs" />
+    <Compile Include="Endpoints\Stats\BarGraphControlViewModel.cs" />
+    <Compile Include="Endpoints\Stats\GraphControlViewModel.cs" />
+    <Compile Include="Endpoints\Index\IndexDisplayViewModel.cs" />
+    <Compile Include="Endpoints\Index\IndexViewModel.cs" />
+    <Compile Include="Endpoints\Stats\ListControlViewModel.cs" />
+    <Compile Include="Endpoints\Stats\TextControlViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\ControlViewModel.cs" />
+    <Compile Include="Endpoints\Stats\ControlViewModel.cs" />
     <Compile Include="Properties\AssemblyVersion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\js\jquery.flot.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\StaticContent\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using Dashen.Models;
+﻿using Dashen.Endpoints.Index;
+using Dashen.Endpoints.Stats;
 
 namespace Dashen
 {

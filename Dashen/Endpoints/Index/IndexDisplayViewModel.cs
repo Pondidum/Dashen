@@ -1,4 +1,4 @@
-﻿namespace Dashen.Models
+﻿namespace Dashen.Endpoints.Index
 {
 	public class IndexDisplayViewModel
 	{

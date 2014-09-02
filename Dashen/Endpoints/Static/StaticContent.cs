@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Dashen.Infrastructure.StaticContent
+namespace Dashen.Endpoints.Static
 {
 	public class StaticContent
 	{

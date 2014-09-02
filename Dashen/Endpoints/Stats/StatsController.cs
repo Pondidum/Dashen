@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Dashen.Infrastructure.Spark;
 
-namespace Dashen.Controllers
+namespace Dashen.Endpoints.Stats
 {
 	public class StatsController : ApiController
 	{

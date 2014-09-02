@@ -1,5 +1,5 @@
-﻿using Dashen.Infrastructure.Spark;
-using Dashen.Infrastructure.StaticContent;
+﻿using Dashen.Endpoints.Static;
+using Dashen.Infrastructure.Spark;
 using Dashen.Initialisation;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
