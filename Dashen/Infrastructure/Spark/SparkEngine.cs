@@ -20,17 +20,14 @@ namespace Dashen.Infrastructure.Spark
 
 
 			_engine = new SparkViewEngine(settings);
-			_engine.ViewFolder = new EmbeddedViewFolder(GetType().Assembly, "Dashen.Views");
+			_engine.ViewFolder = new EmbeddedViewFolder(GetType().Assembly, "Dashen");
 
-			_descriptorBuilder = new DescriptorBuilder(_engine.ViewFolder);
+			_descriptorBuilder = new DescriptorBuilder(_engine.ViewFolder, "Dashen");
 		}
 
 		public DashenView CreateView(object model)
 		{
-			var modelName = model.GetType().Name;
-			var viewName = String.Format("{0}.spark", modelName.Replace("ViewModel", ""));
-
-			var descriptor = _descriptorBuilder.Build(viewName);
+			var descriptor = _descriptorBuilder.Build(model.GetType());
 
 			var entry = _engine.CreateEntry(descriptor);
 
