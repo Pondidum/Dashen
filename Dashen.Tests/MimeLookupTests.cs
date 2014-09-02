@@ -18,7 +18,6 @@ namespace Dashen.Tests
 		{
 			new MimeLookup()
 				.Get(".css")
-				.MediaType
 				.ShouldBe("text/css");
 		}
 
@@ -27,7 +26,6 @@ namespace Dashen.Tests
 		{
 			new MimeLookup()
 				.Get(".js")
-				.MediaType
 				.ShouldBe("text/javascript");
 		}
 	}

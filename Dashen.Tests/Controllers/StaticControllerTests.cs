@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using Dashen.Controllers;
+using Dashen.Infrastructure.StaticContent;
 using Shouldly;
 using Xunit;
 
@@ -11,7 +12,9 @@ namespace Dashen.Tests.Controllers
 
 		public StaticControllerTests()
 		{
-			_controller = new StaticController(new MimeLookup());
+			var content = new  EmbeddedStaticContentProvider( new MimeLookup());
+
+			_controller = new StaticController(new[] { content });
 		}
 
 		[Fact]

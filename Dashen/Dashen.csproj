@@ -67,6 +67,9 @@
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
+    <Compile Include="Infrastructure\StaticContent\StaticContent.cs" />
+    <Compile Include="Infrastructure\StaticContent\EmbeddedStaticContentProvider.cs" />
+    <Compile Include="Infrastructure\StaticContent\IStaticContentProvider.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
     <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />

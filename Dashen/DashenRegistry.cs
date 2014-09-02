@@ -1,4 +1,5 @@
 ﻿using Dashen.Infrastructure.Spark;
+using Dashen.Infrastructure.StaticContent;
 using Dashen.Initialisation;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
@@ -16,6 +17,7 @@ namespace Dashen
 			{
 				a.TheCallingAssembly();
 				a.AddAllTypesOf<IDashboardInitialisation>();
+				a.AddAllTypesOf<IStaticContentProvider>();
 			});
 		}
 	}

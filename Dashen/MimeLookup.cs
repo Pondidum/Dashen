@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http.Headers;
 using Dashen.Infrastructure;
 
 namespace Dashen
 {
 	public class MimeLookup
 	{
-		private readonly Dictionary<string, MediaTypeHeaderValue> _mimeLookup;
+		private readonly Dictionary<string, string> _mimeLookup;
 
 		public MimeLookup()
 		{
-			_mimeLookup = new Dictionary<string, MediaTypeHeaderValue>(StringComparer.OrdinalIgnoreCase);
-			_mimeLookup[".js"] = new MediaTypeHeaderValue("text/javascript");
-			_mimeLookup[".css"] = new MediaTypeHeaderValue("text/css");
+			_mimeLookup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			_mimeLookup[".js"] = "text/javascript";
+			_mimeLookup[".css"] = "text/css";
 		}
 
-		public MediaTypeHeaderValue Get(string filename)
+		public string Get(string filename)
 		{
 			return _mimeLookup.Get(Path.GetExtension(filename));
 		}

@@ -1,47 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using Dashen.Infrastructure.StaticContent;
 
 namespace Dashen.Controllers
 {
 	public class StaticController : ApiController
 	{
-		private readonly MimeLookup _mimeLookup;
-		private const string Prefix = "Dashen.Static.";
-		private readonly Dictionary<string, Func<Stream>> _resources;
+		private readonly IEnumerable<IStaticContentProvider> _contentProviders;
 
-		public StaticController(MimeLookup mimeLookup)
+		public StaticController(IEnumerable<IStaticContentProvider> contentProviders)
 		{
-			_mimeLookup = mimeLookup;
-			var assembly = GetType().Assembly;
-
-			_resources = assembly
-				.GetManifestResourceNames()
-				.Where(name => name.StartsWith(Prefix))
-				.ToDictionary(
-					name => name.Substring(Prefix.Length),
-					name => new Func<Stream>(() => assembly.GetManifestResourceStream(name)),
-					StringComparer.OrdinalIgnoreCase);
+			_contentProviders = contentProviders;
 		}
 
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
 			var path = url.Replace('/', '.');
 
-			if (_resources.ContainsKey(path) == false)
+			var content = _contentProviders.Select(cp => cp.GetContent(path)).FirstOrDefault(c => c != null);
+
+			if (content == null)
 			{
 				return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
 			}
 
-			var stream = _resources[path].Invoke();
-			var content = new StreamContent(stream);
-			content.Headers.ContentType = _mimeLookup.Get(path);
+			var streamContent = new StreamContent(content.Stream);
+			streamContent.Headers.ContentType = new MediaTypeHeaderValue(content.MimeType);
 
-			return new HttpResponseMessage { Content = content };
+			return new HttpResponseMessage { Content = streamContent };
 		}
 	}
+
 }
