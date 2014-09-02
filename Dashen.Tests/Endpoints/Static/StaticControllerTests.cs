@@ -3,7 +3,7 @@ using Dashen.Endpoints.Static;
 using Shouldly;
 using Xunit;
 
-namespace Dashen.Tests.Controllers
+namespace Dashen.Tests.Endpoints.Static
 {
 	public class StaticControllerTests
 	{

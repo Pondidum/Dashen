@@ -64,10 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\StaticControllerTests.cs" />
+    <Compile Include="Endpoints\Static\StaticControllerTests.cs" />
     <Compile Include="Infrastructure\Extensions\GetTests.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilderTests.cs" />
-    <Compile Include="MimeLookupTests.cs" />
+    <Compile Include="Endpoints\Static\MimeLookupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿using Dashen.Infrastructure.Spark;
+﻿using Dashen.Endpoints.Index;
+using Dashen.Endpoints.Stats;
+using Dashen.Infrastructure.Spark;
 using NSubstitute;
 using Shouldly;
 using Spark.FileSystem;
@@ -14,7 +16,7 @@ namespace Dashen.Tests.Infrastructure.Spark
 		public DescriptorBuilderTests()
 		{
 			_viewFolder = Substitute.For<IViewFolder>();
-			_builder = new DescriptorBuilder(_viewFolder);
+			_builder = new DescriptorBuilder(_viewFolder, "Dashen");
 		}
 
 		private void HasTemplate(string path)
@@ -25,45 +27,45 @@ namespace Dashen.Tests.Infrastructure.Spark
 		[Fact]
 		public void When_loading_a_normal_view_and_there_is_no_application_view()
 		{
-			HasTemplate("Index.spark");
+			HasTemplate("Endpoints\\Index\\Index.spark");
 
-			var descriptor = _builder.Build("Index.spark");
+			var descriptor = _builder.Build(typeof(IndexViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Index.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Endpoints\\Index\\Index.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_normal_view_and_there_is_an_application_view()
 		{
-			HasTemplate("Index.spark");
-			HasTemplate("Shared\\Application.spark");
+			HasTemplate("Endpoints\\Index\\Index.spark");
+			HasTemplate("Views\\Application.spark");
 
-			var descriptor = _builder.Build("Index.spark");
+			var descriptor = _builder.Build(typeof(IndexViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Index.spark", "Shared\\Application.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Endpoints\\Index\\Index.spark", "Views\\Application.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_a_shared_view_and_there_is_no_application_view()
 		{
-			HasTemplate("Index.spark");
-			HasTemplate("Shared\\SomePartial.spark");
+			HasTemplate("Endpoints\\Index\\Index.spark");
+			HasTemplate("Views\\TextControl.spark");
 
-			var descriptor = _builder.Build("SomePartial.spark");
+			var descriptor = _builder.Build(typeof(TextControlViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Shared\\SomePartial.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Views\\TextControl.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_a_shared_view_and_there_is_an_application_view()
 		{
-			HasTemplate("Index.spark");
-			HasTemplate("Shared\\Application.spark");
-			HasTemplate("Shared\\SomePartial.spark");
+			HasTemplate("Endpoints\\Index\\Index.spark");
+			HasTemplate("Views\\Application.spark");
+			HasTemplate("Views\\TextControl.spark");
 
-			var descriptor = _builder.Build("SomePartial.spark");
+			var descriptor = _builder.Build(typeof(TextControlViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Shared\\SomePartial.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Views\\TextControl.spark" }, ignoreOrder: true);
 		}
 	}
 }
