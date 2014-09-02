@@ -12,7 +12,9 @@ namespace ConsoleTestApp
 	{
 		static void Main(string[] args)
 		{
-			var ui = new Dashboard(new Uri("http://localhost:8080"));
+			var ui = new Dashboard(new DashenConfiguration{
+				ListenOn = new Uri("http://localhost:8080")
+			});
 
 			var model = new TextControlViewModel { Content = "Test" };
 			//config all the things...

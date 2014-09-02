@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />

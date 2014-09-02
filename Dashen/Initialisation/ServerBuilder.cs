@@ -14,13 +14,13 @@ namespace Dashen.Initialisation
 			_initialisers = initialisers.ToList();
 		}
 
-		public HttpSelfHostServer BuildServer(Uri listenOn)
+		public HttpSelfHostServer BuildServer(DashenConfiguration config)
 		{
-			var config = new HttpSelfHostConfiguration(listenOn);
+			var serverConfig = new HttpSelfHostConfiguration(config.ListenOn);
 
-			_initialisers.ForEach(c => c.ApplyTo(config));
+			_initialisers.ForEach(c => c.ApplyTo(serverConfig));
 
-			return new HttpSelfHostServer(config);
+			return new HttpSelfHostServer(serverConfig);
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace Dashen
 		private readonly HttpSelfHostServer _server;
 		private readonly DefinitionCollection _definitions;
 
-		public Dashboard(Uri listenOn)
+		public Dashboard(DashenConfiguration config)
 		{
 			var container = new Container(c => c.Scan(a =>
 			{
@@ -21,7 +21,7 @@ namespace Dashen
 			}));
 
 			_definitions = container.GetInstance<DefinitionCollection>();
-			_server = container.GetInstance<ServerBuilder>().BuildServer(listenOn);
+			_server = container.GetInstance<ServerBuilder>().BuildServer(config);
 		}
 
 		public void Start()
