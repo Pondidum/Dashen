@@ -18,9 +18,7 @@ namespace Dashen.Endpoints.Static
 
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
-			var path = url.Replace('/', '.');
-
-			var content = _contentProviders.Select(cp => cp.GetContent(path)).FirstOrDefault(c => c != null);
+			var content = _contentProviders.Select(cp => cp.GetContent(url)).FirstOrDefault(c => c != null);
 
 			if (content == null)
 			{

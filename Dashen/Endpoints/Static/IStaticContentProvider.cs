@@ -2,6 +2,6 @@
 {
 	public interface IStaticContentProvider
 	{
-		StaticContent GetContent(string path);
+		StaticContent GetContent(string urlFragment);
 	}
 }

@@ -26,8 +26,10 @@ namespace Dashen.Endpoints.Static
 					StringComparer.OrdinalIgnoreCase);
 
 		}
-		public StaticContent GetContent(string path)
+		public StaticContent GetContent(string urlFragment)
 		{
+			var path = urlFragment.Replace('/', '.');
+
 			if (_resources.ContainsKey(path) == false)
 			{
 				return null;
