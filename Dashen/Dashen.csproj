@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
+    <Compile Include="Infrastructure\ReflectionExtensions.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
     <Compile Include="Endpoints\Static\StaticContent.cs" />
     <Compile Include="Endpoints\Static\EmbeddedStaticContentProvider.cs" />
