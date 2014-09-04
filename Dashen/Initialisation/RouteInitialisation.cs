@@ -5,7 +5,7 @@ namespace Dashen.Initialisation
 {
 	public class RouteInitialisation : IDashboardInitialisation
 	{
-		public void ApplyTo(HttpSelfHostConfiguration config)
+		public void ApplyTo(DashenConfiguration userConfig, HttpSelfHostConfiguration config)
 		{
 			config.Routes.MapHttpRoute(
 				"Home",

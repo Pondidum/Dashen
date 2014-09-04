@@ -18,7 +18,7 @@ namespace Dashen.Initialisation
 		{
 			var serverConfig = new HttpSelfHostConfiguration(config.ListenOn);
 
-			_initialisers.ForEach(c => c.ApplyTo(serverConfig));
+			_initialisers.ForEach(c => c.ApplyTo(config, serverConfig));
 
 			return new HttpSelfHostServer(serverConfig);
 		}

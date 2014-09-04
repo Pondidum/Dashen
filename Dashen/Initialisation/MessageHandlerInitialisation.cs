@@ -5,7 +5,7 @@ namespace Dashen.Initialisation
 {
 	public class MessageHandlerInitialisation : IDashboardInitialisation
 	{
-		public void ApplyTo(HttpSelfHostConfiguration config)
+		public void ApplyTo(DashenConfiguration userConfig, HttpSelfHostConfiguration config)
 		{
 			config.MessageHandlers.Add(new ConsoleLoggingHandler());
 		}
