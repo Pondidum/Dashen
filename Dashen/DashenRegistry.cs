@@ -18,6 +18,9 @@ namespace Dashen
 				a.TheCallingAssembly();
 				a.AddAllTypesOf<IDashboardInitialisation>();
 				a.AddAllTypesOf<IStaticContentProvider>();
+
+				For<ReplacementSource>()
+					.Singleton();
 			});
 		}
 	}
