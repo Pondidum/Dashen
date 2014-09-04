@@ -13,7 +13,7 @@ namespace Dashen.Tests.Endpoints.Static
 		{
 			var content = new  EmbeddedStaticContentProvider( new MimeLookup());
 
-			_controller = new StaticController(new[] { content });
+			_controller = new StaticController(content);
 		}
 
 		[Fact]

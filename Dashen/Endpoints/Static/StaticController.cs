@@ -9,11 +9,11 @@ namespace Dashen.Endpoints.Static
 {
 	public class StaticController : ApiController
 	{
-		private readonly IEnumerable<IStaticContentProvider> _contentProviders;
+		private readonly List<IStaticContentProvider> _contentProviders;
 
-		public StaticController(IEnumerable<IStaticContentProvider> contentProviders)
+		public StaticController(IStaticContentProvider contentProvider)
 		{
-			_contentProviders = contentProviders;
+			_contentProviders = new[] {contentProvider}.ToList();
 		}
 
 		public HttpResponseMessage GetDispatch(string url = "")

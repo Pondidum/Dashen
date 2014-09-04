@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -66,6 +67,8 @@
   <ItemGroup>
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
+    <Compile Include="Endpoints\Static\ProcessedContentProvider.cs" />
+    <Compile Include="Endpoints\Static\ReplacementSource.cs" />
     <Compile Include="Infrastructure\ReflectionExtensions.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
     <Compile Include="Endpoints\Static\StaticContent.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
     <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />
+    <Compile Include="Initialisation\ReplacementSourceInitialisation.cs" />
     <Compile Include="Initialisation\RouteInitialisation.cs" />
     <Compile Include="Initialisation\ServerBuilder.cs" />
     <Compile Include="Endpoints\Index\IndexController.cs" />
