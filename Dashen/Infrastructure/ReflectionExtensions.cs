@@ -7,12 +7,12 @@ namespace Dashen.Infrastructure
 	{
 		public static string GetMemberName<T>(this T instance, Expression<Func<T, object>> expression)
 		{
-			return GetMemberName(expression);
+			return GetMemberName(expression.Body);
 		}
 
 		public static string GetMemberName<T>(this T instance, Expression<Action<T>> expression)
 		{
-			return GetMemberName(expression);
+			return GetMemberName(expression.Body);
 		}
 
 		internal static string GetMemberName(Expression expression)
