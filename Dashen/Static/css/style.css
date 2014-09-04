@@ -1,10 +1,10 @@
 ﻿.topGradient {
-	background-color: #248F24;
-	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #33CC33), color-stop(100%, #248F24));
-	background: -webkit-linear-gradient(left, #33CC33, #248F24);
-	background: -moz-linear-gradient(left, #33CC33, #248F24);
-	background: -o-linear-gradient(left, #33CC33, #248F24);
-	background: linear-gradient(left, #33CC33, #248F24);
+	background-color: !{LowlightColor};
+	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, !{HighlightColor}), color-stop(100%, !{LowlightColor}));
+	background: -webkit-linear-gradient(left, !{HighlightColor}, !{LowlightColor});
+	background: -moz-linear-gradient(left, !{HighlightColor}, !{LowlightColor});
+	background: -o-linear-gradient(left, !{HighlightColor}, !{LowlightColor});
+	background: linear-gradient(left, !{HighlightColor}, !{LowlightColor});
 	width: 100%;
 	position: fixed;
 	top: 0;

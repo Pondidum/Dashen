@@ -9,5 +9,12 @@ namespace Dashen
 
 		public Color HighlightColor { get; set; }
 		public Color LowlightColor { get; set; }
+
+		public DashenConfiguration()
+		{
+			ListenOn = new Uri("http://localhost:8080");
+			HighlightColor = ColorTranslator.FromHtml("#33CC33");
+			LowlightColor = ColorTranslator.FromHtml("#248F24");
+		}
 	}
 }
