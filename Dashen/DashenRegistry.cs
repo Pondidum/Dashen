@@ -20,9 +20,10 @@ namespace Dashen
 				a.AddAllTypesOf<IStaticContentProvider>();
 
 				For<IStaticContentProvider>()
-					.Use(c => new ProcessedContentProvider(
-						c.GetInstance<EmbeddedStaticContentProvider>(),
-						c.GetInstance<ReplacementSource>()));
+					.Use<EmbeddedStaticContentProvider>()
+					.DecorateWith((c, i) => new ProcessedContentProvider(i, c.GetInstance<ReplacementSource>()))
+					.DecorateWith(i => new CachingContentProvider(i))
+					.Singleton();
 
 				For<ReplacementSource>()
 					.Singleton();
