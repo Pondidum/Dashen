@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Endpoints\Static\CachedContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\StaticControllerTests.cs" />
     <Compile Include="Infrastructure\Extensions\GetTests.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilderTests.cs" />
