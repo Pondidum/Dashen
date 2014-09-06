@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using Dashen.Endpoints.Static;
+using Dashen.Endpoints.Static.ContentProviders;
 using Shouldly;
 using Xunit;
 

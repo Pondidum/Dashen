@@ -1,9 +1,10 @@
 ﻿using System.IO;
 using Dashen.Endpoints.Static;
+using Dashen.Endpoints.Static.ContentProviders;
 using NSubstitute;
 using Xunit;
 
-namespace Dashen.Tests.Endpoints.Static
+namespace Dashen.Tests.Endpoints.Static.ContentProviders
 {
 	public class CachingContentProviderTests
 	{

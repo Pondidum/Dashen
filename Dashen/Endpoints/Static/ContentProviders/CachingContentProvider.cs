@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Dashen.Endpoints.Static
+namespace Dashen.Endpoints.Static.ContentProviders
 {
 	public class CachingContentProvider : IStaticContentProvider
 	{

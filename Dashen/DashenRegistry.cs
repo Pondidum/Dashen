@@ -1,4 +1,5 @@
 ﻿using Dashen.Endpoints.Static;
+using Dashen.Endpoints.Static.ContentProviders;
 using Dashen.Infrastructure.Spark;
 using Dashen.Initialisation;
 using StructureMap.Configuration.DSL;

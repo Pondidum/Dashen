@@ -1,7 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
-namespace Dashen.Endpoints.Static
+namespace Dashen.Endpoints.Static.ContentProviders
 {
 	public class ProcessedContentProvider : IStaticContentProvider
 	{
