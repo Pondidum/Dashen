@@ -13,18 +13,14 @@ namespace Dashen.Endpoints.Static.ContentProviders
 			_resources = new Dictionary<string, ResourceContent>();
 		}
 
-		public void Add(string urlFragment, Stream content, string mimeType)
+		public void Add(string urlFragment, byte[] content, string mimeType)
 		{
-			using (var ms = new MemoryStream())
-			{
-				content.CopyTo(ms);
+			Add(urlFragment, new ResourceContent { StreamBytes = content, MimeType = mimeType });
+		}
 
-				_resources.Add(urlFragment, new ResourceContent
-				{
-					StreamBytes = ms.ToArray(),
-					MimeType = mimeType
-				});
-			}
+		internal void Add(string urlFragment, ResourceContent content)
+		{
+			_resources.Add(urlFragment, content);
 		}
 
 		public StaticContent GetContent(string urlFragment)
@@ -43,7 +39,7 @@ namespace Dashen.Endpoints.Static.ContentProviders
 			};
 		}
 
-		private class ResourceContent
+		internal class ResourceContent
 		{
 			public byte[] StreamBytes { get; set; }
 			public string MimeType { get; set; }
