@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CachedContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CompositeContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\StaticControllerTests.cs" />
