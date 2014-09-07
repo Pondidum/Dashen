@@ -68,6 +68,7 @@
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="DefinitionModelBuilder.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CachingContentProvider.cs" />
+    <Compile Include="Endpoints\Static\ContentProviders\CompositeContentProvider.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\ProcessedContentProvider.cs" />
     <Compile Include="Endpoints\Static\ReplacementSource.cs" />
     <Compile Include="Infrastructure\ReflectionExtensions.cs" />
