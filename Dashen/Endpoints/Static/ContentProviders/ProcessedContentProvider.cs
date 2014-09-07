@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Dashen.Endpoints.Static.ContentProviders
 {
@@ -20,6 +21,11 @@ namespace Dashen.Endpoints.Static.ContentProviders
 			if (content == null)
 			{
 				return null;
+			}
+
+			if (content.MimeType.StartsWith("text/", StringComparison.OrdinalIgnoreCase) == false)
+			{
+				return content;
 			}
 
 			var ms = new MemoryStream();
