@@ -20,13 +20,18 @@ namespace Dashen
 				a.AddAllTypesOf<IDashboardInitialisation>();
 				a.AddAllTypesOf<IStaticContentProvider>();
 
-				For<IStaticContentProvider>()
-					.Use<EmbeddedStaticContentProvider>()
-					.DecorateWith((c, i) => new ProcessedContentProvider(i, c.GetInstance<ReplacementSource>()))
-					.DecorateWith(i => new CachingContentProvider(i))
+				For<ReplacementSource>()
 					.Singleton();
 
-				For<ReplacementSource>()
+				For<AdhocContentProvider>()
+					.Singleton();
+
+				For<IStaticContentProvider>()
+					.Use(c => new CompositeContentProvider(
+						c.GetInstance<EmbeddedStaticContentProvider>(),
+						c.GetInstance<AdhocContentProvider>()))
+					.DecorateWith((c, i) => new ProcessedContentProvider(i, c.GetInstance<ReplacementSource>()))
+					.DecorateWith(i => new CachingContentProvider(i))
 					.Singleton();
 			});
 		}
