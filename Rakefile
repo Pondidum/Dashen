@@ -6,7 +6,7 @@ tool_xunit = 'tools/xunit/xunit.console.clr4.exe'
 
 project_name = 'Dashen'
 project_version = ENV['APPVEYOR_BUILD_VERSION'] ||= "1.0.0"
-
+project_output = 'build'
 
 desc 'Restore nuget packages for all projects'
 nugets_restore :restore do |n|
@@ -36,21 +36,21 @@ test_runner :test do |xunit|
 	xunit.add_parameter '/silent'
 end
 
-# nugets_pack :pack do |n|
+nugets_pack :pack do |n|
 
-# 	Dir.mkdir(project_output) unless Dir.exists?(project_output)
+	Dir.mkdir(project_output) unless Dir.exists?(project_output)
 
-# 	n.exe = tool_nuget
-# 	n.out = project_output
+	n.exe = tool_nuget
+	n.out = project_output
 
-# 	n.files = FileList["#{project_name}/*.csproj"]
+	n.files = FileList["#{project_name}/*.csproj"]
 
-# 	n.with_metadata do |m|
-# 		m.description = 'Model based web dashboard'
-# 		m.authors = 'Andy Dote'
-# 		m.version = '1.0.0.0'
-# 	end
+	n.with_metadata do |m|
+		m.description = 'Model based web dashboard'
+		m.authors = 'Andy Dote'
+		m.version = '1.0.0.0'
+	end
 
-# end
+end
 
-task :default => [ :restore, :version, :compile, :test ]
+task :default => [ :restore, :version, :compile, :test, :pack ]

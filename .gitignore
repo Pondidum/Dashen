@@ -13,5 +13,6 @@ _ReSharper.*
 AssemblyVersion.cs
 
 packages
+build
 
 *.sublime-workspace
