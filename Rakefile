@@ -3,10 +3,13 @@ require 'albacore'
 
 tool_nuget = 'tools/nuget/nuget.exe'
 tool_xunit = 'tools/xunit/xunit.console.clr4.exe'
+tool_ilmerge = 'tools/ilmerge/ilmerge.exe'
 
 project_name = 'Dashen'
 project_version = ENV['APPVEYOR_BUILD_VERSION'] ||= "1.0.0"
-project_output = 'build'
+project_output = 'build/bin'
+
+build_mode = ENV['mode'] ||= "Debug"
 
 desc 'Restore nuget packages for all projects'
 nugets_restore :restore do |n|
@@ -36,21 +39,33 @@ test_runner :test do |xunit|
 	xunit.add_parameter '/silent'
 end
 
-nugets_pack :pack do |n|
+desc 'Merge dependencies into Dashen'
+task :merge do |t|
 
-	Dir.mkdir(project_output) unless Dir.exists?(project_output)
+	deps = FileList["#{project_output}/*.dll"].select { |e| File.basename(e) != "#{project_name}.dll" }
 
-	n.exe = tool_nuget
-	n.out = project_output
+	system tool_ilmerge, '/allowdup', "/out:build/#{project_name}.dll", "#{project_output}/#{project_name}.dll", deps
 
-	n.files = FileList["#{project_name}/*.csproj"]
-
-	n.with_metadata do |m|
-		m.description = 'Model based web dashboard'
-		m.authors = 'Andy Dote'
-		m.version = '1.0.0.0'
-	end
+	FileUtils.rm_rf(Dir.glob(File.join(project_output, "*")))
+	FileUtils.mv Dir.glob("build/#{project_name}.*"), project_output
 
 end
 
-task :default => [ :restore, :version, :compile, :test, :pack ]
+# nugets_pack :pack do |n|
+
+# 	n.exe = tool_nuget
+# 	n.out = "#{project_output}"
+
+# 	n.no_project_dependencies()
+
+# 	n.files = FileList["#{project_name}/*.csproj"]
+
+# 	n.with_metadata do |m|
+# 		m.description = 'Model based web dashboard'
+# 		m.authors = 'Andy Dote'
+# 		m.version = project_version
+# 	end
+
+# end
+
+task :default => [ :restore, :version, :compile, :test, :merge ]
