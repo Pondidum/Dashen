@@ -17,8 +17,14 @@ namespace Dashen.Infrastructure
 
 			sw.Stop();
 
-			Console.WriteLine("{0} : {1}ms : {2}", request.Method, sw.ElapsedMilliseconds, request.RequestUri);
-	
+			Console.WriteLine(
+				"{0} [{1} {2}]: {3}ms : {4}", 
+				request.Method, 
+				(int)response.StatusCode, 
+				response.StatusCode, 
+				sw.ElapsedMilliseconds, 
+				request.RequestUri);
+
 			return response;
 		}
 	}
