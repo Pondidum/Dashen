@@ -23,12 +23,12 @@ asmver :version do |v|
 	v.file_path = "#{project_name}/Properties/AssemblyVersion.cs"
 	v.attributes assembly_version: project_version,
 				 assembly_file_version: project_version
-
 end
 
 desc 'Compile all projects'
 build :compile do |msb|
 	msb.target = [ :clean, :rebuild ]
+	msb.prop 'configuration', build_mode
 	msb.sln = "#{project_name}.sln"
 end
 
@@ -48,24 +48,13 @@ task :merge do |t|
 
 	FileUtils.rm_rf(Dir.glob(File.join(project_output, "*")))
 	FileUtils.mv Dir.glob("build/#{project_name}.*"), project_output
-
 end
 
-# nugets_pack :pack do |n|
+desc 'Create the Dashen nuget package'
+task :pack do |n|
 
-# 	n.exe = tool_nuget
-# 	n.out = "#{project_output}"
+	system tool_nuget, 'pack', "#{project_name}/#{project_name}.nuspec", '-version', project_version, '-outputdirectory', 'build'
+end
 
-# 	n.no_project_dependencies()
-
-# 	n.files = FileList["#{project_name}/*.csproj"]
-
-# 	n.with_metadata do |m|
-# 		m.description = 'Model based web dashboard'
-# 		m.authors = 'Andy Dote'
-# 		m.version = project_version
-# 	end
-
-# end
-
-task :default => [ :restore, :version, :compile, :test, :merge ]
+task :default => [ :restore, :version, :compile, :test ]
+task :deploy => [ :merge, :pack ]
