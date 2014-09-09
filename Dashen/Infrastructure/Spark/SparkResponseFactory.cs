@@ -18,7 +18,7 @@ namespace Dashen.Infrastructure.Spark
 		{
 			var view = _engine.CreateView(model);
 
-			var content = new PushStreamContent((responseStream, cont, context) =>
+			var content = new InternalPushStreamContent((responseStream, cont, context) =>
 			{
 				using (var writer = new StreamWriter(responseStream))
 				{
