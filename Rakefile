@@ -3,11 +3,12 @@ require 'albacore'
 
 tool_nuget = 'tools/nuget/nuget.exe'
 tool_xunit = 'tools/xunit/xunit.console.clr4.exe'
-tool_ilmerge = 'tools/ilmerge/ilmerge.exe'
 
 project_name = 'Dashen'
 project_version = ENV['APPVEYOR_BUILD_VERSION'] ||= "1.0.0"
+
 project_output = 'build/bin'
+package_output = 'build/deploy'
 
 build_mode = ENV['mode'] ||= "Debug"
 
@@ -39,22 +40,21 @@ test_runner :test do |xunit|
 	xunit.add_parameter '/silent'
 end
 
-desc 'Merge dependencies into Dashen'
-task :merge do |t|
+nugets_pack :pack do |n|
 
-	deps = FileList["#{project_output}/*.dll"].select { |e| File.basename(e) != "#{project_name}.dll" }
+	Dir.mkdir(package_output) unless Dir.exists?(package_output)
 
-	system tool_ilmerge, '/allowdup', "/out:build/#{project_name}.dll", "#{project_output}/#{project_name}.dll", deps
+	n.exe = tool_nuget
+	n.out = package_output
 
-	FileUtils.rm_rf(Dir.glob(File.join(project_output, "*")))
-	FileUtils.mv Dir.glob("build/#{project_name}.*"), project_output
-end
+	n.files = FileList["#{project_name}/*.csproj"]
 
-desc 'Create the Dashen nuget package'
-task :pack do |n|
+	n.with_metadata do |m|
+		m.description = 'Model based web dashboard'
+		m.authors = 'Andy Dote'
+		m.version = project_version
+	end
 
-	system tool_nuget, 'pack', "#{project_name}/#{project_name}.nuspec", '-version', project_version, '-outputdirectory', 'build'
 end
 
 task :default => [ :restore, :version, :compile, :test ]
-task :deploy => [ :merge, :pack ]
