@@ -7,7 +7,7 @@ namespace Dashen.Initialisation
 	{
 		public void ApplyTo(DashenConfiguration userConfig, HttpSelfHostConfiguration config)
 		{
-			config.MessageHandlers.Add(new ConsoleLoggingHandler());
+			userConfig.MessageHandlers.Each(config.MessageHandlers.Add);
 		}
 	}
 }
