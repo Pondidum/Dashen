@@ -3,7 +3,7 @@ using Dashen.Endpoints.Stats;
 
 namespace Dashen
 {
-	public class Definition
+	public class Widget
 	{
 		private int _width;
 		public Func<ControlViewModel> Create { get; set; }
@@ -24,7 +24,7 @@ namespace Dashen
 			}
 		}
 
-		public Definition()
+		public Widget()
 		{
 			Interval = new TimeSpan(0, 0, 10);
 			Width = 4;

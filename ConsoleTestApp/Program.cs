@@ -18,7 +18,7 @@ namespace ConsoleTestApp
 
 			var model = new TextControlViewModel { Content = "Test" };
 			//config all the things...
-			ui.RegisterModel(new Definition
+			ui.RegisterModel(new Widget
 			{
 				Create = () => model,
 				Heading = "Some Text",
@@ -26,14 +26,14 @@ namespace ConsoleTestApp
 				Width = 2,
 			});
 
-			ui.RegisterModel(new Definition
+			ui.RegisterModel(new Widget
 			{
 				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
 				Heading = "Four things",
 				Width = 3
 			});
 
-			ui.RegisterModel(new Definition
+			ui.RegisterModel(new Widget
 			{
 				Create = () => new GraphControlViewModel
 				{

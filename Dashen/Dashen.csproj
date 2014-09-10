@@ -80,7 +80,7 @@
     <Compile Include="Endpoints\Stats\StatsController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="DashenRegistry.cs" />
-    <Compile Include="Definition.cs" />
+    <Compile Include="Widget.cs" />
     <Compile Include="DefinitionCollection.cs" />
     <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Infrastructure\ConsoleLoggingHandler.cs" />

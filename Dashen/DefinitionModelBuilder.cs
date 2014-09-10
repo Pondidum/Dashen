@@ -5,7 +5,7 @@ namespace Dashen
 {
 	public class DefinitionModelBuilder
 	{
-		internal ControlViewModel BuildStatsViewModel(Definition definition)
+		internal ControlViewModel BuildStatsViewModel(Widget definition)
 		{
 			var model = definition.Create();
 			model.Name = definition.ID;
@@ -13,7 +13,7 @@ namespace Dashen
 			return model;
 		}
 
-		internal IndexDisplayViewModel BuildIndexDisplayViewModel(Definition definition)
+		internal IndexDisplayViewModel BuildIndexDisplayViewModel(Widget definition)
 		{
 			var model = new IndexDisplayViewModel
 			{

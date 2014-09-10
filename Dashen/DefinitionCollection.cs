@@ -5,26 +5,26 @@ using System.Linq;
 
 namespace Dashen
 {
-	public class DefinitionCollection : IEnumerable<Definition>
+	public class DefinitionCollection : IEnumerable<Widget>
 	{
-		private readonly List<Definition> _definitions;
+		private readonly List<Widget> _definitions;
 
 		public DefinitionCollection()
 		{
-			_definitions = new List<Definition>();
+			_definitions = new List<Widget>();
 		}
 
-		public void Add(Definition definition)
+		public void Add(Widget definition)
 		{
 			_definitions.Add(definition);
 		}
 
-		public Definition GetByID(string id)
+		public Widget GetByID(string id)
 		{
 			return _definitions.FirstOrDefault(d => d.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
 		}
 
-		public IEnumerator<Definition> GetEnumerator()
+		public IEnumerator<Widget> GetEnumerator()
 		{
 			return _definitions.GetEnumerator();
 		}

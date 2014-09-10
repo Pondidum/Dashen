@@ -34,7 +34,7 @@ namespace Dashen
 			_server.CloseAsync().Wait();
 		}
 
-		public void RegisterModel(Definition definition)
+		public void RegisterModel(Widget definition)
 		{
 			_definitions.Add(definition);
 		}
