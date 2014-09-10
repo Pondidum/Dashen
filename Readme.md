@@ -4,7 +4,7 @@
 A a self hosted web dashboard for any .net project.
 It produces dashboards like this:
 
-![Dashen Webui](resources/img/dashen.ong "Dashen Webui")
+![Dashen Webui](resources/img/dashen.png "Dashen Webui")
 
 ##How do I install it?
 
