@@ -40,6 +40,7 @@ test_runner :test do |xunit|
 	xunit.add_parameter '/silent'
 end
 
+desc 'Build all nuget packages'
 nugets_pack :pack do |n|
 
 	Dir.mkdir(package_output) unless Dir.exists?(package_output)
