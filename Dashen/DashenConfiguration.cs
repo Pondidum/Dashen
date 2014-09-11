@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using Dashen.Endpoints.Static.ContentProviders;
 using Dashen.Infrastructure;
@@ -57,7 +58,10 @@ namespace Dashen
 		/// </summary>
 		public DashenConfiguration EnableConsoleLog()
 		{
-			MessageHandlers.Add(new ConsoleLoggingHandler());
+			if (MessageHandlers.OfType<ConsoleLoggingHandler>().Any() == false)
+			{
+				MessageHandlers.Add(new ConsoleLoggingHandler());
+			}
 
 			return this;
 		}
