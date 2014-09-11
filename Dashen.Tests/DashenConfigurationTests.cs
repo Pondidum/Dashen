@@ -1,5 +1,10 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using System.Text;
+using Dashen.Endpoints.Static;
+using Dashen.Endpoints.Static.ContentProviders;
 using Dashen.Infrastructure;
+using Dashen.Initialisation;
 using Shouldly;
 using Xunit;
 
@@ -48,6 +53,30 @@ namespace Dashen.Tests
 			config.DisableConsoleLog();
 
 			config.MessageHandlers.ShouldBeEmpty();
+		}
+
+		[Fact]
+		public void AddResource_allows_the_content_stream_to_be_shut()
+		{
+			var config = new DashenConfiguration();
+
+			using (var ms = new MemoryStream())
+			using( var writer = new StreamWriter(ms))
+			{
+				writer.Write("Test value");
+				writer.Flush();
+				ms.Position = 0;
+
+				config.AddResource("test", ms, "text/plain");
+			}
+			var adhoc = new AdhocContentProvider();
+			var init = new StaticContentInitialisation(new ReplacementSource(), adhoc);
+			init.ApplyTo(config, null);
+
+			using (var reader = new StreamReader(adhoc.GetContent("test").Stream))
+			{
+				reader.ReadToEnd().ShouldBe("Test value");
+			}
 		}
 	}
 }
