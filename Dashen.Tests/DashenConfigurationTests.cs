@@ -28,5 +28,26 @@ namespace Dashen.Tests
 			config.MessageHandlers.Count.ShouldBe(1);
 			config.MessageHandlers.Single().ShouldBeOfType<ConsoleLoggingHandler>();
 		}
+
+		[Fact]
+		public void DisableConsoleLog_removes_the_logger_if_it_exists()
+		{
+			var config = new DashenConfiguration();
+			config.MessageHandlers.Add(new ConsoleLoggingHandler());
+
+			config.DisableConsoleLog();
+
+			config.MessageHandlers.ShouldBeEmpty();
+		}
+
+		[Fact]
+		public void DisableConsoleLog_does_nothing_if_there_is_no_logger_already()
+		{
+			var config = new DashenConfiguration();
+
+			config.DisableConsoleLog();
+
+			config.MessageHandlers.ShouldBeEmpty();
+		}
 	}
 }

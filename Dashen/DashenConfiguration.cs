@@ -65,5 +65,18 @@ namespace Dashen
 
 			return this;
 		}
+		
+		/// <summary>
+		/// Disables logging of requests to the Console.
+		/// </summary>
+		public DashenConfiguration DisableConsoleLog()
+		{
+			MessageHandlers
+				.OfType<ConsoleLoggingHandler>()
+				.ToList()
+				.Each(mh => MessageHandlers.Remove(mh));
+
+			return this;
+		}
 	}
 }
