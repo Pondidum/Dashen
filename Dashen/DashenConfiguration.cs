@@ -29,6 +29,12 @@ namespace Dashen
 			LowlightColor = ColorTranslator.FromHtml("#248F24");
 		}
 
+		/// <summary>
+		/// Adds a resource to be used in the webui.
+		/// </summary>
+		/// <param name="relativeUrlFragment">The relative path, e.g. "/img/good.png"</param>
+		/// <param name="content">The content to be used.  The stream can be safely closed after this call.</param>
+		/// <param name="mimeType">The mimetype for the resource, e.g. "image/png"</param>
 		public void AddResource(string relativeUrlFragment, Stream content, string mimeType)
 		{
 			using (var ms = new MemoryStream())
@@ -43,6 +49,10 @@ namespace Dashen
 			}
 		}
 
+		/// <summary>
+		/// Logs all requests to the Console.<br/>
+		/// To add custom handlers, use the <see cref="MessageHandlers"/> property.
+		/// </summary>
 		public void EnableConsoleLog()
 		{
 			MessageHandlers.Add(new ConsoleLoggingHandler());

@@ -24,16 +24,27 @@ namespace Dashen
 			_server = container.GetInstance<ServerBuilder>().BuildServer(config);
 		}
 
+		/// <summary>
+		/// Starts the webui. Asynchronous
+		/// </summary>
 		public void Start()
 		{
 			_server.OpenAsync().Wait();
 		}
 
+		/// <summary>
+		/// Stops the webui, blocks until fully stopped.
+		/// </summary>
 		public void Stop()
 		{
 			_server.CloseAsync().Wait();
 		}
 
+		/// <summary>
+		/// Registers a <see cref="Widget"/> to display in the webui.  
+		/// Widgets are displayed in the order they are added.
+		/// </summary>
+		/// <param name="definition">The widget to add.</param>
 		public void Register(Widget definition)
 		{
 			_definitions.Add(definition);
