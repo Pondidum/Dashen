@@ -13,7 +13,7 @@
 
     <div id="header" class="row">
       <div class="large-12 columns">
-        <h1>Dashen Statistics Panel</h1>
+        <h1>${App.Title}</h1>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
       <hr />
       <div class="medium-12 column">
         <p class="text-muted left"><a href="https://github.com/pondidum/Dashen">Github Project</a></p>
-        <p class="text-muted right">Written by Andy Dote, Version ${AsmVersion}.</p>
+        <p class="text-muted right">Written by Andy Dote, Version ${App.DashenVersion}.</p>
       </div>
     </div>
 

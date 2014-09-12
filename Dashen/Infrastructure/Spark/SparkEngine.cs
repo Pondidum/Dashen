@@ -10,6 +10,7 @@ namespace Dashen.Infrastructure.Spark
 	{
 		private readonly SparkViewEngine _engine;
 		private readonly DescriptorBuilder _descriptorBuilder;
+		private ApplicationModel _applicationModel;
 
 		public SparkEngine()
 		{
@@ -28,13 +29,19 @@ namespace Dashen.Infrastructure.Spark
 		public DashenView CreateView(object model)
 		{
 			var descriptor = _descriptorBuilder.Build(model.GetType());
-
 			var entry = _engine.CreateEntry(descriptor);
 
 			var view = (DashenView)entry.CreateInstance();
+			view.App = _applicationModel;
+
 			((IDashenView)view).SetModel(model);
 
 			return view;
+		}
+
+		public void SetApplicationModel(ApplicationModel model)
+		{
+			_applicationModel = model;
 		}
 	}
 }

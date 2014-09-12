@@ -5,6 +5,7 @@ namespace Dashen.Infrastructure.Spark
 {
 	public abstract class DashenView : SparkViewBase
 	{
+		public ApplicationModel App { get; set; }
 	}
 
 	public class DashenView<TViewModel> : DashenView, IDashenView where TViewModel : class

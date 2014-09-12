@@ -10,18 +10,11 @@ namespace Dashen.Infrastructure.Spark
 	{
 		private readonly IViewFolder _viewFolder;
 		private readonly string _prefix;
-		private readonly List<SparkViewDescriptor.Accessor> _accessors;
 
 		public DescriptorBuilder(IViewFolder viewFolder, string prefix)
 		{
 			_viewFolder = viewFolder;
 			_prefix = prefix;
-			_accessors = new List<SparkViewDescriptor.Accessor>();
-			_accessors.Add(new SparkViewDescriptor.Accessor
-			{
-				Property = "string AsmVersion",
-				GetValue = "System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()",
-			});
 		}
 
 		private bool HasTemplate(string path)
@@ -59,9 +52,6 @@ namespace Dashen.Infrastructure.Spark
 
 			TemplatePaths(viewPath, viewName)
 				.Each(template => descriptor.AddTemplate(template));
-
-			_accessors
-				.Each(accessor => descriptor.AddAccessor(accessor.Property, accessor.GetValue));
 
 			return descriptor;
 		}
