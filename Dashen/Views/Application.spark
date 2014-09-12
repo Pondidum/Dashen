@@ -14,14 +14,15 @@
     <div id="header" class="row">
       <div class="large-12 columns">
         <h1>${App.Title}</h1>
+        <span class="text-muted">Version ${App.Version}</span>
       </div>
     </div>
 
     <use:view />
 
-    <div id="footer" class="row">
+    <div class="row">
       <hr />
-      <div class="medium-12 column">
+      <div class="large-12 columns">
         <p class="text-muted left"><a href="https://github.com/pondidum/Dashen">Github Project</a></p>
         <p class="text-muted right">Written by Andy Dote, Version ${App.DashenVersion}.</p>
       </div>

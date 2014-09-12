@@ -15,6 +15,8 @@ namespace Dashen
 
 		public Color HighlightColor { get; set; }
 		public Color LowlightColor { get; set; }
+		public string Title { get; set; }
+		public string Version { get; set; }
 
 		public List<DelegatingHandler> MessageHandlers { get; private set; }
 		internal Dictionary<string, AdhocContentProvider.ResourceContent> Resources { get; private set; }
@@ -28,6 +30,9 @@ namespace Dashen
 
 			HighlightColor = ColorTranslator.FromHtml("#33CC33");
 			LowlightColor = ColorTranslator.FromHtml("#248F24");
+
+			Title = "Dashen Stats Panel";
+			Version = GetType().Assembly.GetName().Version.ToString();
 		}
 
 		/// <summary>

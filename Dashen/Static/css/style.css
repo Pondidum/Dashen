@@ -6,7 +6,7 @@
 	background: -o-linear-gradient(left, !{HighlightColor}, !{LowlightColor});
 	background: linear-gradient(left, !{HighlightColor}, !{LowlightColor});
 	width: 100%;
-	position: fixed;
+	
 	top: 0;
 	height: 3px;
 }
@@ -28,10 +28,4 @@
 
 .text-muted {
 	color: #999;
-}
-
-#footer {
-	width: 100%;
-	position: fixed;
-	bottom: 0;
 }

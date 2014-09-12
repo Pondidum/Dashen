@@ -16,8 +16,8 @@ namespace Dashen.Initialisation
 		{
 			var model = new ApplicationModel
 			{
-				Title = "Dashen",
-				Version = "Unknown"
+				Title = userConfig.Title,
+				Version = userConfig.Version
 			};
 
 			_engine.SetApplicationModel(model);
