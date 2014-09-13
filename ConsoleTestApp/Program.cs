@@ -21,7 +21,7 @@ namespace ConsoleTestApp
 			ui.Register(new Widget
 			{
 				Create = () => model,
-				Heading = "Some Text",
+				Heading = "Text",
 				Interval = new TimeSpan(0,0,1),
 				Width = 2,
 			});
@@ -29,7 +29,7 @@ namespace ConsoleTestApp
 			ui.Register(new Widget
 			{
 				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
-				Heading = "Four things",
+				Heading = "List",
 				Width = 3
 			});
 
