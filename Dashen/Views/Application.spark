@@ -10,16 +10,21 @@
   </head>
   <body>
     <div class="topGradient"></div>
+    
+    <div id="container" class="row">
 
-    <div id="header" class="row">
-      <div class="large-12 columns">
-        <h1>${App.Title}</h1>
-        <span class="text-muted">Version ${App.Version}</span>
+      <div id="header" class="row clearfix">
+        <div class="large-8 columns">
+          <h1>${App.Title}</h1>
+        </div>
+        <div id="version" class="large-4 columns">
+          <p class="text-muted text-right">Version ${App.Version}</p>
+        </div>
       </div>
+
+      <use:view />
+    
     </div>
-
-    <use:view />
-
     <div class="row">
       <hr />
       <div class="large-12 columns">
