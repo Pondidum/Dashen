@@ -70,8 +70,8 @@ namespace Dashen.Tests
 				config.AddResource("test", ms, "text/plain");
 			}
 			var adhoc = new AdhocContentProvider();
-			var init = new StaticContentInitialisation(new ReplacementSource(), adhoc);
-			init.ApplyTo(config, null);
+			var init = new StaticContentInitialisation(config, new ReplacementSource(), adhoc);
+			init.ApplyTo(null);
 
 			using (var reader = new StreamReader(adhoc.GetContent("test").Stream))
 			{
