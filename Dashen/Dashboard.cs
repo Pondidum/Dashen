@@ -13,15 +13,19 @@ namespace Dashen
 
 		public Dashboard(DashenConfiguration config)
 		{
-			var container = new Container(c => c.Scan(a =>
+			var container = new Container(c =>
 			{
-				a.TheCallingAssembly();
-				a.WithDefaultConventions();
-				a.LookForRegistries();
-			}));
+				c.For<DashenConfiguration>().Use(config);
+				c.Scan(a =>
+				{
+					a.TheCallingAssembly();
+					a.WithDefaultConventions();
+					a.LookForRegistries();
+				});
+			});
 
 			_definitions = container.GetInstance<DefinitionCollection>();
-			_server = container.GetInstance<ServerBuilder>().BuildServer(config);
+			_server = container.GetInstance<ServerBuilder>().BuildServer();
 		}
 
 		/// <summary>
