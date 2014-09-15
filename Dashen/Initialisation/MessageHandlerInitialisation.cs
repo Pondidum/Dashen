@@ -5,9 +5,19 @@ namespace Dashen.Initialisation
 {
 	public class MessageHandlerInitialisation : IDashboardInitialisation
 	{
-		public void ApplyTo(DashenConfiguration userConfig, HttpSelfHostConfiguration config)
+		private readonly DashenConfiguration _userConfiguration;
+
+		public MessageHandlerInitialisation(DashenConfiguration userConfiguration)
 		{
-			userConfig.MessageHandlers.Each(config.MessageHandlers.Add);
+			_userConfiguration = userConfiguration;
+		}
+
+		public void ApplyTo(HttpSelfHostConfiguration config)
+		{
+			foreach (var handler in _userConfiguration.MessageHandlers)
+			{
+				config.MessageHandlers.Add(handler);
+			}
 		}
 	}
 }

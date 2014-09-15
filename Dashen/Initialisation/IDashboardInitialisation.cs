@@ -4,6 +4,6 @@ namespace Dashen.Initialisation
 {
 	public interface IDashboardInitialisation
 	{
-		void ApplyTo(DashenConfiguration userConfig, HttpSelfHostConfiguration config);
+		void ApplyTo(HttpSelfHostConfiguration config);
 	}
 }
