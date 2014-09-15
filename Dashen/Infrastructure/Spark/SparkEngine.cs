@@ -1,29 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Spark;
-using Spark.FileSystem;
 
 namespace Dashen.Infrastructure.Spark
 {
 	public class SparkEngine
 	{
-		private readonly SparkViewEngine _engine;
+		private readonly ISparkViewEngine _engine;
 		private readonly DescriptorBuilder _descriptorBuilder;
-		private ApplicationModel _applicationModel;
+		private readonly ApplicationModel _applicationModel;
 
-		public SparkEngine()
+		public SparkEngine(ISparkViewEngine configuredEngine, DescriptorBuilder descriptorBuilder, ApplicationModel applicationModel)
 		{
-			var settings = new SparkSettings();
-			settings.AddNamespace("System.Linq");
-			settings.AddNamespace("Dashen.Infrastructure");
-			settings.PageBaseType = typeof(DashenView).FullName;
-
-
-			_engine = new SparkViewEngine(settings);
-			_engine.ViewFolder = new EmbeddedViewFolder(GetType().Assembly, "Dashen");
-
-			_descriptorBuilder = new DescriptorBuilder(_engine.ViewFolder, "Dashen");
+			_engine = configuredEngine;
+			_descriptorBuilder = descriptorBuilder;
+			_applicationModel = applicationModel;
 		}
 
 		public DashenView CreateView(object model)
@@ -37,11 +26,6 @@ namespace Dashen.Infrastructure.Spark
 			((IDashenView)view).SetModel(model);
 
 			return view;
-		}
-
-		public void SetApplicationModel(ApplicationModel model)
-		{
-			_applicationModel = model;
 		}
 	}
 }

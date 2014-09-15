@@ -11,10 +11,10 @@ namespace Dashen.Infrastructure.Spark
 		private readonly IViewFolder _viewFolder;
 		private readonly string _prefix;
 
-		public DescriptorBuilder(IViewFolder viewFolder, string prefix)
+		public DescriptorBuilder(ISparkViewEngine configuredEngine)
 		{
-			_viewFolder = viewFolder;
-			_prefix = prefix;
+			_viewFolder = configuredEngine.ViewFolder;
+			_prefix = "Dashen";
 		}
 
 		private bool HasTemplate(string path)

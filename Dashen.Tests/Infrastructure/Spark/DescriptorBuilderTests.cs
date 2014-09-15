@@ -3,6 +3,7 @@ using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure.Spark;
 using NSubstitute;
 using Shouldly;
+using Spark;
 using Spark.FileSystem;
 using Xunit;
 
@@ -16,7 +17,11 @@ namespace Dashen.Tests.Infrastructure.Spark
 		public DescriptorBuilderTests()
 		{
 			_viewFolder = Substitute.For<IViewFolder>();
-			_builder = new DescriptorBuilder(_viewFolder, "Dashen");
+
+			var engine = Substitute.For<ISparkViewEngine>();
+			engine.ViewFolder.Returns(_viewFolder);
+
+			_builder = new DescriptorBuilder(engine);
 		}
 
 		private void HasTemplate(string path)

@@ -76,6 +76,7 @@
     <Compile Include="Endpoints\Static\StaticContent.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\EmbeddedStaticContentProvider.cs" />
     <Compile Include="Endpoints\Static\IStaticContentProvider.cs" />
+    <Compile Include="Infrastructure\Spark\SparkBuilder.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
     <Compile Include="Initialisation\MessageHandlerInitialisation.cs" />

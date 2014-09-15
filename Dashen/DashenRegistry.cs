@@ -2,6 +2,7 @@
 using Dashen.Endpoints.Static.ContentProviders;
 using Dashen.Infrastructure.Spark;
 using Dashen.Initialisation;
+using Spark;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
@@ -11,7 +12,8 @@ namespace Dashen
 	{
 		public DashenRegistry()
 		{
-			For<SparkEngine>().Singleton();
+			For<ISparkViewEngine>().Use(c => c.GetInstance<SparkBuilder>().Build()).Singleton();
+
 			For<DefinitionCollection>().Singleton();
 
 			Scan(a =>
