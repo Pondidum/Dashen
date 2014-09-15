@@ -6,5 +6,11 @@
 		public string Version { get; set; }
 
 		public string DashenVersion { get { return GetType().Assembly.GetName().Version.ToString(); } }
+
+		public ApplicationModel(DashenConfiguration config)
+		{
+			Title = config.Title;
+			Version = config.Version;
+		}
 	}
 }
