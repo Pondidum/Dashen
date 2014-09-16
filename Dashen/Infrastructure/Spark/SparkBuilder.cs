@@ -1,4 +1,5 @@
-﻿using Spark;
+﻿using System.IO;
+using Spark;
 using Spark.FileSystem;
 
 namespace Dashen.Infrastructure.Spark
@@ -29,6 +30,14 @@ namespace Dashen.Infrastructure.Spark
 		{
 			var embedded = new DashenViewFolder(GetType().Assembly);
 			var user = new InMemoryViewFolder();
+
+			foreach (var pair in _config.CustomViews)
+			{
+				var name = pair.Key.Name.Replace("ViewModel", "") + ".spark";
+				var path = Path.Combine("Dashen\\Views\\", name);
+
+				user.Add(path, pair.Value);
+			}
 			
 			return new CombinedViewFolder(embedded, user);
 		}

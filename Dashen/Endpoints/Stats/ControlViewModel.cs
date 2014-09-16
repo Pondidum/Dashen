@@ -4,7 +4,7 @@
 	{
 		public string Name { get; set; }
 
-		protected internal ControlViewModel()
+		protected ControlViewModel()
 		{
 		}
 	}

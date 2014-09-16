@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using Dashen.Endpoints.Static.ContentProviders;
+using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure;
 
 namespace Dashen
@@ -21,8 +22,11 @@ namespace Dashen
 		public List<DelegatingHandler> MessageHandlers { get; private set; }
 		internal Dictionary<string, AdhocContentProvider.ResourceContent> Resources { get; private set; }
 
+		internal Dictionary<Type, byte[]> CustomViews { get; private set; }
+
 		public DashenConfiguration()
 		{
+			CustomViews = new Dictionary<Type, byte[]>();
 			Resources = new Dictionary<string, AdhocContentProvider.ResourceContent>();
 			MessageHandlers = new List<DelegatingHandler>();
 
@@ -46,7 +50,7 @@ namespace Dashen
 			using (var ms = new MemoryStream())
 			{
 				content.CopyTo(ms);
-				
+
 				Resources[relativeUrlFragment] = new AdhocContentProvider.ResourceContent
 				{
 					StreamBytes = ms.ToArray(),
@@ -70,7 +74,7 @@ namespace Dashen
 
 			return this;
 		}
-		
+
 		/// <summary>
 		/// Disables logging of requests to the Console.
 		/// </summary>
@@ -82,6 +86,11 @@ namespace Dashen
 				.Each(mh => MessageHandlers.Remove(mh));
 
 			return this;
+		}
+
+		public void AddControlView<T>(byte[] view) where T : ControlViewModel
+		{
+			CustomViews[typeof (T)] = view;
 		}
 	}
 }
