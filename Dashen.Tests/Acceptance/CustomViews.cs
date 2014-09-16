@@ -16,7 +16,7 @@ namespace Dashen.Tests.Acceptance
 		public CustomViews()
 		{
 			var config = new DashenConfiguration();
-			config.AddControlView<FakeControlViewModel>(CreateView());
+			//config.AddControlView<FakeControlViewModel>(CreateView());
 
 			var app = new ApplicationModel(config);
 
