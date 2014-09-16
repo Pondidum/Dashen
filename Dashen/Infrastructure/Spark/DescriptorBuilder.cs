@@ -9,12 +9,10 @@ namespace Dashen.Infrastructure.Spark
 	public class DescriptorBuilder
 	{
 		private readonly IViewFolder _viewFolder;
-		private readonly string _prefix;
 
 		public DescriptorBuilder(ISparkViewEngine configuredEngine)
 		{
 			_viewFolder = configuredEngine.ViewFolder;
-			_prefix = "Dashen";
 		}
 
 		private bool HasTemplate(string path)
@@ -24,18 +22,18 @@ namespace Dashen.Infrastructure.Spark
 
 		internal IEnumerable<string> TemplatePaths(string viewPath, string viewName)
 		{
-			if (HasTemplate(Path.Combine("Views", viewName)))
+			if (HasTemplate(Path.Combine("Dashen\\Views", viewName)))
 			{
-				yield return Path.Combine("Views", viewName);
+				yield return Path.Combine("Dashen\\Views", viewName);
 			}
 
 			if (HasTemplate(Path.Combine(viewPath, viewName)))
 			{
 				yield return Path.Combine(viewPath, viewName);
 
-				if (HasTemplate(Path.Combine("Views", "Application.spark")))
+				if (HasTemplate(Path.Combine("Dashen\\Views", "Application.spark")))
 				{
-					yield return Path.Combine("Views", "Application.spark");
+					yield return Path.Combine("Dashen\\Views", "Application.spark");
 				}
 			}
 		}
@@ -46,7 +44,7 @@ namespace Dashen.Infrastructure.Spark
 			var modelPath = modelType.FullName.Substring(0, modelType.FullName.Length - modelName.Length - 1);
 
 			var viewName = String.Format("{0}.spark", modelName.Replace("ViewModel", ""));
-			var viewPath = modelPath.Substring(_prefix.Length + 1).Replace(".", "\\");
+			var viewPath = modelPath.Replace(".", "\\");
 
 			var descriptor = new SparkViewDescriptor();
 

@@ -27,7 +27,7 @@ namespace Dashen.Infrastructure.Spark
 
 		private CombinedViewFolder BuildViewFolder()
 		{
-			var embedded = new EmbeddedViewFolder(GetType().Assembly, "Dashen");
+			var embedded = new DashenViewFolder(GetType().Assembly);
 			var user = new InMemoryViewFolder();
 			
 			return new CombinedViewFolder(embedded, user);

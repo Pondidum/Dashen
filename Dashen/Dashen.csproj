@@ -72,6 +72,7 @@
     <Compile Include="Endpoints\Static\ContentProviders\ProcessedContentProvider.cs" />
     <Compile Include="Endpoints\Static\ReplacementSource.cs" />
     <Compile Include="Infrastructure\ReflectionExtensions.cs" />
+    <Compile Include="Infrastructure\Spark\DashenViewFolder.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilder.cs" />
     <Compile Include="Endpoints\Static\StaticContent.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\EmbeddedStaticContentProvider.cs" />
