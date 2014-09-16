@@ -16,7 +16,7 @@ namespace Dashen.Tests.Acceptance
 		public CustomViews()
 		{
 			var config = new DashenConfiguration();
-			//config.AddControlView<FakeControlViewModel>(CreateView());
+			config.AddControlView<FakeControlViewModel>(CreateView());
 
 			var app = new ApplicationModel(config);
 
@@ -45,14 +45,14 @@ namespace Dashen.Tests.Acceptance
 			content.ShouldNotBeEmpty();
 		}
 
-		//[Fact]
-		//public void A_custom_view_can_be_added_and_compiled()
-		//{
-		//	var model = new FakeControlViewModel();
+		[Fact]
+		public void A_custom_view_can_be_added_and_compiled()
+		{
+			var model = new FakeControlViewModel();
 
-		//	var content = Render(model);
-		//	content.ShouldContain("<p>Testing omg!</p>");
-		//}
+			var content = Render(model);
+			content.ShouldContain("<p>Testing omg!</p>");
+		}
 
 
 		private byte[] CreateView()
