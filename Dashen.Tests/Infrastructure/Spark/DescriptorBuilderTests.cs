@@ -32,45 +32,45 @@ namespace Dashen.Tests.Infrastructure.Spark
 		[Fact]
 		public void When_loading_a_normal_view_and_there_is_no_application_view()
 		{
-			HasTemplate("Endpoints\\Index\\Index.spark");
+			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
 
 			var descriptor = _builder.Build(typeof(IndexViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Endpoints\\Index\\Index.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Endpoints\\Index\\Index.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_normal_view_and_there_is_an_application_view()
 		{
-			HasTemplate("Endpoints\\Index\\Index.spark");
-			HasTemplate("Views\\Application.spark");
+			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
+			HasTemplate("Dashen\\Views\\Application.spark");
 
 			var descriptor = _builder.Build(typeof(IndexViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Endpoints\\Index\\Index.spark", "Views\\Application.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Endpoints\\Index\\Index.spark", "Dashen\\Views\\Application.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_a_shared_view_and_there_is_no_application_view()
 		{
-			HasTemplate("Endpoints\\Index\\Index.spark");
-			HasTemplate("Views\\TextControl.spark");
+			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
+			HasTemplate("Dashen\\Views\\TextControl.spark");
 
 			var descriptor = _builder.Build(typeof(TextControlViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Views\\TextControl.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextControl.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
 		public void When_loading_a_shared_view_and_there_is_an_application_view()
 		{
-			HasTemplate("Endpoints\\Index\\Index.spark");
-			HasTemplate("Views\\Application.spark");
-			HasTemplate("Views\\TextControl.spark");
+			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
+			HasTemplate("Dashen\\Views\\Application.spark");
+			HasTemplate("Dashen\\Views\\TextControl.spark");
 
 			var descriptor = _builder.Build(typeof(TextControlViewModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Views\\TextControl.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextControl.spark" }, ignoreOrder: true);
 		}
 	}
 }
