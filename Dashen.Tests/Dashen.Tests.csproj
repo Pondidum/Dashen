@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceptance\CustomViews.cs" />
     <Compile Include="DashenConfigurationTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CachingContentProviderTests.cs" />
@@ -90,6 +91,7 @@
       <Name>Dashen</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
