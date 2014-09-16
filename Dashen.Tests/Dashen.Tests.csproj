@@ -70,7 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acceptance\CustomViews.cs" />
+    <Compile Include="Acceptance\ViewCompilationTests.cs" />
     <Compile Include="DashenConfigurationTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CachingContentProviderTests.cs" />

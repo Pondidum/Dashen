@@ -9,11 +9,11 @@ using Xunit;
 
 namespace Dashen.Tests.Acceptance
 {
-	public class CustomViews
+	public class ViewCompilationTests
 	{
 		private readonly SparkEngine _spark;
 
-		public CustomViews()
+		public ViewCompilationTests()
 		{
 			var config = new DashenConfiguration();
 			config.AddControlView<FakeControlViewModel>(CreateView());
@@ -79,7 +79,6 @@ namespace Dashen.Tests.Acceptance
 		}
 	}
 
-
 	public class FakeControlViewModel : ControlViewModel
 	{
 		public string Content { get; set; }
@@ -89,6 +88,4 @@ namespace Dashen.Tests.Acceptance
 			Content = "Testing omg!";
 		}
 	}
-
-
 }
