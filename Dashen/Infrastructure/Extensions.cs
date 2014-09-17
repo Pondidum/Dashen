@@ -21,15 +21,6 @@ namespace Dashen.Infrastructure
 				: defaultValue;
 		}
 
-		public static void Each<T>(this IEnumerable<T> values, Action<T, int> eachAction)
-		{
-			var index = 0;
-			foreach (var item in values)
-			{
-				eachAction(item, index++);
-			}
-		}
-
 		[DebuggerStepThrough]
 		public static void Each<T>(this IEnumerable<T> values, Action<T> eachAction)
 		{
