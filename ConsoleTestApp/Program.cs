@@ -44,6 +44,17 @@ namespace ConsoleTestApp
 				Width = 7
 			});
 
+			ui.Register(new Widget
+			{
+				Create = () => new BarGraphControlViewModel
+				{
+					Points = new[] { new KeyValuePair<int, int>(0, 10), new KeyValuePair<int, int>(2, 15) },
+					XTicks = new[] { new KeyValuePair<int, string>(0, "left"), new KeyValuePair<int, string>(2, "right") }
+				},
+				Heading = "Bar",
+				Width = 3
+			});
+
 			ui.Start();
 
 			Console.WriteLine("Webui running on port 8080.");
