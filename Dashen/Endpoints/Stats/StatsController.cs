@@ -8,10 +8,10 @@ namespace Dashen.Endpoints.Stats
 	public class StatsController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
-		private readonly DefinitionCollection _collection;
+		private readonly WidgetCollection _collection;
 		private readonly DefinitionModelBuilder _builder;
 
-		public StatsController(SparkResponseFactory factory, DefinitionCollection collection, DefinitionModelBuilder builder)
+		public StatsController(SparkResponseFactory factory, WidgetCollection collection, DefinitionModelBuilder builder)
 		{
 			_factory = factory;
 			_collection = collection;

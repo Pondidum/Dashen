@@ -9,7 +9,7 @@ namespace Dashen
 	public class Dashboard
 	{
 		private readonly HttpSelfHostServer _server;
-		private readonly DefinitionCollection _definitions;
+		private readonly WidgetCollection _definitions;
 
 		public Dashboard(DashenConfiguration config)
 		{
@@ -24,7 +24,7 @@ namespace Dashen
 				});
 			});
 
-			_definitions = container.GetInstance<DefinitionCollection>();
+			_definitions = container.GetInstance<WidgetCollection>();
 			_server = container.GetInstance<ServerBuilder>().BuildServer();
 		}
 

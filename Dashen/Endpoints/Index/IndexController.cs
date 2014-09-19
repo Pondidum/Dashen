@@ -8,10 +8,10 @@ namespace Dashen.Endpoints.Index
 	public class IndexController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
-		private readonly DefinitionCollection _definitions;
+		private readonly WidgetCollection _definitions;
 		private readonly DefinitionModelBuilder _builder;
 
-		public IndexController(SparkResponseFactory factory, DefinitionCollection definitions, DefinitionModelBuilder builder)
+		public IndexController(SparkResponseFactory factory, WidgetCollection definitions, DefinitionModelBuilder builder)
 		{
 			_factory = factory;
 			_definitions = definitions;

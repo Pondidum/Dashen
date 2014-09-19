@@ -14,7 +14,7 @@ namespace Dashen
 		{
 			For<ISparkViewEngine>().Use(c => c.GetInstance<SparkBuilder>().Build()).Singleton();
 
-			For<DefinitionCollection>().Singleton();
+			For<WidgetCollection>().Singleton();
 
 			Scan(a =>
 			{

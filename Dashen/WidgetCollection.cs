@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Dashen
 {
-	public class DefinitionCollection : IEnumerable<Widget>
+	public class WidgetCollection : IEnumerable<Widget>
 	{
 		private readonly List<Widget> _definitions;
 
-		public DefinitionCollection()
+		public WidgetCollection()
 		{
 			_definitions = new List<Widget>();
 		}
