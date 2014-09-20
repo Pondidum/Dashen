@@ -1,5 +1,27 @@
 ﻿<viewdata model="Dashen.Endpoints.Stats.ListControlViewModel" />
 
-<ul class="no-bullet" if="Model.Items.Any()">
-  <li class="text-center" each="var item in Model.Items.Take(5)">${item}</li>
+<ul id="${Model.ID}Content" class="no-bullet">
 </ul>
+
+<script type="text/javascript">
+
+  var fn = function () {
+    $.ajax({
+      url: '${Model.UpdateUrl}'
+    }).done(function (result) {
+
+      var parent = $('#${Model.ID}Content');
+
+      parent.empty();
+
+      result.Items.forEach(function(item) {
+        parent.append('<li class="text-center">' + item + '</li>');
+      });
+
+    });
+  };
+
+  $(document).ready(fn);
+  setInterval(fn, ${Model.Interval});
+
+</script>
