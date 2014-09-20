@@ -8,7 +8,10 @@ namespace Dashen
 		internal ControlViewModel BuildStatsViewModel(Widget definition)
 		{
 			var model = definition.Create();
-			model.Name = definition.ID;
+
+			model.ID = definition.ID;
+			model.UpdateUrl = "stats/update/" + definition.ID;
+			model.Interval = (int)definition.Interval.TotalMilliseconds;
 
 			return model;
 		}
@@ -19,8 +22,7 @@ namespace Dashen
 			{
 				Heading = definition.Heading,
 				ID = definition.ID,
-				Url = "stats/" + definition.ID,
-				Interval = (int)definition.Interval.TotalMilliseconds,
+				CreateWidgetUrl = "stats/createWidget/" + definition.ID,
 				Columns = definition.Width,
 			};
 

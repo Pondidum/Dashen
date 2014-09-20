@@ -3,23 +3,21 @@
 <div class="row">
   
   <div class="medium-${model.Columns} columns end?{modelIsLast}" each="var model in Model.Definitions">
-    <div class="panel widget">
+    <div id="${model.ID}" class="panel widget">
       <h4>${model.Heading}</h4>
       <hr />
-      <div id="${model.ID}" class="small-text">
-        <script type="text/javascript">
+      
+      <script type="text/javascript">
           var fn = function () {
-            $.ajax('${model.Url}', {
-              success: function (html) {
-                $('#${model.ID}').html(html);
-              }
+            $.ajax({
+              url: '${model.CreateWidgetUrl}'
+            }).done(function(html) {
+              $('#${model.ID}').append(html);
             });
           };
           $(document).ready(fn);
-          setInterval(fn, ${model.Interval});
         </script>
       </div>
-    </div>
   </div>
 
 </div>
