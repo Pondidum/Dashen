@@ -12,9 +12,14 @@ namespace ConsoleTestApp
 	{
 		static void Main(string[] args)
 		{
-			var ui = new Dashboard(new DashenConfiguration{
+			var config = new DashenConfiguration
+			{
 				ListenOn = new Uri("http://localhost:8080")
-			});
+			};
+
+			config.EnableConsoleLog();
+
+			var ui = new Dashboard(config);
 
 			var model = new TextControlViewModel { Content = "Test" };
 			//config all the things...
@@ -22,7 +27,7 @@ namespace ConsoleTestApp
 			{
 				Create = () => model,
 				Heading = "Text",
-				Interval = new TimeSpan(0,0,1),
+				Interval = new TimeSpan(0, 0, 10),
 				Width = 2,
 			});
 
@@ -37,8 +42,8 @@ namespace ConsoleTestApp
 			{
 				Create = () => new GraphControlViewModel
 				{
-					Points = new[] { new KeyValuePair<int, int>(0,10), new KeyValuePair<int, int>(50, 15) },
-					XTicks = new[] { new KeyValuePair<int, string>(0, "left"), new KeyValuePair<int, string>(50, "right") }
+					Points = new[] { new Pair(0,10), new Pair(50, 15) },
+					XTicks = new[] { new Label(0, "left"), new Label(50, "right") }
 				},
 				Heading = "Graph",
 				Width = 7
@@ -48,8 +53,8 @@ namespace ConsoleTestApp
 			{
 				Create = () => new BarGraphControlViewModel
 				{
-					Points = new[] { new KeyValuePair<int, int>(0, 10), new KeyValuePair<int, int>(2, 15) },
-					XTicks = new[] { new KeyValuePair<int, string>(0, "left"), new KeyValuePair<int, string>(2, "right") }
+					Points = new[] { new Pair(0, 10), new Pair(2, 15) },
+					XTicks = new[] { new Label(0, "left"), new Label(2, "right") }
 				},
 				Heading = "Bar",
 				Width = 3
