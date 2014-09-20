@@ -14,9 +14,9 @@ namespace Dashen.Initialisation
 			);
 
 			config.Routes.MapHttpRoute(
-				"Api",
-				"stats/{*url}",
-				new { controller = "Stats", action = "GetDispatch", url = RouteParameter.Optional }
+				"Widget",
+				"stats/{action}/{*url}",
+				new { controller = "Stats", url = RouteParameter.Optional }
 			);
 
 			config.Routes.MapHttpRoute(
