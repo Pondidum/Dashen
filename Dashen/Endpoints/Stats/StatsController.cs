@@ -1,33 +1,52 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Dashen.Infrastructure;
 using Dashen.Infrastructure.Spark;
+using Newtonsoft.Json.Linq;
 
 namespace Dashen.Endpoints.Stats
 {
 	public class StatsController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
-		private readonly WidgetCollection _collection;
+		private readonly WidgetCollection _widgets;
 		private readonly DefinitionModelBuilder _builder;
 
 		public StatsController(SparkResponseFactory factory, WidgetCollection collection, DefinitionModelBuilder builder)
 		{
 			_factory = factory;
-			_collection = collection;
+			_widgets = collection;
 			_builder = builder;
 		}
 
-		public HttpResponseMessage GetDispatch(string url = "")
+		[HttpGet]
+		public HttpResponseMessage Update(string url = "")
 		{
-			var definition = _collection.GetByID(url);
+			var definition = _widgets.GetByID(url);
 
 			if (definition == null)
 			{
 				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
-			var viewModel = _builder.BuildStatsViewModel(definition);
+			return new HttpResponseMessage
+			{
+				Content = new JsonContent(JToken.FromObject(definition.Create()))
+			};
+		}
+
+		[HttpGet]
+		public HttpResponseMessage CreateWidget(string url = "")
+		{
+			var widget = _widgets.GetByID(url);
+
+			if (widget == null)
+			{
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
+
+			var viewModel = _builder.BuildStatsViewModel(widget);
 
 			return _factory.From(viewModel);
 		}
