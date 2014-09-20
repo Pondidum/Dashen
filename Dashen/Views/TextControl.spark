@@ -1,3 +1,18 @@
 ﻿<viewdata model="Dashen.Endpoints.Stats.TextControlViewModel" />
 
-<div class="text-center">!{Model.Content}</div>
+<div id="${Model.ID}Content" class="text-center"></div>
+
+<script type="text/javascript">
+
+  var fn = function () {
+    $.ajax({
+      url: '${Model.UpdateUrl}'
+    }).done(function (result) {
+      $('#${Model.ID}Content').html(result.Content);
+    });
+  };
+
+  $(document).ready(fn);
+  setInterval(fn, ${Model.Interval});
+
+</script>
