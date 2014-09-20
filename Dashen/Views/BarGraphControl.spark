@@ -1,16 +1,23 @@
 ﻿<viewdata model="Dashen.Endpoints.Stats.GraphControlViewModel" />
 
-<div id="${Model.Name}Graph" style="height:120px;">
-  <script type='text/javascript'>
-    $.plot("#${Model.Name}Graph",
-      [!{Model.Points.ToFlatJson()}],
+<div id="${Model.ID}Graph" style="height:120px;"></div>
+
+<script type="text/javascript">
+
+  var fn = function () {
+    $.ajax({
+      url: '${Model.UpdateUrl}'
+    }).done(function (result) {
+
+      $.plot("#${Model.ID}Graph",
+      [result.Points],
       {
         xaxis: {
           tickLength: 0,
-          ticks: !{Model.XTicks.ToFlatJson()}
+          ticks: result.XTicks
         },
         yaxis: {
-          ticks: !{Model.YTicks.ToFlatJson()}
+          ticks: result.YTicks
         },
         colors: ["#248F24"],
         grid:
@@ -26,5 +33,11 @@
           }
         }
       });
-  </script>
-</div>
+
+    });
+  };
+
+  $(document).ready(fn);
+  setInterval(fn, ${Model.Interval});
+
+</script>
