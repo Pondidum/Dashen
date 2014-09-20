@@ -71,6 +71,8 @@
     <Compile Include="Endpoints\Static\ContentProviders\CompositeContentProvider.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\ProcessedContentProvider.cs" />
     <Compile Include="Endpoints\Static\ReplacementSource.cs" />
+    <Compile Include="Endpoints\Stats\Label.cs" />
+    <Compile Include="Endpoints\Stats\Pair.cs" />
     <Compile Include="Infrastructure\JsonContent.cs" />
     <Compile Include="Infrastructure\ReflectionExtensions.cs" />
     <Compile Include="Infrastructure\Spark\DashenViewFolder.cs" />
