@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Dashen.Endpoints.Stats
+namespace Dashen.Infrastructure
 {
 	public class JsonContent : HttpContent
 	{
