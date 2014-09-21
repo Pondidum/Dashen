@@ -32,7 +32,7 @@ namespace Dashen.Tests.Acceptance
 			var model = new TextControlViewModel { Content = "Test Text" };
 
 			var content = Render(model);
-			content.ShouldContain("<div class=\"text-center\">Test Text</div>");
+			content.ShouldNotContain("<html>");
 		}
 
 		[Fact]
