@@ -8,13 +8,13 @@ namespace Dashen.Endpoints.Index
 	public class IndexController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
-		private readonly WidgetCollection _definitions;
-		private readonly DefinitionModelBuilder _builder;
+		private readonly WidgetCollection _widgets;
+		private readonly IndexViewModelBuilder _builder;
 
-		public IndexController(SparkResponseFactory factory, WidgetCollection definitions, DefinitionModelBuilder builder)
+		public IndexController(SparkResponseFactory factory, WidgetCollection widgets, IndexViewModelBuilder builder)
 		{
 			_factory = factory;
-			_definitions = definitions;
+			_widgets = widgets;
 			_builder = builder;
 		}
 
@@ -22,7 +22,7 @@ namespace Dashen.Endpoints.Index
 		{
 			return  _factory.From(new IndexViewModel
 			{
-				Definitions = _definitions.Select(d =>  _builder.BuildIndexDisplayViewModel(d))
+				Definitions = _widgets.Select(_builder.FromWidget)
 			});
 		}
 	}

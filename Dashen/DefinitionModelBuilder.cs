@@ -15,18 +15,5 @@ namespace Dashen
 
 			return model;
 		}
-
-		internal IndexDisplayViewModel BuildIndexDisplayViewModel(Widget definition)
-		{
-			var model = new IndexDisplayViewModel
-			{
-				Heading = definition.Heading,
-				ID = definition.ID,
-				CreateWidgetUrl = "stats/createWidget/" + definition.ID,
-				Columns = definition.Width,
-			};
-
-			return model;
-		} 
 	}
 }
