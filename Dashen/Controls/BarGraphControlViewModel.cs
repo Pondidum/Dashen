@@ -1,4 +1,4 @@
-﻿namespace Dashen.Endpoints.Stats
+﻿namespace Dashen.Controls
 {
 	public class BarGraphControlViewModel : GraphControlViewModel
 	{

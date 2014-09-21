@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dashen.Endpoints.Stats
+namespace Dashen.Controls
 {
 	public class ListControlViewModel : ControlViewModel
 	{

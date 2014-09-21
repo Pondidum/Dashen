@@ -1,4 +1,5 @@
-﻿using Dashen.Endpoints.Index;
+﻿using Dashen.Controls;
+using Dashen.Endpoints.Index;
 using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure.Spark;
 using NSubstitute;

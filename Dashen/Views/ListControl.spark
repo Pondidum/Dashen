@@ -1,4 +1,4 @@
-﻿<viewdata model="Dashen.Endpoints.Stats.ListControlViewModel" />
+﻿<viewdata model="Dashen.Controls.ListControlViewModel" />
 
 <ul id="${Model.ID}Content" class="no-bullet">
 </ul>

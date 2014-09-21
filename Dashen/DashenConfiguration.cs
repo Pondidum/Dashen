@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using Dashen.Controls;
 using Dashen.Endpoints.Static.ContentProviders;
 using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure;

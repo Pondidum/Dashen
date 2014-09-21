@@ -104,14 +104,14 @@
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
     <Compile Include="Endpoints\Static\MimeLookup.cs" />
-    <Compile Include="Endpoints\Stats\BarGraphControlViewModel.cs" />
-    <Compile Include="Endpoints\Stats\GraphControlViewModel.cs" />
+    <Compile Include="Controls\BarGraphControlViewModel.cs" />
+    <Compile Include="Controls\GraphControlViewModel.cs" />
     <Compile Include="Endpoints\Index\IndexDisplayViewModel.cs" />
     <Compile Include="Endpoints\Index\IndexViewModel.cs" />
-    <Compile Include="Endpoints\Stats\ListControlViewModel.cs" />
-    <Compile Include="Endpoints\Stats\TextControlViewModel.cs" />
+    <Compile Include="Controls\ListControlViewModel.cs" />
+    <Compile Include="Controls\TextControlViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Endpoints\Stats\ControlViewModel.cs" />
+    <Compile Include="Controls\ControlViewModel.cs" />
     <Compile Include="Properties\AssemblyVersion.cs" />
   </ItemGroup>
   <ItemGroup>

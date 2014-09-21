@@ -1,4 +1,4 @@
-﻿<viewdata model="Dashen.Endpoints.Stats.TextControlViewModel" />
+﻿<viewdata model="Dashen.Controls.TextControlViewModel" />
 
 <div id="${Model.ID}Content" class="text-center"></div>
 

@@ -1,4 +1,6 @@
-﻿namespace Dashen.Endpoints.Stats
+﻿using Dashen.Controls;
+
+namespace Dashen.Endpoints.Stats
 {
 	public class StatsViewModelBuilder
 	{

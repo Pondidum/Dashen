@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Dashen.Controls;
 using Dashen.Endpoints.Index;
 using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure.Spark;

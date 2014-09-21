@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Dashen;
+using Dashen.Controls;
 using Dashen.Endpoints.Stats;
 
 namespace ConsoleTestApp
