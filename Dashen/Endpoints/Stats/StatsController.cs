@@ -11,9 +11,9 @@ namespace Dashen.Endpoints.Stats
 	{
 		private readonly SparkResponseFactory _factory;
 		private readonly WidgetCollection _widgets;
-		private readonly DefinitionModelBuilder _builder;
+		private readonly StatsViewModelBuilder _builder;
 
-		public StatsController(SparkResponseFactory factory, WidgetCollection collection, DefinitionModelBuilder builder)
+		public StatsController(SparkResponseFactory factory, WidgetCollection collection, StatsViewModelBuilder builder)
 		{
 			_factory = factory;
 			_widgets = collection;
@@ -23,16 +23,16 @@ namespace Dashen.Endpoints.Stats
 		[HttpGet]
 		public HttpResponseMessage Update(string url = "")
 		{
-			var definition = _widgets.GetByID(url);
+			var widget = _widgets.GetByID(url);
 
-			if (definition == null)
+			if (widget == null)
 			{
 				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
 			return new HttpResponseMessage
 			{
-				Content = new JsonContent(JToken.FromObject(definition.Create()))
+				Content = new JsonContent(JToken.FromObject(_builder.FromWidget(widget)))
 			};
 		}
 
@@ -46,7 +46,7 @@ namespace Dashen.Endpoints.Stats
 				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
-			var viewModel = _builder.BuildStatsViewModel(widget);
+			var viewModel = _builder.FromWidget(widget);
 
 			return _factory.From(viewModel);
 		}

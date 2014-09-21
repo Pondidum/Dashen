@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="ApplicationModel.cs" />
     <Compile Include="DashenConfiguration.cs" />
-    <Compile Include="DefinitionModelBuilder.cs" />
     <Compile Include="Endpoints\Index\IndexViewModelBuilder.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProvider.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\CachingContentProvider.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="Endpoints\Static\ReplacementSource.cs" />
     <Compile Include="Endpoints\Stats\Label.cs" />
     <Compile Include="Endpoints\Stats\Pair.cs" />
+    <Compile Include="Endpoints\Stats\StatsViewModelBuilder.cs" />
     <Compile Include="Infrastructure\JsonContent.cs" />
     <Compile Include="Infrastructure\ReflectionExtensions.cs" />
     <Compile Include="Infrastructure\Spark\DashenViewFolder.cs" />
