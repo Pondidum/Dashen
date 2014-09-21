@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationModel.cs" />
+    <Compile Include="Controls\ProgressControlViewModel.cs" />
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="Endpoints\Index\IndexViewModelBuilder.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProvider.cs" />
@@ -125,6 +126,7 @@
     <EmbeddedResource Include="Views\ListControl.spark" />
     <EmbeddedResource Include="Views\GraphControl.spark" />
     <EmbeddedResource Include="Views\BarGraphControl.spark" />
+    <EmbeddedResource Include="Views\ProgressControl.spark" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\css\foundation.min.css" />

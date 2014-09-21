@@ -44,3 +44,28 @@
 .text-muted {
 	color: #999;
 }
+
+.circleProgress {
+	height: 120px;
+	width: 120px;
+	margin: 0 auto;
+}
+
+.circleProgress .percent {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.1);
+	position: absolute;
+	line-height: 100px;
+	width: 120px;
+}
+
+.circleProgress svg path {
+	fill: none;
+}
+
+.circleProgress svg.progress-circle path {
+	stroke: !{LowlightColor};
+	stroke-width: 2;
+}

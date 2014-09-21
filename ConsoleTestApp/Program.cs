@@ -61,6 +61,12 @@ namespace ConsoleTestApp
 				Width = 3
 			});
 
+			ui.Register(new Widget
+			{
+				Create = () => new ProgressControlViewModel { Percentage = 0.75M},
+				Heading = "Prg"
+			});
+
 			ui.Start();
 
 			Console.WriteLine("Webui running on port 8080.");
