@@ -36,7 +36,7 @@
       url: '${Model.UpdateUrl}'
     }).done(function (result) {
       
-      updateToPercent(${Model.Percentage});
+      updateToPercent(result.Percentage);
 
     });
   };
