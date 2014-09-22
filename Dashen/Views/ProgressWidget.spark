@@ -1,4 +1,4 @@
-﻿<viewdata model="Dashen.Controls.ProgressControlViewModel" />
+﻿<viewdata model="Dashen.Controls.ProgressWidgetModel" />
 
 <div class="circleProgress" id="${Model.ID}Content">
   <div class="percent"></div>

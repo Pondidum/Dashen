@@ -7,7 +7,7 @@ namespace Dashen
 	public class Widget
 	{
 		private int _width;
-		public Func<ControlViewModel> Create { get; set; }
+		public Func<WidgetModel> Create { get; set; }
 		public string Heading { get; set; }
 		public TimeSpan Interval { get; set; }
 

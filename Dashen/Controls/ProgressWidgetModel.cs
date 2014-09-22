@@ -1,6 +1,6 @@
 ﻿namespace Dashen.Controls
 {
-	public class ProgressControlViewModel : ControlViewModel
+	public class ProgressWidgetModel : WidgetModel
 	{
 		public decimal Percentage { get; set; }
 	}

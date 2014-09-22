@@ -22,7 +22,7 @@ namespace Dashen.Tests.Infrastructure.Spark
 			var engine = Substitute.For<ISparkViewEngine>();
 			engine.ViewFolder.Returns(_viewFolder);
 
-			_builder = new DescriptorBuilder(engine);
+			_builder = new DescriptorBuilder(engine, new NameTransformer());
 		}
 
 		private void HasTemplate(string path)
@@ -55,11 +55,11 @@ namespace Dashen.Tests.Infrastructure.Spark
 		public void When_loading_a_shared_view_and_there_is_no_application_view()
 		{
 			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
-			HasTemplate("Dashen\\Views\\TextControl.spark");
+			HasTemplate("Dashen\\Views\\TextWidget.spark");
 
-			var descriptor = _builder.Build(typeof(TextControlViewModel));
+			var descriptor = _builder.Build(typeof(TextWidgetModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextControl.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextWidget.spark" }, ignoreOrder: true);
 		}
 
 		[Fact]
@@ -67,11 +67,11 @@ namespace Dashen.Tests.Infrastructure.Spark
 		{
 			HasTemplate("Dashen\\Endpoints\\Index\\Index.spark");
 			HasTemplate("Dashen\\Views\\Application.spark");
-			HasTemplate("Dashen\\Views\\TextControl.spark");
+			HasTemplate("Dashen\\Views\\TextWidget.spark");
 
-			var descriptor = _builder.Build(typeof(TextControlViewModel));
+			var descriptor = _builder.Build(typeof(TextWidgetModel));
 
-			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextControl.spark" }, ignoreOrder: true);
+			descriptor.Templates.ShouldBe(new[] { "Dashen\\Views\\TextWidget.spark" }, ignoreOrder: true);
 		}
 	}
 }

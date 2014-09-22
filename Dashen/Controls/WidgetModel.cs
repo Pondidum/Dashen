@@ -1,6 +1,6 @@
 ﻿namespace Dashen.Controls
 {
-	public class ControlViewModel
+	public class WidgetModel
 	{
 		public string ID { get; set; }
 		public string UpdateUrl { get; set; }

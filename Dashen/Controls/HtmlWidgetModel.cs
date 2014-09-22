@@ -1,6 +1,6 @@
 ﻿namespace Dashen.Controls
 {
-	public class HtmlControlViewModel : ControlViewModel
+	public class HtmlWidgetModel : WidgetModel
 	{
 		public string Html { get; set; } 
 	}

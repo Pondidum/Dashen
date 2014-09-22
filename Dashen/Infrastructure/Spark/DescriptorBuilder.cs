@@ -8,10 +8,12 @@ namespace Dashen.Infrastructure.Spark
 {
 	public class DescriptorBuilder
 	{
+		private readonly NameTransformer _namer;
 		private readonly IViewFolder _viewFolder;
 
-		public DescriptorBuilder(ISparkViewEngine configuredEngine)
+		public DescriptorBuilder(ISparkViewEngine configuredEngine, NameTransformer namer)
 		{
+			_namer = namer;
 			_viewFolder = configuredEngine.ViewFolder;
 		}
 
@@ -43,7 +45,7 @@ namespace Dashen.Infrastructure.Spark
 			var modelName = modelType.Name;
 			var modelPath = modelType.FullName.Substring(0, modelType.FullName.Length - modelName.Length - 1);
 
-			var viewName = String.Format("{0}.spark", modelName.Replace("ViewModel", ""));
+			var viewName = _namer.ViewFromModel(modelName);
 			var viewPath = modelPath.Replace(".", "\\");
 
 			var descriptor = new SparkViewDescriptor();

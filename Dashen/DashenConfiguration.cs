@@ -116,7 +116,7 @@ namespace Dashen
 		/// </summary>
 		/// <typeparam name="T">The model type for the widget's view</typeparam>
 		/// <param name="view">Byte array representing a spark view</param>
-		public void AddWidgetTypeAndView<T>(byte[] view) where T : ControlViewModel
+		public void AddWidgetTypeAndView<T>(byte[] view) where T : WidgetModel
 		{
 			CustomViews[typeof (T)] = view;
 		}

@@ -1,6 +1,6 @@
-﻿<viewdata model="Dashen.Controls.HtmlControlViewModel" />
+﻿<viewdata model="Dashen.Controls.TextWidgetModel" />
 
-<div id="${Model.ID}Html" class="text-center"></div>
+<div id="${Model.ID}Content" class="text-center"></div>
 
 <script type="text/javascript">
 
@@ -8,7 +8,7 @@
     $.ajax({
       url: '${Model.UpdateUrl}'
     }).done(function (result) {
-      $('#${Model.ID}Html').html(result.Html);
+      $('#${Model.ID}Content').text(result.Content);
     });
   };
 

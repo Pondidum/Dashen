@@ -64,8 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationModel.cs" />
-    <Compile Include="Controls\ProgressControlViewModel.cs" />
-    <Compile Include="Controls\HtmlControlViewModel.cs" />
+    <Compile Include="Controls\ProgressWidgetModel.cs" />
+    <Compile Include="Controls\HtmlWidgetModel.cs" />
     <Compile Include="DashenConfiguration.cs" />
     <Compile Include="Endpoints\Index\IndexViewModelBuilder.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\AdhocContentProvider.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Endpoints\Static\StaticContent.cs" />
     <Compile Include="Endpoints\Static\ContentProviders\EmbeddedStaticContentProvider.cs" />
     <Compile Include="Endpoints\Static\IStaticContentProvider.cs" />
+    <Compile Include="Infrastructure\Spark\NameTransformer.cs" />
     <Compile Include="Infrastructure\Spark\SparkBuilder.cs" />
     <Compile Include="Initialisation\ContainerInitialisation.cs" />
     <Compile Include="Initialisation\IDashboardInitialisation.cs" />
@@ -106,14 +107,14 @@
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
     <Compile Include="Endpoints\Static\MimeLookup.cs" />
-    <Compile Include="Controls\BarGraphControlViewModel.cs" />
-    <Compile Include="Controls\GraphControlViewModel.cs" />
+    <Compile Include="Controls\BarGraphWidgetModel.cs" />
+    <Compile Include="Controls\GraphWidgetModel.cs" />
     <Compile Include="Endpoints\Index\IndexDisplayViewModel.cs" />
     <Compile Include="Endpoints\Index\IndexViewModel.cs" />
-    <Compile Include="Controls\ListControlViewModel.cs" />
-    <Compile Include="Controls\TextControlViewModel.cs" />
+    <Compile Include="Controls\ListWidgetModel.cs" />
+    <Compile Include="Controls\TextWidgetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controls\ControlViewModel.cs" />
+    <Compile Include="Controls\WidgetModel.cs" />
     <Compile Include="Properties\AssemblyVersion.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,12 +124,12 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Endpoints\Index\Index.spark" />
     <EmbeddedResource Include="Views\Application.spark" />
-    <EmbeddedResource Include="Views\TextControl.spark" />
-    <EmbeddedResource Include="Views\ListControl.spark" />
-    <EmbeddedResource Include="Views\GraphControl.spark" />
-    <EmbeddedResource Include="Views\BarGraphControl.spark" />
-    <EmbeddedResource Include="Views\ProgressControl.spark" />
-    <EmbeddedResource Include="Views\HtmlControl.spark" />
+    <EmbeddedResource Include="Views\TextWidget.spark" />
+    <EmbeddedResource Include="Views\ListWidget.spark" />
+    <EmbeddedResource Include="Views\GraphWidget.spark" />
+    <EmbeddedResource Include="Views\BarGraphWidget.spark" />
+    <EmbeddedResource Include="Views\ProgressWidget.spark" />
+    <EmbeddedResource Include="Views\HtmlWidget.spark" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\css\foundation.min.css" />

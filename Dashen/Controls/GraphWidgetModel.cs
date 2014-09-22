@@ -4,13 +4,13 @@ using Dashen.Endpoints.Stats;
 
 namespace Dashen.Controls
 {
-	public class GraphControlViewModel : ControlViewModel
+	public class GraphWidgetModel : WidgetModel
 	{
 		public IEnumerable<Pair> Points { get; set; }
 		public IEnumerable<Label> XTicks { get; set; }
 		public IEnumerable<Label> YTicks { get; set; }
 
-		public GraphControlViewModel()
+		public GraphWidgetModel()
 		{
 			Points = Enumerable.Empty<Pair>();
 			XTicks = Enumerable.Empty<Label>();

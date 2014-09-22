@@ -17,12 +17,13 @@ namespace Dashen.Tests.Acceptance
 		public ViewCompilationTests()
 		{
 			var config = new DashenConfiguration();
-			config.AddWidgetTypeAndView<FakeControlViewModel>(CreateView());
+			config.AddWidgetTypeAndView<FakeWidgetModel>(CreateView());
 
 			var app = new ApplicationModel(config);
+			var namer = new NameTransformer();
 
-			var configuredEngine = new SparkBuilder(config).Build();
-			var descriptorBuilder = new DescriptorBuilder(configuredEngine);
+			var configuredEngine = new SparkBuilder(config, namer).Build();
+			var descriptorBuilder = new DescriptorBuilder(configuredEngine, namer);
 
 			_spark = new SparkEngine(configuredEngine, descriptorBuilder, app);
 		}
@@ -30,7 +31,7 @@ namespace Dashen.Tests.Acceptance
 		[Fact]
 		public void A_control_view_with_no_template_renders()
 		{
-			var model = new TextControlViewModel { Content = "Test Text" };
+			var model = new TextWidgetModel { Content = "Test Text" };
 
 			var content = Render(model);
 			content.ShouldNotContain("<html>");
@@ -49,7 +50,7 @@ namespace Dashen.Tests.Acceptance
 		[Fact]
 		public void A_custom_view_can_be_added_and_compiled()
 		{
-			var model = new FakeControlViewModel();
+			var model = new FakeWidgetModel();
 
 			var content = Render(model);
 			content.ShouldContain("<p>Testing omg!</p>");
@@ -59,7 +60,7 @@ namespace Dashen.Tests.Acceptance
 		private byte[] CreateView()
 		{
 			var view =
-				@"<viewdata model='Dashen.Tests.Acceptance.FakeControlViewModel' />" + Environment.NewLine +
+				@"<viewdata model='Dashen.Tests.Acceptance.FakeWidgetModel' />" + Environment.NewLine +
 				@"<p>!{Model.Content}</p>";
 
 			return Encoding.UTF8.GetBytes(view);
@@ -80,11 +81,11 @@ namespace Dashen.Tests.Acceptance
 		}
 	}
 
-	public class FakeControlViewModel : ControlViewModel
+	public class FakeWidgetModel : WidgetModel
 	{
 		public string Content { get; set; }
 
-		public FakeControlViewModel()
+		public FakeWidgetModel()
 		{
 			Content = "Testing omg!";
 		}

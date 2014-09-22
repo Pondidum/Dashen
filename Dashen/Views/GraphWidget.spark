@@ -1,4 +1,4 @@
-﻿<viewdata model="Dashen.Controls.GraphControlViewModel" />
+﻿<viewdata model="Dashen.Controls.GraphWidgetModel" />
 
 <div id="${Model.ID}Graph" style="height:120px;"></div>
 

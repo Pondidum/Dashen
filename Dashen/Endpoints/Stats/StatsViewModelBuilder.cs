@@ -4,7 +4,7 @@ namespace Dashen.Endpoints.Stats
 {
 	public class StatsViewModelBuilder
 	{
-		internal ControlViewModel FromWidget(Widget widget)
+		internal WidgetModel FromWidget(Widget widget)
 		{
 			var model = widget.Create();
 

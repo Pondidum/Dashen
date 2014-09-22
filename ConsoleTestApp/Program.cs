@@ -22,7 +22,7 @@ namespace ConsoleTestApp
 
 			var ui = new Dashboard(config);
 
-			var model = new TextControlViewModel { Content = "Test" };
+			var model = new TextWidgetModel { Content = "Test" };
 			//config all the things...
 			ui.Register(new Widget
 			{
@@ -34,14 +34,14 @@ namespace ConsoleTestApp
 
 			ui.Register(new Widget
 			{
-				Create = () => new ListControlViewModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
+				Create = () => new ListWidgetModel { Items = new[] { "One", "Two", "Many", "Lots" }.ToList() },
 				Heading = "List",
 				Width = 3
 			});
 
 			ui.Register(new Widget
 			{
-				Create = () => new GraphControlViewModel
+				Create = () => new GraphWidgetModel
 				{
 					Points = new[] { new Pair(0,10), new Pair(50, 15) },
 					XTicks = new[] { new Label(0, "left"), new Label(50, "right") }
@@ -52,7 +52,7 @@ namespace ConsoleTestApp
 
 			ui.Register(new Widget
 			{
-				Create = () => new BarGraphControlViewModel
+				Create = () => new BarGraphWidgetModel
 				{
 					Points = new[] { new Pair(0, 10), new Pair(2, 15) },
 					XTicks = new[] { new Label(0, "left"), new Label(2, "right") }
@@ -63,13 +63,13 @@ namespace ConsoleTestApp
 
 			ui.Register(new Widget
 			{
-				Create = () => new ProgressControlViewModel { Percentage = 0.75M},
+				Create = () => new ProgressWidgetModel { Percentage = 0.75M},
 				Heading = "Prg"
 			});
 
 			ui.Register(new Widget
 			{
-				Create = () => new HtmlControlViewModel {  Html = "<strong>Hello</strong>"},
+				Create = () => new HtmlWidgetModel {  Html = "<strong>Hello</strong>"},
 				Heading = "Html"
 			});
 

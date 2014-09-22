@@ -7,10 +7,12 @@ namespace Dashen.Infrastructure.Spark
 	public class SparkBuilder
 	{
 		private readonly DashenConfiguration _config;
+		private readonly NameTransformer _namer;
 
-		public SparkBuilder(DashenConfiguration config)
+		public SparkBuilder(DashenConfiguration config, NameTransformer namer)
 		{
 			_config = config;
+			_namer = namer;
 		}
 
 		public ISparkViewEngine Build()
@@ -33,7 +35,7 @@ namespace Dashen.Infrastructure.Spark
 
 			foreach (var pair in _config.CustomViews)
 			{
-				var name = pair.Key.Name.Replace("ViewModel", "") + ".spark";
+				var name = _namer.ViewFromModel(pair.Key.Name);
 				var path = Path.Combine("Dashen\\Views\\", name);
 
 				user.Add(path, pair.Value);

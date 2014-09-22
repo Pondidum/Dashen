@@ -2,7 +2,7 @@
 
 namespace Dashen.Controls
 {
-	public class ListControlViewModel : ControlViewModel
+	public class ListWidgetModel : WidgetModel
 	{
 		public List<string> Items { get; set; }
 	}
