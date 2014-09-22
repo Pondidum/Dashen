@@ -67,6 +67,12 @@ namespace ConsoleTestApp
 				Heading = "Prg"
 			});
 
+			ui.Register(new Widget
+			{
+				Create = () => new HtmlControlViewModel {  Html = "<strong>Hello</strong>"},
+				Heading = "Html"
+			});
+
 			ui.Start();
 
 			Console.WriteLine("Webui running on port 8080.");
