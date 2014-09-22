@@ -1,6 +1,5 @@
 ﻿using System;
 using Dashen.Controls;
-using Dashen.Endpoints.Stats;
 
 namespace Dashen
 {

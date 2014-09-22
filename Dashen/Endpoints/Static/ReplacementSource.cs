@@ -19,7 +19,7 @@ namespace Dashen.Endpoints.Static
 
 		public string Process(string input)
 		{
-			_replacements.Each(pair => input = input.Replace((string)pair.Key, pair.Value));
+			_replacements.Each(pair => input = input.Replace(pair.Key, pair.Value));
 
 			return input;
 		}

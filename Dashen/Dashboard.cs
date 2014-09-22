@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Http.SelfHost;
+﻿using System.Web.Http.SelfHost;
 using Dashen.Initialisation;
 using StructureMap;
 using StructureMap.Graph;
