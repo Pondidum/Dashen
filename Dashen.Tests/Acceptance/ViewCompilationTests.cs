@@ -17,7 +17,7 @@ namespace Dashen.Tests.Acceptance
 		public ViewCompilationTests()
 		{
 			var config = new DashenConfiguration();
-			config.AddControlView<FakeControlViewModel>(CreateView());
+			config.AddWidgetTypeAndView<FakeControlViewModel>(CreateView());
 
 			var app = new ApplicationModel(config);
 

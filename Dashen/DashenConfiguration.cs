@@ -6,23 +6,45 @@ using System.Linq;
 using System.Net.Http;
 using Dashen.Controls;
 using Dashen.Endpoints.Static.ContentProviders;
-using Dashen.Endpoints.Stats;
 using Dashen.Infrastructure;
 
 namespace Dashen
 {
 	public class DashenConfiguration
 	{
+		/// <summary>
+		/// The Uri to host the webui on.
+		/// </summary>
 		public Uri ListenOn { get; set; }
 
+		/// <summary>
+		/// A bright colour for highlighting UI elements.
+		/// </summary>
 		public Color HighlightColor { get; set; }
+
+		/// <summary>
+		/// A dark colour for highlighting UI elements.<br/>
+		/// Used by Graphs, ProgressBars for outline/progress colour.
+		/// </summary>
 		public Color LowlightColor { get; set; }
+
+		/// <summary>
+		/// The name to display on the dashboard.
+		/// </summary>
 		public string Title { get; set; }
+
+		/// <summary>
+		/// The version to display on the dashboard.
+		/// </summary>
 		public string Version { get; set; }
 
+		/// <summary>
+		/// Custom MessageHandlers to be invoked on each request.<br/>
+		/// Console logging can be added/removed by <see cref="EnableConsoleLog"/> and <see cref="DisableConsoleLog"/>.
+		/// </summary>
 		public List<DelegatingHandler> MessageHandlers { get; private set; }
-		internal Dictionary<string, AdhocContentProvider.ResourceContent> Resources { get; private set; }
 
+		internal Dictionary<string, AdhocContentProvider.ResourceContent> Resources { get; private set; }
 		internal Dictionary<Type, byte[]> CustomViews { get; private set; }
 
 		public DashenConfiguration()
@@ -89,7 +111,12 @@ namespace Dashen
 			return this;
 		}
 
-		public void AddControlView<T>(byte[] view) where T : ControlViewModel
+		/// <summary>
+		/// Adds a custom model and view pair for widgets
+		/// </summary>
+		/// <typeparam name="T">The model type for the widget's view</typeparam>
+		/// <param name="view">Byte array representing a spark view</param>
+		public void AddWidgetTypeAndView<T>(byte[] view) where T : ControlViewModel
 		{
 			CustomViews[typeof (T)] = view;
 		}
