@@ -8,7 +8,7 @@
     $.ajax({
       url: '${Model.UpdateUrl}'
     }).done(function (result) {
-      $('#${Model.ID}Content').html(result.Content);
+      $('#${Model.ID}Content').text(result.Content);
     });
   };
 
