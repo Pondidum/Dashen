@@ -7,13 +7,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Dashen.Endpoints.Stats
 {
-	public class StatsController : ApiController
+	public class WidgetsController : ApiController
 	{
 		private readonly SparkResponseFactory _factory;
 		private readonly WidgetCollection _widgets;
 		private readonly StatsViewModelBuilder _builder;
 
-		public StatsController(SparkResponseFactory factory, WidgetCollection collection, StatsViewModelBuilder builder)
+		public WidgetsController(SparkResponseFactory factory, WidgetCollection collection, StatsViewModelBuilder builder)
 		{
 			_factory = factory;
 			_widgets = collection;

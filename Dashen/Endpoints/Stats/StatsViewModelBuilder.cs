@@ -10,7 +10,7 @@ namespace Dashen.Endpoints.Stats
 			var model = widget.Create();
 
 			model.ID = widget.ID;
-			model.UpdateUrl = RouteHelper.For<StatsController>(c => c.Update("")) + widget.ID;
+			model.UpdateUrl = RouteHelper.For<WidgetsController>(c => c.Update("")) + widget.ID;
 			model.Interval = (int)widget.Interval.TotalMilliseconds;
 
 			return model;

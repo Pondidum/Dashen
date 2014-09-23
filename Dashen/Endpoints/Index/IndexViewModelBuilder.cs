@@ -11,7 +11,7 @@ namespace Dashen.Endpoints.Index
 			{
 				Heading = definition.Heading,
 				ID = definition.ID,
-				CreateWidgetUrl = RouteHelper.For<StatsController>(c => c.CreateWidget("")) + definition.ID,
+				CreateWidgetUrl = RouteHelper.For<WidgetsController>(c => c.CreateWidget("")) + definition.ID,
 				Columns = definition.Width,
 			};
 

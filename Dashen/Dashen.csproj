@@ -94,7 +94,7 @@
     <Compile Include="Initialisation\ServerBuilder.cs" />
     <Compile Include="Endpoints\Index\IndexController.cs" />
     <Compile Include="Endpoints\Static\StaticController.cs" />
-    <Compile Include="Endpoints\Stats\StatsController.cs" />
+    <Compile Include="Endpoints\Stats\WidgetsController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="DashenRegistry.cs" />
     <Compile Include="Widget.cs" />
