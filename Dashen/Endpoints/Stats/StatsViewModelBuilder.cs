@@ -1,4 +1,5 @@
 ﻿using Dashen.Controls;
+using Dashen.Infrastructure;
 
 namespace Dashen.Endpoints.Stats
 {
@@ -9,7 +10,7 @@ namespace Dashen.Endpoints.Stats
 			var model = widget.Create();
 
 			model.ID = widget.ID;
-			model.UpdateUrl = "stats/update/" + widget.ID;
+			model.UpdateUrl = RouteHelper.For<StatsController>(c => c.Update("")) + widget.ID;
 			model.Interval = (int)widget.Interval.TotalMilliseconds;
 
 			return model;

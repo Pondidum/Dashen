@@ -1,4 +1,7 @@
-﻿namespace Dashen.Endpoints.Index
+﻿using Dashen.Endpoints.Stats;
+using Dashen.Infrastructure;
+
+namespace Dashen.Endpoints.Index
 {
 	public class IndexViewModelBuilder
 	{
@@ -8,11 +11,11 @@
 			{
 				Heading = definition.Heading,
 				ID = definition.ID,
-				CreateWidgetUrl = "stats/createWidget/" + definition.ID,
+				CreateWidgetUrl = RouteHelper.For<StatsController>(c => c.CreateWidget("")) + definition.ID,
 				Columns = definition.Width,
 			};
 
 			return model;
-		} 
+		}
 	}
 }
