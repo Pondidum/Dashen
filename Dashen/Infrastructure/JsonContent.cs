@@ -18,8 +18,7 @@ namespace Dashen.Infrastructure
 			Headers.ContentType = new MediaTypeHeaderValue("application/json");
 		}
 
-		protected override Task SerializeToStreamAsync(Stream stream,
-			TransportContext context)
+		protected override Task SerializeToStreamAsync(Stream stream, TransportContext context)
 		{
 			var jw = new JsonTextWriter(new StreamWriter(stream))
 			{
