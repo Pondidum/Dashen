@@ -25,7 +25,7 @@ namespace Dashen.Tests.Acceptance
 			var configuredEngine = new SparkBuilder(config, namer).Build();
 			var descriptorBuilder = new DescriptorBuilder(configuredEngine, namer);
 
-			_spark = new SparkEngine(configuredEngine, descriptorBuilder, app);
+			_spark = new SparkEngine(config, configuredEngine, descriptorBuilder, app);
 		}
 
 		[Fact]

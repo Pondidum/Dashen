@@ -4,12 +4,14 @@ namespace Dashen.Infrastructure.Spark
 {
 	public class SparkEngine
 	{
+		private readonly DashenConfiguration _configuration;
 		private readonly ISparkViewEngine _engine;
 		private readonly DescriptorBuilder _descriptorBuilder;
 		private readonly ApplicationModel _applicationModel;
 
-		public SparkEngine(ISparkViewEngine configuredEngine, DescriptorBuilder descriptorBuilder, ApplicationModel applicationModel)
+		public SparkEngine(DashenConfiguration configuration, ISparkViewEngine configuredEngine, DescriptorBuilder descriptorBuilder, ApplicationModel applicationModel)
 		{
+			_configuration = configuration;
 			_engine = configuredEngine;
 			_descriptorBuilder = descriptorBuilder;
 			_applicationModel = applicationModel;
@@ -22,6 +24,7 @@ namespace Dashen.Infrastructure.Spark
 
 			var view = (DashenView)entry.CreateInstance();
 			view.App = _applicationModel;
+			view.Configuration = _configuration;
 
 			((IDashenView)view).SetModel(model);
 

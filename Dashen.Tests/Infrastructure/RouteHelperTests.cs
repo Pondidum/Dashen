@@ -11,7 +11,10 @@ namespace Dashen.Tests.Infrastructure
 		[Fact]
 		public void Generating_a_route_gives_a_correct_result()
 		{
-			var route = RouteHelper.For<TestController>(c => c.DoSomething());
+			var config = new DashenConfiguration();
+			config.Prefix = "";
+
+			var route = RouteHelper.For<TestController>(config, c => c.DoSomething());
 
 			route.ShouldBe("Test/DoSomething/");
 		}
