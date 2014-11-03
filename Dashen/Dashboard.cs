@@ -1,4 +1,6 @@
-﻿using System.Web.Http.SelfHost;
+﻿using System;
+using System.Web.Http;
+using System.Web.Http.SelfHost;
 using Dashen.Initialisation;
 using StructureMap;
 using StructureMap.Graph;
@@ -7,8 +9,9 @@ namespace Dashen
 {
 	public class Dashboard
 	{
-		private readonly HttpSelfHostServer _server;
+		private readonly ServerBuilder _serverBuilder;
 		private readonly WidgetCollection _definitions;
+		private readonly Lazy<HttpSelfHostServer> _server;
 
 		public Dashboard(DashenConfiguration config)
 		{
@@ -24,7 +27,8 @@ namespace Dashen
 			});
 
 			_definitions = container.GetInstance<WidgetCollection>();
-			_server = container.GetInstance<ServerBuilder>().BuildServer();
+			_serverBuilder = container.GetInstance<ServerBuilder>();
+			_server = new Lazy<HttpSelfHostServer>(() => _serverBuilder.BuildServer());
 		}
 
 		/// <summary>
@@ -32,7 +36,7 @@ namespace Dashen
 		/// </summary>
 		public void Start()
 		{
-			_server.OpenAsync().Wait();
+			_server.Value.OpenAsync().Wait();
 		}
 
 		/// <summary>
@@ -40,7 +44,10 @@ namespace Dashen
 		/// </summary>
 		public void Stop()
 		{
-			_server.CloseAsync().Wait();
+			if (_server.IsValueCreated)
+			{
+				_server.Value.CloseAsync().Wait();
+			}
 		}
 
 		/// <summary>
@@ -51,6 +58,11 @@ namespace Dashen
 		public void Register(Widget definition)
 		{
 			_definitions.Add(definition);
+		}
+
+		public void HookTo(HttpConfiguration config)
+		{
+			_serverBuilder.ApplyTo(config);
 		}
 	}
 }

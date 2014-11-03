@@ -12,22 +12,22 @@ namespace Dashen.Initialisation
 			_userConfig = userConfig;
 		}
 
-		public void ApplyTo(HttpSelfHostConfiguration config)
+		public void ApplyTo(HttpConfiguration config)
 		{
 			config.Routes.MapHttpRoute(
-				"Home",
+				"Dashen.Home",
 				_userConfig.ApplyPrefix(""),
 				new { controller = "Index" }
 			);
 
 			config.Routes.MapHttpRoute(
-				"Widget",
+				"Dashen.Widget",
 				_userConfig.ApplyPrefix("Widgets/{action}/{*url}"),
 				new { controller = "Widgets", url = RouteParameter.Optional }
 			);
 
 			config.Routes.MapHttpRoute(
-				"Static",
+				"Dashen.Static",
 				_userConfig.ApplyPrefix("{*url}"),
 				new { controller = "Static", action = "GetDispatch" }
 			);

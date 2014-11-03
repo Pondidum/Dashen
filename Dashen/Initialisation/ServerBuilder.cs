@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 using System.Web.Http.SelfHost;
 using Dashen.Infrastructure;
 
@@ -23,6 +24,11 @@ namespace Dashen.Initialisation
 			_initialisers.Each(c => c.ApplyTo(serverConfig));
 
 			return new HttpSelfHostServer(serverConfig);
+		}
+
+		public void ApplyTo(HttpConfiguration serverConfig)
+		{
+			_initialisers.Each(c => c.ApplyTo(serverConfig));
 		}
 	}
 }

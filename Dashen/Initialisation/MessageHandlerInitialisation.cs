@@ -1,4 +1,5 @@
-﻿using System.Web.Http.SelfHost;
+﻿using System.Web.Http;
+using System.Web.Http.SelfHost;
 
 namespace Dashen.Initialisation
 {
@@ -11,7 +12,7 @@ namespace Dashen.Initialisation
 			_userConfiguration = userConfiguration;
 		}
 
-		public void ApplyTo(HttpSelfHostConfiguration config)
+		public void ApplyTo(HttpConfiguration config)
 		{
 			foreach (var handler in _userConfiguration.MessageHandlers)
 			{

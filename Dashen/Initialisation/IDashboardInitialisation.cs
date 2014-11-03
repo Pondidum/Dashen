@@ -1,9 +1,10 @@
-﻿using System.Web.Http.SelfHost;
+﻿using System.Web.Http;
+using System.Web.Http.SelfHost;
 
 namespace Dashen.Initialisation
 {
 	public interface IDashboardInitialisation
 	{
-		void ApplyTo(HttpSelfHostConfiguration config);
+		void ApplyTo(HttpConfiguration config);
 	}
 }

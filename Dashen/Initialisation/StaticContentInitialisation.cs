@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Web.Http;
 using System.Web.Http.SelfHost;
 using Dashen.Endpoints.Static;
 using Dashen.Endpoints.Static.ContentProviders;
@@ -19,7 +20,7 @@ namespace Dashen.Initialisation
 			_adhockContent = adhockContent;
 		}
 
-		public void ApplyTo(HttpSelfHostConfiguration config)
+		public void ApplyTo(HttpConfiguration config)
 		{
 			_replacements.Add(
 				_userConfiguration.GetMemberName(x => x.HighlightColor),
