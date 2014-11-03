@@ -1,11 +1,11 @@
 ﻿<html>
   <head>
-    <link rel="stylesheet" href='${Route("css/normalize.css")}' />
-    <link rel="stylesheet" href='${Route("css/foundation.min.css")}' />
-    <link rel="stylesheet" href='${Route("css/style.css")}' />
+    <link rel="stylesheet" href='${Route("css/normalize")}' />
+    <link rel="stylesheet" href='${Route("css/foundation")}' />
+    <link rel="stylesheet" href='${Route("css/style")}' />
   
-    <script type='text/javascript' src='${Route("/js/jquery-2.1.1.min.js")}'></script>
-    <script type="text/javascript" src='${Route("/js/jquery.flot.min.js")}'></script>
+    <script type='text/javascript' src='${Route("/js/jquery")}'></script>
+    <script type="text/javascript" src='${Route("/js/jquery-flot")}'></script>
 
   </head>
   <body>
