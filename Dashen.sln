@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestApp", "ConsoleTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashen.Tests", "Dashen.Tests\Dashen.Tests.csproj", "{7D5E4B0C-4153-485F-9A5C-B57C6BE7B755}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebapiTestApp", "WebapiTestApp\WebapiTestApp.csproj", "{251DE4D7-BD54-499F-BDA1-943EFAECC077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7D5E4B0C-4153-485F-9A5C-B57C6BE7B755}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D5E4B0C-4153-485F-9A5C-B57C6BE7B755}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D5E4B0C-4153-485F-9A5C-B57C6BE7B755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251DE4D7-BD54-499F-BDA1-943EFAECC077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251DE4D7-BD54-499F-BDA1-943EFAECC077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251DE4D7-BD54-499F-BDA1-943EFAECC077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251DE4D7-BD54-499F-BDA1-943EFAECC077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
