@@ -5,25 +5,32 @@ namespace Dashen.Initialisation
 {
 	public class RouteInitialisation : IDashboardInitialisation
 	{
+		private readonly DashenConfiguration _userConfig;
+
+		public RouteInitialisation(DashenConfiguration userConfig)
+		{
+			_userConfig = userConfig;
+		}
+
 		public void ApplyTo(HttpSelfHostConfiguration config)
 		{
 			config.Routes.MapHttpRoute(
 				"Home",
-				"",
+				_userConfig.ApplyPrefix(""),
 				new { controller = "Index" }
 			);
 
 			config.Routes.MapHttpRoute(
 				"Widget",
-				"Widgets/{action}/{*url}",
+				_userConfig.ApplyPrefix("Widgets/{action}/{*url}"),
 				new { controller = "Widgets", url = RouteParameter.Optional }
 			);
 
 			config.Routes.MapHttpRoute(
 				"Static",
-				"{*url}",
+				_userConfig.ApplyPrefix("{*url}"),
 				new { controller = "Static", action = "GetDispatch" }
-				);
+			);
 		}
 	}
 }

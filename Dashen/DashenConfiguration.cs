@@ -46,6 +46,8 @@ namespace Dashen
 
 		internal Dictionary<string, AdhocContentProvider.ResourceContent> Resources { get; private set; }
 		internal Dictionary<Type, byte[]> CustomViews { get; private set; }
+		
+		public string Prefix { get; set; }
 
 		public DashenConfiguration()
 		{
@@ -60,6 +62,7 @@ namespace Dashen
 
 			Title = "Dashen Stats Panel";
 			Version = GetType().Assembly.GetName().Version.ToString();
+			Prefix = "Dashen";
 		}
 
 		/// <summary>
@@ -119,6 +122,23 @@ namespace Dashen
 		public void AddWidgetTypeAndView<T>(byte[] view) where T : WidgetModel
 		{
 			CustomViews[typeof (T)] = view;
+		}
+
+		internal string ApplyPrefix(string route)
+		{
+			if (string.IsNullOrWhiteSpace(Prefix))
+			{
+				return route;
+			}
+
+			var prefix = Prefix.Trim('/');
+
+			if (string.IsNullOrWhiteSpace(route))
+			{
+				return prefix;
+			}
+
+			return prefix + '/' + route;
 		}
 	}
 }
