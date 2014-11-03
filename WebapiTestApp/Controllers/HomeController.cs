@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace WebapiTestApp.Controllers
 {
-	public class IndexController : ApiController
+	public class HomeController : ApiController
 	{
 		[HttpGet]
 		public HttpResponseMessage Get()

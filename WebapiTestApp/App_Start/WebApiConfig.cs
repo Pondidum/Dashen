@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Dashen;
 
 namespace WebapiTestApp
 {
@@ -14,6 +15,9 @@ namespace WebapiTestApp
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+			var dash = new Dashboard(new DashenConfiguration());
+			dash.HookTo(config);
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{id}",
@@ -23,8 +27,9 @@ namespace WebapiTestApp
 	        config.Routes.MapHttpRoute(
 		        "Home",
 		        "",
-		        defaults: new { controller = "Index", action = "Get" }
+		        defaults: new { controller = "Home", action = "Get" }
 			);
+
         }
     }
 }
