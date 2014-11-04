@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using Dashen.Infrastructure;
 
 namespace Dashen.Endpoints.Static
 {
@@ -15,7 +16,7 @@ namespace Dashen.Endpoints.Static
 
 		public StaticController(IStaticContentProvider contentProvider)
 		{
-			_contentProviders = new[] {contentProvider}.ToList();
+			_contentProviders = new[] { contentProvider }.ToList();
 			_contentRouteMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
 			_contentRouteMap["css/normalize"] = "css/normalize.css";
@@ -27,13 +28,18 @@ namespace Dashen.Endpoints.Static
 
 		public HttpResponseMessage GetDispatch(string url = "")
 		{
-			var path = _contentRouteMap[url];
+			var path = _contentRouteMap.Get(url);
+
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
 
 			var content = _contentProviders.Select(cp => cp.GetContent(path)).FirstOrDefault(c => c != null);
 
 			if (content == null)
 			{
-				return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
 			}
 
 			var streamContent = new StreamContent(content.Stream);
