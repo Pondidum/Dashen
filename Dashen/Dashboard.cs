@@ -13,6 +13,9 @@ namespace Dashen
 		private readonly WidgetCollection _definitions;
 		private readonly Lazy<HttpSelfHostServer> _server;
 
+		//i am so so sorry for this
+		internal static IContainer Container { get; private set; }
+
 		public Dashboard(DashenConfiguration config)
 		{
 			var container = new Container(c =>
@@ -25,6 +28,8 @@ namespace Dashen
 					a.LookForRegistries();
 				});
 			});
+
+			Container = container;
 
 			_definitions = container.GetInstance<WidgetCollection>();
 			_serverBuilder = container.GetInstance<ServerBuilder>();

@@ -13,6 +13,13 @@ namespace Dashen.Endpoints.Stats
 		private readonly WidgetCollection _widgets;
 		private readonly StatsViewModelBuilder _builder;
 
+		public WidgetsController() : this(
+			Dashboard.Container.GetInstance<SparkResponseFactory>(),
+			Dashboard.Container.GetInstance<WidgetCollection>(),
+			Dashboard.Container.GetInstance<StatsViewModelBuilder>())
+		{
+		}
+
 		public WidgetsController(SparkResponseFactory factory, WidgetCollection collection, StatsViewModelBuilder builder)
 		{
 			_factory = factory;

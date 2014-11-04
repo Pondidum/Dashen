@@ -14,6 +14,11 @@ namespace Dashen.Endpoints.Static
 		private readonly List<IStaticContentProvider> _contentProviders;
 		private readonly Dictionary<string, string> _contentRouteMap;
 
+		public StaticController() : this(
+			Dashboard.Container.GetInstance<IStaticContentProvider>())
+		{
+		}
+
 		public StaticController(IStaticContentProvider contentProvider)
 		{
 			_contentProviders = new[] { contentProvider }.ToList();
