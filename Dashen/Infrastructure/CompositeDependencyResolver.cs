@@ -2,7 +2,7 @@ using System.Web.Http.Dependencies;
 
 namespace Dashen.Infrastructure
 {
-	internal class CompositeDependencyResolver : CompositeDependencyScope, IDependencyResolver
+	public class CompositeDependencyResolver : CompositeDependencyScope, IDependencyResolver
 	{
 		private readonly IDependencyResolver _original;
 		private readonly StructureMapDependencyResolver _custom;

@@ -6,7 +6,7 @@ using StructureMap;
 
 namespace Dashen.Infrastructure
 {
-	class StructureMapDependencyScope : IDependencyScope
+	public class StructureMapDependencyScope : IDependencyScope
 	{
 		public IContainer Container { get; private set; }
 
@@ -27,7 +27,7 @@ namespace Dashen.Infrastructure
 				return Container.TryGetInstance(serviceType);
 			}
 
-			return Container.GetInstance(serviceType);
+			return Container.TryGetInstance(serviceType);
 		}
 
 		public IEnumerable<object> GetServices(Type serviceType)

@@ -5,7 +5,7 @@ using System.Web.Http.Dependencies;
 
 namespace Dashen.Infrastructure
 {
-	internal class CompositeDependencyScope : IDependencyScope
+	public class CompositeDependencyScope : IDependencyScope
 	{
 		private readonly IDependencyScope _original;
 		private readonly StructureMapDependencyScope _custom;

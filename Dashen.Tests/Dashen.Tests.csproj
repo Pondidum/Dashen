@@ -45,6 +45,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Spark.1.7.5.3\lib\NET45\Spark.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -77,6 +85,7 @@
     <Compile Include="Endpoints\Static\ContentProviders\CompositeContentProviderTests.cs" />
     <Compile Include="Endpoints\Static\ReplacementSourceTests.cs" />
     <Compile Include="Endpoints\Static\StaticControllerTests.cs" />
+    <Compile Include="Infrastructure\CompositeResolverTests.cs" />
     <Compile Include="Infrastructure\Extensions\GetTests.cs" />
     <Compile Include="Infrastructure\RouteHelperTests.cs" />
     <Compile Include="Infrastructure\Spark\DescriptorBuilderTests.cs" />

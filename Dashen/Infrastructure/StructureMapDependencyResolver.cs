@@ -3,7 +3,7 @@ using StructureMap;
 
 namespace Dashen.Infrastructure
 {
-	class StructureMapDependencyResolver : StructureMapDependencyScope, IDependencyResolver
+	public class StructureMapDependencyResolver : StructureMapDependencyScope, IDependencyResolver
 	{
 		public StructureMapDependencyResolver(IContainer container)
 			: base(container)
