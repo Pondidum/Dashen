@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using System.Web.Http.SelfHost;
 using Dashen.Infrastructure;
 using StructureMap;
 
@@ -16,7 +15,10 @@ namespace Dashen.Initialisation
 
 		public void ApplyTo(HttpConfiguration config)
 		{
-			config.DependencyResolver = new StructureMapDependencyResolver(_container);
+			var original = config.DependencyResolver;
+			var custom = new StructureMapDependencyResolver(_container);
+
+			config.DependencyResolver = new CompositeDependencyResolver(original, custom);
 		}
 	}
 }
