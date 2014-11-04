@@ -20,7 +20,7 @@ namespace Dashen.Tests.Endpoints.Static
 		[Fact]
 		public void When_a_valid_file_is_requested()
 		{
-			var response = _controller.GetDispatch("css/style.css");
+			var response = _controller.GetDispatch("css/style");
 
 			response.StatusCode.ShouldBe(HttpStatusCode.OK);
 		}
@@ -28,7 +28,7 @@ namespace Dashen.Tests.Endpoints.Static
 		[Fact]
 		public void When_a_non_existing_file_is_requested()
 		{
-			var response = _controller.GetDispatch("wefw/wefwefwefwefwef.css");
+			var response = _controller.GetDispatch("wefw/wefwefwefwefwef");
 
 			response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
 		}
