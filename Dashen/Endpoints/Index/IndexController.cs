@@ -11,13 +11,6 @@ namespace Dashen.Endpoints.Index
 		private readonly WidgetCollection _widgets;
 		private readonly IndexViewModelBuilder _builder;
 
-		public IndexController() : this(
-			Dashboard.Container.GetInstance<SparkResponseFactory>(),
-			Dashboard.Container.GetInstance<WidgetCollection>(),
-			Dashboard.Container.GetInstance<IndexViewModelBuilder>())
-		{
-		}
-
 		public IndexController(SparkResponseFactory factory, WidgetCollection widgets, IndexViewModelBuilder builder)
 		{
 			_factory = factory;
