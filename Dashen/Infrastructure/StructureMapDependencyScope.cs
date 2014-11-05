@@ -27,7 +27,18 @@ namespace Dashen.Infrastructure
 				return Container.TryGetInstance(serviceType);
 			}
 
-			return Container.TryGetInstance(serviceType);
+			//this is horrid, but TryGetInstance doesnt do as we need. See:
+			//http://stackoverflow.com/questions/4805259/
+			//http://codebetter.com/jeremymiller/2011/01/23/if-you-are-using-structuremap-with-mvc3-please-read-this/
+
+			try
+			{
+				return Container.GetInstance(serviceType);
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 
 		public IEnumerable<object> GetServices(Type serviceType)
