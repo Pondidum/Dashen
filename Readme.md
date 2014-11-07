@@ -9,7 +9,7 @@ It produces dashboards like this:
 ##How do I install it?
 
 ```powershell
-install-package Dashen 	#not published yet
+install-package Dashen
 ```
 
 ##How do I configure it?
@@ -34,5 +34,29 @@ ui.RegisterModel(new Definition
 	Width = 2,
 });
 
-ui.Start();
 ```
+
+You have two options for starting the dashboard, either self hosted, or attaching to an existing WebApi configuration:
+
+###SelfHost:
+```csharp
+var ui = new Dashboard(new DashenConfiguration {
+	ListenOn = new Uri("http://localhost:8080"),
+	Prefix = "Dashen"
+});
+
+ui.Start();
+//Visit http://localhost:8080/Dashen/ to see the dashboard
+```
+
+###WebApi
+```csharp
+var ui = new Dashboard(new DashenConfiguration {
+	Prefix = "Dashen"
+});
+
+ui.HookTo(config);
+//visit your api /dashen to see the dashboard
+```
+
+Note for hooking to an existing WebApi, if you are overriding the DependencyResolver, you **must** place the `.HookTo(config)` after your override.
