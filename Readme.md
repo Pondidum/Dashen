@@ -60,3 +60,98 @@ ui.HookTo(config);
 ```
 
 Note for hooking to an existing WebApi, if you are overriding the DependencyResolver, you **must** place the `.HookTo(config)` after your override.
+
+##Detailed Configuration
+
+* [ListenOn](#listenon)
+* [Prefix](#prefix)
+* [Title](#title)
+* [Version](#version)
+* [HighlightColor](#highlightcolor)
+* [LowlightColor](#lowlightcolor)
+* [EnableConsoleLog](#enableconsolelog)
+* [DisableConsoleLog](#disableconsolelog)
+* [MessageHandlers](#messagehandlers)
+* [AddResource](#addresource)
+* [AddWidgetTypeAndView](#addwidgettypeandview)
+
+###ListenOn
+>Specifies the uri and port for the web dashboard to run under.  Only applicable when selfhosting (`ui.Start()`)
+
+```
+config.ListenOn = new Uri("http://localhost:8080")
+```
+
+###Prefix
+>Specifies a route prefix to use to view the dashboard.
+
+```
+config.ListenOn = new Uri("http://localhost:8080");
+config.Prefix = "Dashen";
+```
+Would mean navigating to `http://localhost:8080/dashen` to see the dashboard.
+
+###Title
+>Sets the main header text of the dashboard.
+
+```
+config.Title = "My Awesome Service";
+```
+
+###Version
+>Sets the version header of the dashboard.
+
+```
+config.Version = typeof(Program).Assembly.Version.ToString();
+```
+
+###HighlightColor
+>A bright colour for highlighting in the dashboard.
+
+```
+config.HighlightColor = Color.LightGreen;
+```
+
+###LowlightColor
+>A dark colour for highlighting in the dashboard.  Used by Graphs, Progress Circles.
+
+```
+config.LowlightColor = Color.DarkGreen;
+```
+
+###EnableConsoleLog
+>Adds a MessageHandler which outputs to the console.  Only has an effect before `ui.Start()` or `ui.HookTo()` is called.
+
+```
+config.EnableConsoleLog()
+```
+
+###DisableConsoleLog
+>Removes the MessageHandler which outputs to the console.  Only has an effect before `ui.Start()` or `ui.HookTo()` is called.
+
+```
+config.DisableConsoleLog()
+```
+
+###MessageHandlers
+>Allows adding of custom MessageHandlers.
+>Only has an effect before `ui.Start()` or `ui.HookTo()` is called.
+>You probably only need to use this for self hosting.
+
+```
+config.MessageHandlers
+```
+
+###AddResource
+>Adds a static resource into Dashen.  Generally used in conjunction with the HtmlWidget.
+
+```
+config.AddResource("/img/good.png", fileStream, "image/png");
+```
+
+###AddWidgetTypeAndView
+>Used to register custom widgets with Dashen.
+
+```
+config.AddWidgetTypeAndView<FakeWidgetModel>(Encoding.UTF8.GetBytes(view));
+```
