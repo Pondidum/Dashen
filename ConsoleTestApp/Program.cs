@@ -22,6 +22,8 @@ namespace ConsoleTestApp
 
 			var ui = new Dashboard(config);
 
+			ui.AddComponent<TextComponent>();
+
 			var model = new TextWidgetModel { Content = "Test" };
 			//config all the things...
 			ui.Register(new Widget
