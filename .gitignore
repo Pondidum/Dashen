@@ -10,6 +10,8 @@ _ReSharper.*
 *.DotSettings
 *.DotSettings.user
 
+Gemfile.lock
+
 AssemblyVersion.cs
 
 packages
