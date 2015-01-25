@@ -19,7 +19,7 @@ namespace Dashen
 			where TModel : Model
 		{
 			_assets.AddRange(component.GetAssets());
-			_jsx.Add(component.GetJsx());
+			_jsx.Add(component.GetType().Name);
 		}
 
 		public string Render()
@@ -27,11 +27,16 @@ namespace Dashen
 			var sb = new StringBuilder();
 
 			sb.AppendLine("<html>");
+			sb.AppendLine("<head>");
+
+			sb.AppendLine("</head>");
 			sb.AppendLine("<body>");
 
-			sb.AppendLine("<script type=\"text\\jsx\">");
-			_jsx.ForEach(jsx => sb.AppendLine(jsx));
-			sb.AppendLine("</script>");
+			_jsx.ForEach(name =>
+			{
+				sb.AppendFormat("<script type=\"text/jsx\" src=\"components/{0}\"></script>", name);
+				sb.AppendLine();
+			});
 
 			sb.AppendLine("</body>");
 			sb.AppendLine("</html>");
