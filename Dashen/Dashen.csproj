@@ -73,6 +73,7 @@
     <Compile Include="Controllers\ModelsController.cs" />
     <Compile Include="IDGenerator.cs" />
     <Compile Include="IJsxProvider.cs" />
+    <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyScope.cs" />
     <Compile Include="Model.cs" />
