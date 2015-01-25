@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
+using Dashen.Assets;
 using Dashen.Infrastructure;
 using StructureMap;
 
@@ -40,7 +41,7 @@ namespace Dashen
 				return model;
 			});
 
-			_view.Register<TComponent, TModel>(component);
+			_view.AddAsset(new ComponentAssetInfo("components/" + component.Name));
 		}
 
 		public Task Start()

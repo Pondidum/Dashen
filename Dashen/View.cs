@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Dashen.Infrastructure;
 
 namespace Dashen
 {
@@ -14,12 +16,16 @@ namespace Dashen
 			_jsx = new List<string>();
 		}
 
-		public void Register<TComponent, TModel>(TComponent component)
-			where TComponent : Component<TModel>
-			where TModel : Model
+		public void AddAsset(AssetInfo asset)
 		{
-			_assets.AddRange(component.GetAssets());
-			_jsx.Add(component.GetType().Name);
+			_assets.Add(asset);
+		}
+
+		private void Include(StringBuilder sb, AssetLocations location)
+		{
+			_assets
+				.Where(asset => asset.Location == location)
+				.ForEach(asset => sb.AppendLine(asset.ToString()));
 		}
 
 		public string Render()
@@ -29,14 +35,14 @@ namespace Dashen
 			sb.AppendLine("<html>");
 			sb.AppendLine("<head>");
 
+			Include(sb, AssetLocations.PreHead);
+			Include(sb, AssetLocations.PostHead);
+
 			sb.AppendLine("</head>");
 			sb.AppendLine("<body>");
 
-			_jsx.ForEach(name =>
-			{
-				sb.AppendFormat("<script type=\"text/jsx\" src=\"components/{0}\"></script>", name);
-				sb.AppendLine();
-			});
+			Include(sb, AssetLocations.PreBody);
+			Include(sb, AssetLocations.PostBody);
 
 			sb.AppendLine("</body>");
 			sb.AppendLine("</html>");
