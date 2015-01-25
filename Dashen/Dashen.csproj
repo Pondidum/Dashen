@@ -68,6 +68,7 @@
     <Compile Include="ComponentRepository.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Components\TextComponent.cs" />
     <Compile Include="Controllers\ModelsController.cs" />
@@ -84,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
