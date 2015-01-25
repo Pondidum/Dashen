@@ -10,13 +10,15 @@ namespace Dashen
 	public class Dashboard
 	{
 		private readonly IContainer _container;
+		private readonly ComponentRepository _components;
 		private readonly ModelRepository _models;
 		private readonly IDGenerator _generator;
 		private readonly View _view;
 
-		public Dashboard(IContainer container, ModelRepository models, IDGenerator generator, View view)
+		public Dashboard(IContainer container, ComponentRepository components, ModelRepository models, IDGenerator generator, View view)
 		{
 			_container = container;
+			_components = components;
 			_models = models;
 			_generator = generator;
 			_view = view;
@@ -29,6 +31,8 @@ namespace Dashen
 
 			var component = _container.GetInstance<TComponent>();
 			var model = _container.GetInstance<TModel>();
+
+			_components.Register(component);
 
 			_models.Register(_generator.NextID(), () =>
 			{
@@ -44,8 +48,9 @@ namespace Dashen
 			var config = new HttpSelfHostConfiguration("http://localhost:3030");
 			config.DependencyResolver = new StructureMapDependencyResolver(_container);
 
-			config.Routes.MapHttpRoute("Home", "", new {controller = "Index"});
-			config.Routes.MapHttpRoute("Models", "models/{id}", new {controller = "Models"});
+			config.Routes.MapHttpRoute("Home", "", new { controller = "Index" });
+			config.Routes.MapHttpRoute("Models", "models/{id}", new { controller = "Models" });
+			config.Routes.MapHttpRoute("Components", "components/{name}", new { controller = "Components" });
 
 			var host = new HttpSelfHostServer(config);
 
