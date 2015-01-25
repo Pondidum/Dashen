@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetInfo.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Components\TextComponent.cs" />
