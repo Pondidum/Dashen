@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.SelfHost;
+using Dashen.Infrastructure;
 using StructureMap;
 
 namespace Dashen
@@ -33,7 +37,19 @@ namespace Dashen
 			});
 
 			_view.Register<TComponent, TModel>(component);
+		}
 
+		public Task Start()
+		{
+			var config = new HttpSelfHostConfiguration("http://localhost:3030");
+			config.DependencyResolver = new StructureMapDependencyResolver(_container);
+
+			config.Routes.MapHttpRoute("Home", "", new {controller = "Index"});
+			config.Routes.MapHttpRoute("Models", "models/{id}", new {controller = "Models"});
+
+			var host = new HttpSelfHostServer(config);
+
+			return host.OpenAsync();
 		}
 	}
 }
