@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetInfo.cs" />
+    <Compile Include="AssetLocations.cs" />
     <Compile Include="Assets\ComponentAssetInfo.cs" />
     <Compile Include="Assets\JavaScriptAsset.cs" />
     <Compile Include="Assets\StyleAssetInfo.cs" />

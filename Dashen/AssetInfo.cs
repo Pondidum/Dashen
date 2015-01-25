@@ -11,6 +11,7 @@ namespace Dashen
 
 		public string Tag { get; protected set; }
 		public bool SelfClosing { get; protected set; }
+		public AssetLocations Location { get; protected set;  }
 
 		private readonly Dictionary<string, string> _attributes;
 		private readonly Lazy<string> _tag;
