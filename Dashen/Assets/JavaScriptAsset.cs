@@ -6,6 +6,7 @@
 		{
 			Tag = "script";
 			SelfClosing = false;
+			Location = AssetLocations.PostHead;
 
 			AddAttribute("src", path);
 		}

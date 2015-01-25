@@ -6,6 +6,7 @@
 		{
 			Tag = "link";
 			SelfClosing = true;
+			Location = AssetLocations.PreHead;
 
 			AddAttribute("rel", "stylesheet");
 			AddAttribute("href", path);
