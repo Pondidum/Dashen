@@ -5,17 +5,17 @@ namespace Dashen
 {
 	public class ComponentRepository
 	{
-		private readonly Dictionary<string, string> _components;
+		private readonly Dictionary<ComponentName, string> _components;
 
 		public ComponentRepository()
 		{
-			_components = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			_components = new Dictionary<ComponentName, string>();
 		}
 
 		public void Register(IJsxProvider component)
 		{
 			var jsx = component.GetJsx();
-			var name = component.GetType().Name;
+			var name = component.Name;
 
 			var fileContents = string.Format(
 				"var {0} = React.createClass({{{1}}});",
@@ -27,7 +27,7 @@ namespace Dashen
 
 		public string GetComponent(string name)
 		{
-			return _components[name];
+			return _components[ComponentName.From(name)];
 		}
 	}
 }

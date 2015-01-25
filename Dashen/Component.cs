@@ -6,6 +6,12 @@ namespace Dashen
 	public class Component<TModel> : IJsxProvider
 		where TModel : Model
 	{
+		public ComponentName Name { get; private set; }
+
+		public Component()
+		{
+			Name = new ComponentName(this);
+		}
 
 		public void AddAsset(string key, string contents)
 		{
