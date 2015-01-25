@@ -8,12 +8,10 @@ namespace Dashen
 	public class View
 	{
 		private readonly List<AssetInfo> _assets;
-		private readonly List<string> _jsx;
 
 		public View()
 		{
 			_assets = new List<AssetInfo>();
-			_jsx = new List<string>();
 		}
 
 		public void AddAsset(AssetInfo asset)
