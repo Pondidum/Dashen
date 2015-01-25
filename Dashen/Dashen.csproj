@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="AssetInfo.cs" />
     <Compile Include="Component.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Components\TextComponent.cs" />
     <Compile Include="Controllers\ModelsController.cs" />
