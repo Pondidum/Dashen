@@ -3,7 +3,8 @@ using System.Linq;
 
 namespace Dashen
 {
-	public class Component<TModel> where TModel : Model
+	public class Component<TModel> : IJsxProvider
+		where TModel : Model
 	{
 
 		public void AddAsset(string key, string contents)
