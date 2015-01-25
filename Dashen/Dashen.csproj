@@ -59,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssetInfo.cs" />
+    <Compile Include="Assets\ComponentAssetInfo.cs" />
+    <Compile Include="Assets\JavaScriptAsset.cs" />
+    <Compile Include="Assets\StyleAssetInfo.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="ComponentName.cs" />
     <Compile Include="ComponentRepository.cs" />
