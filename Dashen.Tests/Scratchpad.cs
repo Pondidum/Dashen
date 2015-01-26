@@ -26,7 +26,6 @@ namespace Dashen.Tests
 				config.For<View>().Singleton();
 				config.For<ModelRepository>().Singleton();
 				config.For<ComponentRepository>().Singleton();
-				config.For<StaticContentCache>().Singleton();
 			});
 
 			var dashboard = container.GetInstance<Dashboard>();
