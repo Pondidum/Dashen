@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Dashen.Infrastructure
 {
@@ -11,6 +12,12 @@ namespace Dashen.Infrastructure
 			{
 				action(item);
 			}
+		}
+
+		public static MemoryStream Reset(this MemoryStream self)
+		{
+			self.Position = 0;
+			return self;
 		}
 	}
 }
