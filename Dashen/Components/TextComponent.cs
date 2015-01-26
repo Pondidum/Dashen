@@ -9,15 +9,13 @@
 	{
 		public override string GetJsx()
 		{
-			return @"
-			var TextComponent = React.createClass({
+			return @"{
 			  render: function() {
 			    return (
 			      <p>{this.props.Text}</p>
 			    );
 			  }
-			});
-		";
+			}";
 		}
 	}
 
