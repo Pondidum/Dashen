@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dashen.Assets;
 using Dashen.Infrastructure;
 
 namespace Dashen
@@ -12,6 +13,9 @@ namespace Dashen
 		public View()
 		{
 			_assets = new List<AssetInfo>();
+
+			_assets.Add(new JavaScriptAssetInfo("static/js/react.min.js"));
+			_assets.Add(new JavaScriptAssetInfo("static/js/JSXTransformer.js"));
 		}
 
 		public void AddAsset(AssetInfo asset)
