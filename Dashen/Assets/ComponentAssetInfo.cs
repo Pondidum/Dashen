@@ -6,7 +6,7 @@ namespace Dashen.Assets
 		{
 			Tag = "script";
 			SelfClosing = false;
-			Location = AssetLocations.PostBody;
+			Location = AssetLocations.PreBody;
 
 			AddAttribute("type", "text/jsx");
 			AddAttribute("src", path);
