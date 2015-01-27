@@ -85,6 +85,7 @@
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Content\js\wrapper.jsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
