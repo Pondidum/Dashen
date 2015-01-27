@@ -91,6 +91,9 @@
     <EmbeddedResource Include="Content\js\JSXTransformer.js" />
     <EmbeddedResource Include="Content\js\react.min.js" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Index.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
