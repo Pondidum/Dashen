@@ -41,7 +41,7 @@ namespace Dashen
 				return model;
 			});
 
-			_view.AddAsset(new ComponentAssetInfo("components/" + component.Name));
+			_view.AddAsset(new ComponentAssetInfo("components", component.Name.ToString()));
 		}
 
 		public Task Start()
