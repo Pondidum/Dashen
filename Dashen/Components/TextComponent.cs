@@ -12,7 +12,7 @@
 			return @"{
 			  render: function() {
 			    return (
-			      <p>{this.props.Text}</p>
+			      <p>Test: {this.props.model.Text} :End</p>
 			    );
 			  }
 			}";
