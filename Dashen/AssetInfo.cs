@@ -22,9 +22,10 @@ namespace Dashen
 			_tag = new Lazy<string>(BuildTag);
 		}
 
-		public void AddAttribute(string name, string value)
+		public AssetInfo AddAttribute(string name, string value)
 		{
 			_attributes[name] = value;
+			return this;
 		}
 
 		private string BuildTag()
