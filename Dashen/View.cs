@@ -17,6 +17,8 @@ namespace Dashen
 
 			_assets.Add(new JavaScriptAssetInfo("static/js/react.min.js"));
 			_assets.Add(new JavaScriptAssetInfo("static/js/JSXTransformer.js"));
+			_assets.Add(new JavaScriptAssetInfo("static/js/jquery-1.10.0.min.js"));
+			_assets.Add(new JavaScriptAssetInfo("static/js/wrapper.jsx"));
 		}
 
 		public void AddAsset(AssetInfo asset)
@@ -58,28 +60,31 @@ namespace Dashen
 
 		private string BuildReactUI()
 		{
-			var start = @"
+			var dashboardJsx = @"
 var Dashboard = React.createClass({
   render: function() {
     return (
       <div className='row fullwidth'>
-";
-			var finish = @"
+        {components}
       </div>
     );
   }
-});";
+});
+
+React.renderComponent(
+  <Dashboard />,
+  document.getElementById('content')
+);";
+
+			var componentFormat = "        <Wrapper component={{{0}}} url='{1}' interval={{{2}}} />";
+
 			var sb = new StringBuilder();
-			sb.AppendLine(start);
 
 			_assets
 				.OfType<ComponentAssetInfo>()
-				.Select(c => c.Name)
-				.ForEach(name => sb.AppendFormat("        <{0} />", name));
+				.ForEach(component => sb.AppendFormat(componentFormat, component.Name, component.ModelPath, 5000 ));
 
-			sb.AppendLine(finish);
-
-			return sb.ToString();
+			return dashboardJsx.Replace("{components}", sb.ToString());
 
 		}
 

@@ -32,16 +32,17 @@ namespace Dashen
 
 			var component = _container.GetInstance<TComponent>();
 			var model = _container.GetInstance<TModel>();
+			var modelID = _generator.NextID();
 
 			_components.Register(component);
 
-			_models.Register(_generator.NextID(), () =>
+			_models.Register(modelID, () =>
 			{
 				customise(model);
 				return model;
 			});
 
-			_view.AddAsset(new ComponentAssetInfo("components", component.Name.ToString()));
+			_view.AddAsset(new ComponentAssetInfo(component.Name, modelID));
 		}
 
 		public Task Start()
