@@ -12,7 +12,7 @@
 			return @"{
 			  render: function() {
 			    return (
-			      <p>Test: {this.props.model.Text} :End</p>
+			      <div className='text-center'>{this.props.model.Text} </div>
 			    );
 			  }
 			}";
