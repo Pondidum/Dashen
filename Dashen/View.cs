@@ -18,7 +18,7 @@ namespace Dashen
 			_assets.Add(new JavaScriptAssetInfo("static/js/react.min.js"));
 			_assets.Add(new JavaScriptAssetInfo("static/js/JSXTransformer.js"));
 			_assets.Add(new JavaScriptAssetInfo("static/js/jquery-1.10.0.min.js"));
-			_assets.Add(new JavaScriptAssetInfo("static/js/wrapper.jsx"));
+			_assets.Add(new JavaScriptAssetInfo("static/js/wrapper.jsx").AddAttribute("type", "text/jsx"));
 		}
 
 		public void AddAsset(AssetInfo asset)
