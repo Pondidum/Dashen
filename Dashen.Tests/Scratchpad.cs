@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using Dashen.Components;
 using Dashen.Content;
@@ -14,6 +15,10 @@ namespace Dashen.Tests
 		[Fact]
 		public void When_running_the_dashboard()
 		{
+			if (Debugger.IsAttached == false)
+			{
+				return;
+			}
 
 			var container = new Container(config =>
 			{
