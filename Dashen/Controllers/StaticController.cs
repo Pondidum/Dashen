@@ -1,7 +1,9 @@
-﻿using System.Net.Http;
+﻿using System.IO;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using Dashen.Content;
+using Dashen.Infrastructure;
 
 namespace Dashen.Controllers
 {
@@ -17,12 +19,13 @@ namespace Dashen.Controllers
 		public HttpResponseMessage Get(string directory, string file)
 		{
 			var content = _cache.GetContent(directory, file);
+			var mime = ContentTypeMap.GetMimeType(Path.GetExtension(file));
 
 			return new HttpResponseMessage
 			{
 				Content = new StreamContent(content)
 				{
-					Headers = { ContentType = new MediaTypeHeaderValue("text/javascript") }
+					Headers = { ContentType = new MediaTypeHeaderValue(mime) }
 				}
 			};
 		}
