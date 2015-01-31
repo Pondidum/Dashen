@@ -1,11 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Threading;
 using Dashen.Components;
-using Dashen.Content;
-using Newtonsoft.Json;
-using Shouldly;
-using StructureMap;
 using Xunit;
 
 namespace Dashen.Tests
@@ -20,20 +15,8 @@ namespace Dashen.Tests
 				return;
 			}
 
-			var container = new Container(config =>
-			{
-				config.Scan(a =>
-				{
-					a.AssemblyContainingType<Dashboard>();
-					a.WithDefaultConventions();
-				});
+			var dashboard = Dashboard.Create();
 
-				config.For<View>().Singleton();
-				config.For<ModelRepository>().Singleton();
-				config.For<ComponentRepository>().Singleton();
-			});
-
-			var dashboard = container.GetInstance<Dashboard>();
 			dashboard.Add<TextComponent, TextModel>(model => model.Text = "Testing");
 			dashboard.Start().Wait();
 

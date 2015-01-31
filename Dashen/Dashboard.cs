@@ -25,6 +25,24 @@ namespace Dashen
 			_view = view;
 		}
 
+		public static Dashboard Create()
+		{
+			var container = new Container(config =>
+			{
+				config.Scan(a =>
+				{
+					a.AssemblyContainingType<Dashboard>();
+					a.WithDefaultConventions();
+				});
+
+				config.For<View>().Singleton();
+				config.For<ModelRepository>().Singleton();
+				config.For<ComponentRepository>().Singleton();
+			});
+
+			return container.GetInstance<Dashboard>();
+		}
+
 		public void Add<TComponent, TModel>(Action<TModel> customise)
 			where TComponent : Component<TModel>
 			where TModel : Model
