@@ -16,7 +16,7 @@ namespace Dashen.Tests
 				return;
 			}
 
-			var dashboard = Dashboard.Create(new DashboardConfiguration
+			var dashboard = DashboardBuilder.Create(new DashboardConfiguration
 			{
 				ListenOn = new Uri("http://localhost:3030")
 			});

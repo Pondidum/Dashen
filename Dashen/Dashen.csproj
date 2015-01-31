@@ -67,6 +67,7 @@
     <Compile Include="ComponentName.cs" />
     <Compile Include="ComponentRepository.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
+    <Compile Include="DashboardBuilder.cs" />
     <Compile Include="DashboardConfiguration.cs" />
     <Compile Include="Infrastructure\ContentTypeMap.cs" />
     <Compile Include="Controllers\IndexController.cs" />
