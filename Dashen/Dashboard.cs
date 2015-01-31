@@ -11,21 +11,23 @@ namespace Dashen
 	public class Dashboard
 	{
 		private readonly IContainer _container;
+		private readonly DashboardConfiguration _config;
 		private readonly ComponentRepository _components;
 		private readonly ModelRepository _models;
 		private readonly IDGenerator _generator;
 		private readonly View _view;
 
-		public Dashboard(IContainer container, ComponentRepository components, ModelRepository models, IDGenerator generator, View view)
+		public Dashboard(IContainer container, DashboardConfiguration config, ComponentRepository components, ModelRepository models, IDGenerator generator, View view)
 		{
 			_container = container;
+			_config = config;
 			_components = components;
 			_models = models;
 			_generator = generator;
 			_view = view;
 		}
 
-		public static Dashboard Create()
+		public static Dashboard Create(DashboardConfiguration configuration)
 		{
 			var container = new Container(config =>
 			{
@@ -34,6 +36,8 @@ namespace Dashen
 					a.AssemblyContainingType<Dashboard>();
 					a.WithDefaultConventions();
 				});
+
+				config.For<DashboardConfiguration>().Use(configuration);
 
 				config.For<View>().Singleton();
 				config.For<ModelRepository>().Singleton();
@@ -65,7 +69,7 @@ namespace Dashen
 
 		public Task Start()
 		{
-			var config = new HttpSelfHostConfiguration("http://localhost:3030");
+			var config = new HttpSelfHostConfiguration(_config.ListenOn);
 			config.DependencyResolver = new StructureMapDependencyResolver(_container);
 
 			config.Routes.MapHttpRoute("Home", "", new { controller = "Index" });

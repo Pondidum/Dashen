@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using Dashen.Components;
 using Xunit;
@@ -15,7 +16,10 @@ namespace Dashen.Tests
 				return;
 			}
 
-			var dashboard = Dashboard.Create();
+			var dashboard = Dashboard.Create(new DashboardConfiguration
+			{
+				ListenOn = new Uri("http://localhost:3030")
+			});
 
 			dashboard.Add<TextComponent, TextModel>(model => model.Text = "Testing");
 			dashboard.Start().Wait();
