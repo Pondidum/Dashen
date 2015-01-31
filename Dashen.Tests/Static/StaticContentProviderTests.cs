@@ -39,5 +39,13 @@ namespace Dashen.Tests.Static
 				.ShouldBeGreaterThan(0);
 		}
 
+		[Fact]
+		public void When_fetching_from_a_different_case_directory()
+		{
+			_provider
+				.GetContent("CSS", "style.css")
+				.Length
+				.ShouldBeGreaterThan(0);
+		}
 	}
 }
