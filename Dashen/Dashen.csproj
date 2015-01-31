@@ -71,7 +71,7 @@
     <Compile Include="DashboardConfiguration.cs" />
     <Compile Include="Infrastructure\ContentTypeMap.cs" />
     <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Content\StaticContentCache.cs" />
+    <Compile Include="Static\StaticContentCache.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Components\TextComponent.cs" />
@@ -88,23 +88,23 @@
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\js\wrapper.jsx" />
+    <EmbeddedResource Include="Static\js\wrapper.jsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\js\JSXTransformer.js" />
-    <EmbeddedResource Include="Content\js\react.min.js" />
+    <EmbeddedResource Include="Static\js\JSXTransformer.js" />
+    <EmbeddedResource Include="Static\js\react.min.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Index.htm" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\js\jquery-1.10.0.min.js" />
+    <EmbeddedResource Include="Static\js\jquery-1.10.0.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\css\foundation.min.css" />
-    <EmbeddedResource Include="Content\css\normalize.css" />
-    <EmbeddedResource Include="Content\css\style.css" />
+    <EmbeddedResource Include="Static\css\foundation.min.css" />
+    <EmbeddedResource Include="Static\css\normalize.css" />
+    <EmbeddedResource Include="Static\css\style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,8 +2,8 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
-using Dashen.Content;
 using Dashen.Infrastructure;
+using Dashen.Static;
 
 namespace Dashen.Controllers
 {

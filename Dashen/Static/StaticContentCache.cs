@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace Dashen.Content
+namespace Dashen.Static
 {
 	public class StaticContentCache
 	{
