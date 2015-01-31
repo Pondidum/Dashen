@@ -71,7 +71,7 @@
     <Compile Include="DashboardConfiguration.cs" />
     <Compile Include="Infrastructure\ContentTypeMap.cs" />
     <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Static\StaticContentCache.cs" />
+    <Compile Include="Static\StaticContentProvider.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Components\TextComponent.cs" />

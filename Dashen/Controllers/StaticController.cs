@@ -9,9 +9,9 @@ namespace Dashen.Controllers
 {
 	public class StaticController : ApiController
 	{
-		private readonly StaticContentCache _cache;
+		private readonly StaticContentProvider _cache;
 
-		public StaticController(StaticContentCache cache)
+		public StaticController(StaticContentProvider cache)
 		{
 			_cache = cache;
 		}

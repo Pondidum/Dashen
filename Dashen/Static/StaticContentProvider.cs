@@ -3,11 +3,11 @@ using System.Reflection;
 
 namespace Dashen.Static
 {
-	public class StaticContentCache
+	public class StaticContentProvider
 	{
 		private readonly Assembly _assembly;
 
-		public StaticContentCache()
+		public StaticContentProvider()
 		{
 			_assembly = typeof(Dashboard).Assembly;
 		}
