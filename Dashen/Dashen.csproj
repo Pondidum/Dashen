@@ -96,7 +96,7 @@
     <EmbeddedResource Include="Static\js\react.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Index.htm" />
+    <EmbeddedResource Include="Static\views\Index.htm" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\js\jquery-1.10.0.min.js" />

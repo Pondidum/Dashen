@@ -29,7 +29,7 @@ namespace Dashen
 
 		private string GetTemplate()
 		{
-			using (var stream = GetType().Assembly.GetManifestResourceStream("Dashen.Views.Index.htm"))
+			using (var stream = GetType().Assembly.GetManifestResourceStream("Dashen.Static.views.Index.htm"))
 			using (var reader = new StreamReader(stream))
 			{
 				return reader.ReadToEnd();
