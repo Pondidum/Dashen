@@ -23,10 +23,12 @@ var Wrapper = React.createClass({
     },
     render: function () {
         return (
-            <div className="panel widget">
-                <h4> {this.state.model.Title}</h4>
-                <hr />
-                <this.props.component model={this.state.model} />
+            <div className="medium-3 columns">
+                <div className="panel widget">
+                    <h4> {this.state.model.Title}</h4>
+                    <hr />
+                    <this.props.component model={this.state.model} />
+                </div>
             </div>
         );
     }
