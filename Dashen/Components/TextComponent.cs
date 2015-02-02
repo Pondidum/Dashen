@@ -9,13 +9,13 @@
 	{
 		public override string GetJsx()
 		{
-			return @"{
+			return @"React.createClass({
 			  render: function() {
 			    return (
 			      <div className='text-center'>{this.props.model.Text} </div>
 			    );
 			  }
-			}";
+			});";
 		}
 	}
 

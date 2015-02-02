@@ -18,7 +18,7 @@ namespace Dashen
 			var name = component.Name;
 
 			var fileContents = string.Format(
-				"var {0} = React.createClass({1});",
+				"var {0} = {1}",
 				name, 
 				jsx);
 
