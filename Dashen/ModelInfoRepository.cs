@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Dashen.Properties
+namespace Dashen
 {
 	public class ModelInfoRepository
 	{
@@ -33,6 +33,11 @@ namespace Dashen.Properties
 				.Where(info => info.ModelID == id)
 				.Select(info => info.Model.Invoke())
 				.FirstOrDefault();
+		}
+
+		public IEnumerable<ModelInfo> All()
+		{
+			return _info;
 		}
 	}
 }

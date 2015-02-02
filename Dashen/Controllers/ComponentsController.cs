@@ -1,7 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Web.Http;
-using Dashen.Properties;
 
 namespace Dashen.Controllers
 {

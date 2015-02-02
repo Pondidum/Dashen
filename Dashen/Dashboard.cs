@@ -2,9 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
-using Dashen.Assets;
 using Dashen.Infrastructure;
-using Dashen.Properties;
 using StructureMap;
 
 namespace Dashen

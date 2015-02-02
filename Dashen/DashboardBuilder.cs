@@ -1,5 +1,4 @@
-﻿using Dashen.Properties;
-using StructureMap;
+﻿using StructureMap;
 
 namespace Dashen
 {
