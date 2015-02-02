@@ -82,7 +82,7 @@ React.renderComponent(
 
 			_assets
 				.OfType<ComponentAssetInfo>()
-				.ForEach(component => sb.AppendFormat(componentFormat, component.Name, component.ModelPath, 5000 ));
+				.ForEach(component => sb.AppendFormat(componentFormat, component.Name, component.ModelPath, 5000 ).AppendLine());
 
 			return dashboardJsx.Replace("{components}", sb.ToString());
 
