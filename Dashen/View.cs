@@ -9,10 +9,12 @@ namespace Dashen
 {
 	public class View
 	{
+		private readonly ModelInfoRepository _modelInfo;
 		private readonly List<AssetInfo> _assets;
 
-		public View()
+		public View(ModelInfoRepository modelInfo)
 		{
+			_modelInfo = modelInfo;
 			_assets = new List<AssetInfo>();
 
 			_assets.Add(new JavaScriptAssetInfo("static/js/react.min.js"));
@@ -20,12 +22,6 @@ namespace Dashen
 			_assets.Add(new JavaScriptAssetInfo("static/js/jquery-1.10.0.min.js"));
 			_assets.Add(new JavaScriptAssetInfo("static/js/wrapper.jsx").AddAttribute("type", "text/jsx"));
 		}
-
-		public void AddAsset(AssetInfo asset)
-		{
-			_assets.Add(asset);
-		}
-
 
 		private string GetTemplate()
 		{
@@ -51,9 +47,11 @@ namespace Dashen
 		{
 			var sb = new StringBuilder();
 
-			_assets
-				.Where(asset => asset.Location == AssetLocations.PreBody || asset.Location == AssetLocations.PostBody)
-				.ForEach(asset => sb.AppendLine(asset.ToString()));
+			_modelInfo.All().ForEach(info =>
+			{
+				sb.AppendFormat("<script type='text/jsx' src='components/{0}'></script>", info.Component.Name);
+				sb.AppendLine();
+			});
 
 			return sb.ToString();
 		}
@@ -76,13 +74,15 @@ React.renderComponent(
   document.getElementById('content')
 );";
 
-			var componentFormat = "        <Wrapper component={{{0}}} url='{1}' interval={{{2}}} />";
+			var componentFormat = "        <Wrapper component={{{0}}} url='models/{1}' interval={{{2}}} />";
 
 			var sb = new StringBuilder();
 
-			_assets
-				.OfType<ComponentAssetInfo>()
-				.ForEach(component => sb.AppendFormat(componentFormat, component.Name, component.ModelPath, 5000 ).AppendLine());
+			_modelInfo.All().ForEach(info =>
+			{
+				sb.AppendFormat(componentFormat, info.Component.Name, info.ModelID, 5000);
+				sb.AppendLine();
+			});
 
 			return dashboardJsx.Replace("{components}", sb.ToString());
 
