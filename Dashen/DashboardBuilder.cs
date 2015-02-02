@@ -1,4 +1,5 @@
-﻿using StructureMap;
+﻿using Dashen.Properties;
+using StructureMap;
 
 namespace Dashen
 {
@@ -17,8 +18,7 @@ namespace Dashen
 				config.For<DashboardConfiguration>().Use(configuration);
 
 				config.For<View>().Singleton();
-				config.For<ModelRepository>().Singleton();
-				config.For<ComponentRepository>().Singleton();
+				config.For<ModelInfoRepository>().Singleton();
 			});
 
 			return container.GetInstance<Dashboard>();

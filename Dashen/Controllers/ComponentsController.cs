@@ -1,16 +1,17 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using Dashen.Properties;
 
 namespace Dashen.Controllers
 {
 	public class ComponentsController : ApiController
 	{
-		private readonly ComponentRepository _components;
+		private readonly ModelInfoRepository _components;
 
-		public ComponentsController(ComponentRepository components)
+		public ComponentsController(ModelInfoRepository modelInfo)
 		{
-			_components = components;
+			_components = modelInfo;
 		}
 
 		public HttpResponseMessage Get(string name)

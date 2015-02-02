@@ -1,17 +1,18 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using Dashen.Properties;
 using Newtonsoft.Json;
 
 namespace Dashen.Controllers
 {
 	public class ModelsController : ApiController
 	{
-		private readonly ModelRepository _models;
+		private readonly ModelInfoRepository _models;
 
-		public ModelsController(ModelRepository models)
+		public ModelsController(ModelInfoRepository modelInfo)
 		{
-			_models = models;
+			_models = modelInfo;
 		}
 
 		public HttpResponseMessage Get(int id)
