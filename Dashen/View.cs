@@ -10,17 +10,10 @@ namespace Dashen
 	public class View
 	{
 		private readonly ModelInfoRepository _modelInfo;
-		private readonly List<AssetInfo> _assets;
 
 		public View(ModelInfoRepository modelInfo)
 		{
 			_modelInfo = modelInfo;
-			_assets = new List<AssetInfo>();
-
-			_assets.Add(new JavaScriptAssetInfo("static/js/react.min.js"));
-			_assets.Add(new JavaScriptAssetInfo("static/js/JSXTransformer.js"));
-			_assets.Add(new JavaScriptAssetInfo("static/js/jquery-1.10.0.min.js"));
-			_assets.Add(new JavaScriptAssetInfo("static/js/wrapper.jsx").AddAttribute("type", "text/jsx"));
 		}
 
 		private string GetTemplate()
@@ -30,17 +23,6 @@ namespace Dashen
 			{
 				return reader.ReadToEnd();
 			}
-		}
-
-		private string GetScripts()
-		{
-			var sb = new StringBuilder();
-
-			_assets
-				.Where(asset => asset.Location == AssetLocations.PreHead || asset.Location == AssetLocations.PostHead)
-				.ForEach(asset => sb.AppendLine(asset.ToString()));
-
-			return sb.ToString();
 		}
 
 		private string GetComponents()
@@ -93,9 +75,7 @@ React.renderComponent(
 			var template = GetTemplate();
 
 
-			template = template.Replace("{scripts}", GetScripts());
 			template = template.Replace("{components}", GetComponents());
-
 			template = template.Replace("{generated}", BuildReactUI());
 
 			return template;
