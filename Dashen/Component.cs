@@ -3,12 +3,12 @@ using System.Linq;
 
 namespace Dashen
 {
-	public class Component<TModel> : IJsxProvider
+	public abstract class Component<TModel> : IJsxProvider
 		where TModel : Model
 	{
 		public ComponentName Name { get; private set; }
 
-		public Component()
+		protected Component()
 		{
 			Name = new ComponentName(this);
 		}
@@ -22,9 +22,6 @@ namespace Dashen
 			return Enumerable.Empty<AssetInfo>();
 		}
 
-		public virtual string GetJsx()
-		{
-			return string.Empty;
-		}
+		public abstract string GetJsx();
 	}
 }
