@@ -40,34 +40,11 @@ namespace Dashen
 
 		private string BuildReactUI()
 		{
-			var dashboardJsx = @"
-var Dashboard = React.createClass({
-  render: function() {
-    return (
-      <div className='row fullwidth'>
-        {components}
-      </div>
-    );
-  }
-});
-
+			return @"
 React.renderComponent(
-  <Dashboard />,
+  <Dashboard url='/models/all' />,
   document.getElementById('content')
 );";
-
-			var componentFormat = "        <Wrapper component={{{0}}} url='models/{1}' interval={{{2}}} />";
-
-			var sb = new StringBuilder();
-
-			_modelInfo.All().ForEach(info =>
-			{
-				sb.AppendFormat(componentFormat, info.Component.Name, info.ModelID, 5000);
-				sb.AppendLine();
-			});
-
-			return dashboardJsx.Replace("{components}", sb.ToString());
-
 		}
 
 		public string Render()
