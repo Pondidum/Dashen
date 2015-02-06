@@ -21,7 +21,12 @@ namespace Dashen.Tests
 				ListenOn = new Uri("http://localhost:3030")
 			});
 
-			dashboard.Add<TextComponent, TextModel>(model => model.Text = "Testing");
+			dashboard.Add<TextComponent, TextModel>(model =>
+			{
+				model.Title = "Header";
+				model.Text = "Testing";
+			});
+
 			dashboard.Start().Wait();
 
 			while (true)
