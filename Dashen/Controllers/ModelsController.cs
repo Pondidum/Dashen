@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Newtonsoft.Json;
@@ -21,6 +22,24 @@ namespace Dashen.Controllers
 			return new HttpResponseMessage
 			{
 				Content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "text/javascript")
+			};
+		}
+
+		public HttpResponseMessage GetAll()
+		{
+			var wrapperInfo = _models
+				.All()
+				.Select(info => new
+				{
+					Type = info.Component.Name.ToString(),
+					Path = "models/" + info.ModelID
+				});
+
+			var json = JsonConvert.SerializeObject(wrapperInfo);
+
+			return new HttpResponseMessage
+			{
+				Content = new StringContent(json, Encoding.UTF8, "text/javascript")
 			};
 		}
 	}
