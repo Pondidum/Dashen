@@ -3,6 +3,7 @@
 	public abstract class Component
 	{
 		public ComponentName Name { get; protected set; }
+		public bool Unlisted { get; protected set; }
 		
 		public abstract string GetJsx();
 	}

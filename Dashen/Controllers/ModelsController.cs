@@ -29,6 +29,7 @@ namespace Dashen.Controllers
 		{
 			var wrapperInfo = _models
 				.All()
+				.Where(model => model.Component.Unlisted == false)
 				.Select(info => new
 				{
 					Type = info.Component.Name.ToString(),
