@@ -17,11 +17,6 @@ namespace Dashen
 		{
 		}
 
-		public IEnumerable<AssetInfo> GetAssets()
-		{
-			return Enumerable.Empty<AssetInfo>();
-		}
-
 		public abstract string GetJsx();
 	}
 }
