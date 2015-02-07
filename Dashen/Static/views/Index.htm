@@ -35,7 +35,10 @@
     {components}
 
     <script type="text/jsx">
-        {generated}
+      React.renderComponent(
+        <Dashboard url='/models/all' />,
+        document.getElementById('content')
+      );
     </script>
 </body>
 </html>

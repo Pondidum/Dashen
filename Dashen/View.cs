@@ -35,24 +35,10 @@ namespace Dashen
 			return sb.ToString();
 		}
 
-		private string BuildReactUI()
-		{
-			return @"
-React.renderComponent(
-  <Dashboard url='/models/all' />,
-  document.getElementById('content')
-);";
-		}
-
 		public string Render()
 		{
-			var template = GetTemplate();
-
-
-			template = template.Replace("{components}", GetComponents());
-			template = template.Replace("{generated}", BuildReactUI());
-
-			return template;
+			return GetTemplate()
+				.Replace("{components}", GetComponents());
 		}
 
 	}
