@@ -6,7 +6,7 @@ namespace Dashen
 	{
 		private readonly string _name;
 
-		private ComponentName(string name)
+		public ComponentName(string name)
 		{
 			_name = name;
 		}
