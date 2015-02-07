@@ -1,6 +1,10 @@
 var Dashboard = React.createClass({
 
-  loadFromServer: function() {
+  getInitialState: function(){
+    return {components: []};
+  },
+
+  componentDidMount: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -11,15 +15,7 @@ var Dashboard = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
 
-  getInitialState: function(){
-    return {components: []};
-  },
-
-  componentDidMount: function() {
-    this.loadFromServer();
-    //setInterval(this.loadFromServer, this.props.interval);
   },
 
   render: function() {
