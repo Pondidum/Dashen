@@ -19,5 +19,10 @@ namespace Dashen.Infrastructure
 			self.Position = 0;
 			return self;
 		}
+
+		public static Boolean EqualsIgnore(this string self, string other)
+		{
+			return string.Equals(self, other, StringComparison.OrdinalIgnoreCase);
+		}
 	}
 }
