@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Dashen.Infrastructure;
 
 namespace Dashen
 {
@@ -31,6 +32,14 @@ namespace Dashen
 		{
 			return _info
 				.Where(info => info.ModelID == id)
+				.Select(info => info.Model.Invoke())
+				.FirstOrDefault();
+		}
+
+		public Model GetModel(string name)
+		{
+			return _info
+				.Where(info => info.Component.Name.ToString().EqualsIgnore(name))
 				.Select(info => info.Model.Invoke())
 				.FirstOrDefault();
 		}
