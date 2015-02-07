@@ -89,6 +89,7 @@
     <EmbeddedResource Include="Static\js\wrapper.jsx" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Static\js\dashboard.jsx" />
+    <EmbeddedResource Include="Static\js\header.jsx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\js\JSXTransformer.js" />

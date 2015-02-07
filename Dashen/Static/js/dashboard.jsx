@@ -27,8 +27,11 @@ var Dashboard = React.createClass({
     });
 
     return (
-      <div className='row fullwidth'>
-        {wrapped}
+      <div id="container" className="row">
+        <Header />
+        <div className='row fullwidth'>
+          {wrapped}
+        </div>
       </div>
     );
   }
