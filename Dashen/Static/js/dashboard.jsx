@@ -32,7 +32,7 @@ var Dashboard = React.createClass({
         <div className='row fullwidth'>
           {wrapped}
         </div>
-        <Footer />
+        <Footer url="models/name/footer" />
       </div>
     );
   }

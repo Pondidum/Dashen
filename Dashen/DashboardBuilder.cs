@@ -30,6 +30,11 @@ namespace Dashen
 				model.AppVersion = configuration.ApplicationVersion;
 			});
 
+			dash.Add<FooterComponent, FooterModel>(model =>
+			{
+				model.DashenVersion = typeof(Dashboard).Assembly.GetName().Version.ToString();
+			});
+
 			return dash;
 		}
 	}

@@ -8,7 +8,5 @@ namespace Dashen
 
 		public string ApplicationName { get; set; }
 		public string ApplicationVersion { get; set; }
-
-		internal string DashenVersion { get; set; }
 	}
 }
