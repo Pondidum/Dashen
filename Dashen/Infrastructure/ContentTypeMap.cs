@@ -11,7 +11,7 @@ namespace Dashen.Infrastructure
 		{
 			_map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-			_map[".jsx"] = "text/jsx";
+			_map[".jsx"] = "text/javascript";
 			_map[".js"] = "text/javascript";
 			_map[".css"] = "text/css";
 		}
