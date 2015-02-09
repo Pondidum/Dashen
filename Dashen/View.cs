@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text;
 using Dashen.Infrastructure;
 
@@ -24,15 +26,13 @@ namespace Dashen
 
 		private string GetComponents()
 		{
-			var sb = new StringBuilder();
+			var components = _modelInfo
+				.All()
+				.Select(info => info.Component.Name)
+				.Distinct()
+				.Select(name => string.Format("<script type='text/jsx' src='components/{0}'></script>", name));
 
-			_modelInfo.All().ForEach(info =>
-			{
-				sb.AppendFormat("<script type='text/jsx' src='components/{0}'></script>", info.Component.Name);
-				sb.AppendLine();
-			});
-
-			return sb.ToString();
+			return string.Join(Environment.NewLine, components);
 		}
 
 		public string Render()
