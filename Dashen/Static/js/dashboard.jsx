@@ -28,7 +28,7 @@ var Dashboard = React.createClass({
 
     return (
       <div id="container" className="row">
-        <Header />
+        <Header url="models/name/header" />
         <div className='row fullwidth'>
           {wrapped}
         </div>

@@ -21,6 +21,7 @@ var Wrapper = React.createClass({
     this.loadFromServer();
     setInterval(this.loadFromServer, this.props.interval);
   },
+
   render: function () {
     return (
       <div className="medium-3 columns">

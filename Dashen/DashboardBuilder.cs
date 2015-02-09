@@ -1,4 +1,5 @@
-﻿using StructureMap;
+﻿using Dashen.Components;
+using StructureMap;
 
 namespace Dashen
 {
@@ -20,7 +21,16 @@ namespace Dashen
 				config.For<ModelInfoRepository>().Singleton();
 			});
 
-			return container.GetInstance<Dashboard>();
+			var dash = container.GetInstance<Dashboard>();
+
+			dash.Add<HeaderComponent, HeaderModel>(model =>
+			{
+				model.Title = "ERMAGHAD";
+				model.AppName = configuration.ApplicationName;
+				model.AppVersion = configuration.ApplicationVersion;
+			});
+
+			return dash;
 		}
 	}
 }

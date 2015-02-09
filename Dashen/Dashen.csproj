@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Component.cs" />
     <Compile Include="ComponentName.cs" />
+    <Compile Include="Components\HeaderComponent.cs" />
     <Compile Include="Components\TextModel.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
     <Compile Include="DashboardBuilder.cs" />
