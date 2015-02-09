@@ -29,11 +29,20 @@ namespace Dashen.Tests
 				model.Text = "Testing";
 			});
 
+			var counter = 0;
+
+			dashboard.Add<TextComponent, TextModel>(model =>
+			{
+				model.Title = "Header";
+				model.Text = counter.ToString();
+			});
+
 			dashboard.Start().Wait();
 
 			while (true)
 			{
 				Thread.Sleep(1000);
+				counter++;
 			}
 		}
 	}
