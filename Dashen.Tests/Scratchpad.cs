@@ -18,7 +18,9 @@ namespace Dashen.Tests
 
 			var dashboard = DashboardBuilder.Create(new DashboardConfiguration
 			{
-				ListenOn = new Uri("http://localhost:3030")
+				ListenOn = new Uri("http://localhost:3030"),
+				ApplicationName =  "UnitTestRunner",
+				ApplicationVersion = "1.3.3.7"
 			});
 
 			dashboard.Add<TextComponent, TextModel>(model =>
