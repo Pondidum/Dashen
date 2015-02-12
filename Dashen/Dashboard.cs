@@ -51,7 +51,7 @@ namespace Dashen
 			config.Routes.MapHttpRoute("Home", "", new { controller = "Index" });
 			config.Routes.MapHttpRoute("Models.All", "models/all", new { controller = "Models", action = "getall" });
 			config.Routes.MapHttpRoute("Models.Name", "models/name/{name}", new { controller = "Models", action = "getname" });
-			config.Routes.MapHttpRoute("Models.ID", "models/{id}", new { controller = "Models" });
+			config.Routes.MapHttpRoute("Models.ID", "models/id/{id}", new { controller = "Models" });
 			config.Routes.MapHttpRoute("Components", "components/{name}", new { controller = "Components" });
 			config.Routes.MapHttpRoute("Static", "static/{directory}/{file}", new { controller = "Static" });
 

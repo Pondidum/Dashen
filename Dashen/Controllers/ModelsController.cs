@@ -43,7 +43,7 @@ namespace Dashen.Controllers
 				.Select(info => new
 				{
 					Type = info.Component.Name.ToString(),
-					Path = "models/" + info.ModelID
+					Path = "models/id/" + info.ModelID
 				});
 
 			var json = JsonConvert.SerializeObject(wrapperInfo);
