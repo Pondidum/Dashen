@@ -22,12 +22,10 @@ namespace Dashen
 			_generator = generator;
 		}
 
-		public void Add<TComponent, TModel>(Action<TModel> customise)
-			where TComponent : Component<TModel>
+		public void Add<TModel>(Action<TModel> customise)
 			where TModel : Model
 		{
-
-			var component = _container.GetInstance<TComponent>();
+			var component = _container.GetInstance<Component<TModel>>();
 			var model = _container.GetInstance<TModel>();
 			var modelID = _generator.NextID();
 

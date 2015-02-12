@@ -23,7 +23,7 @@ namespace Dashen.Tests
 				ApplicationVersion = "1.3.3.7"
 			});
 
-			dashboard.Add<TextComponent, TextModel>(model =>
+			dashboard.Add<TextModel>(model =>
 			{
 				model.Title = "Header";
 				model.Text = "Testing";
@@ -31,7 +31,7 @@ namespace Dashen.Tests
 
 			var counter = 0;
 
-			dashboard.Add<TextComponent, TextModel>(model =>
+			dashboard.Add<TextModel>(model =>
 			{
 				model.Title = "Header";
 				model.Text = counter.ToString();

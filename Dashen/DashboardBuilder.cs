@@ -13,6 +13,8 @@ namespace Dashen
 				{
 					a.AssemblyContainingType<Dashboard>();
 					a.WithDefaultConventions();
+
+					a.AddAllTypesOf(typeof(Component<>));
 				});
 
 				config.For<DashboardConfiguration>().Use(configuration);
@@ -23,14 +25,14 @@ namespace Dashen
 
 			var dash = container.GetInstance<Dashboard>();
 
-			dash.Add<HeaderComponent, HeaderModel>(model =>
+			dash.Add<HeaderModel>(model =>
 			{
 				model.Title = "ERMAGHAD";
 				model.AppName = configuration.ApplicationName;
 				model.AppVersion = configuration.ApplicationVersion;
 			});
 
-			dash.Add<FooterComponent, FooterModel>(model =>
+			dash.Add<FooterModel>(model =>
 			{
 				model.DashenVersion = typeof(Dashboard).Assembly.GetName().Version.ToString();
 			});
