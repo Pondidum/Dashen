@@ -35,6 +35,16 @@ namespace Dashen.Controllers
 			};
 		}
 
+		public HttpResponseMessage GetType(string name)
+		{
+			var contents = _models.GetComponent(name);
+
+			return new HttpResponseMessage
+			{
+				Content = new StringContent(contents, Encoding.UTF8, "text/javascript")
+			};
+		}
+
 		public HttpResponseMessage GetAll()
 		{
 			var wrapperInfo = _models

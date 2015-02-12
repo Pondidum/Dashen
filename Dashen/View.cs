@@ -30,7 +30,7 @@ namespace Dashen
 				.All()
 				.Select(info => info.Component.Name)
 				.Distinct()
-				.Select(name => string.Format("<script type='text/jsx' src='components/{0}'></script>", name));
+				.Select(name => string.Format("<script type='text/jsx' src='models/type/{0}'></script>", name));
 
 			return string.Join(Environment.NewLine, components);
 		}

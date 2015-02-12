@@ -65,7 +65,6 @@
     <Compile Include="Components\HeaderComponent.cs" />
     <Compile Include="Components\HeaderModel.cs" />
     <Compile Include="Components\TextModel.cs" />
-    <Compile Include="Controllers\ComponentsController.cs" />
     <Compile Include="DashboardBuilder.cs" />
     <Compile Include="DashboardConfiguration.cs" />
     <Compile Include="Infrastructure\ContentTypeMap.cs" />
