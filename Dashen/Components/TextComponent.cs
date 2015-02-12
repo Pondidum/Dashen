@@ -8,7 +8,7 @@
 var TextComponent = React.createClass({
   render: function() {
     return (
-      <div className='text-center'>{this.props.model.Text} </div>
+      <div className='text-center'>{this.props.model.Text}</div>
     );
   }
 });";
