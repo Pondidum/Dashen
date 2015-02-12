@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.SelfHost;
-using Dashen.Infrastructure;
 using StructureMap;
 
 namespace Dashen
@@ -11,13 +8,15 @@ namespace Dashen
 	{
 		private readonly IContainer _container;
 		private readonly DashboardConfiguration _config;
+		private readonly ServerBuilder _serverBuilder;
 		private readonly ModelInfoRepository _repository;
 		private readonly IDGenerator _generator;
 
-		public Dashboard(IContainer container, DashboardConfiguration config, ModelInfoRepository repository, IDGenerator generator)
+		public Dashboard(IContainer container, DashboardConfiguration config, ServerBuilder serverBuilder, ModelInfoRepository repository, IDGenerator generator)
 		{
 			_container = container;
 			_config = config;
+			_serverBuilder = serverBuilder;
 			_repository = repository;
 			_generator = generator;
 		}
@@ -45,19 +44,8 @@ namespace Dashen
 
 		public Task Start()
 		{
-			var config = new HttpSelfHostConfiguration(_config.ListenOn);
-			config.DependencyResolver = new StructureMapDependencyResolver(_container);
-
-			config.Routes.MapHttpRoute("Home", "", new { controller = "Index" });
-			config.Routes.MapHttpRoute("Models.All", "models/all", new { controller = "Models", action = "getall" });
-			config.Routes.MapHttpRoute("Models.Name", "models/name/{name}", new { controller = "Models", action = "getname" });
-			config.Routes.MapHttpRoute("Models.Type", "models/type/{name}", new { controller = "Models", action = "gettype" });
-			config.Routes.MapHttpRoute("Models.ID", "models/id/{id}", new { controller = "Models" });
-			config.Routes.MapHttpRoute("Static", "static/{directory}/{file}", new { controller = "Static" });
-
-			var host = new HttpSelfHostServer(config);
-
-			return host.OpenAsync();
+			var server = _serverBuilder.Create(_config.ListenOn);
+			return server.OpenAsync();
 		}
 	}
 }

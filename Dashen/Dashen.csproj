@@ -71,6 +71,7 @@
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="ModelInfo.cs" />
     <Compile Include="ModelInfoRepository.cs" />
+    <Compile Include="ServerBuilder.cs" />
     <Compile Include="Static\StaticContentProvider.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Dashboard.cs" />
