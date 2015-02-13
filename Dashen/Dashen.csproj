@@ -64,6 +64,8 @@
     <Compile Include="Components\FooterModel.cs" />
     <Compile Include="Components\HeaderComponent.cs" />
     <Compile Include="Components\HeaderModel.cs" />
+    <Compile Include="Components\ListComponent.cs" />
+    <Compile Include="Components\ListModel.cs" />
     <Compile Include="Components\TextModel.cs" />
     <Compile Include="DashboardBuilder.cs" />
     <Compile Include="DashboardConfiguration.cs" />

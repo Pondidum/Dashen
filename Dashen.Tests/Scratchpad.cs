@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using Dashen.Components;
 using Xunit;
@@ -35,6 +36,12 @@ namespace Dashen.Tests
 			{
 				model.Title = "Header";
 				model.Text = counter.ToString();
+			});
+
+			dashboard.Add<ListModel>(model =>
+			{
+				model.Title = "Listy";
+				model.Items = new[] {"First", "Second", "Third"}.ToList();
 			});
 
 			dashboard.Start().Wait();
