@@ -1,11 +1,13 @@
 require 'bundler/setup'
 require 'albacore'
 
+ci_build = ENV['APPVEYOR_BUILD_VERSION'] ||= 0
+
 tool_nuget = 'tools/nuget/nuget.exe'
 tool_xunit = 'tools/xunit/xunit.console.clr4.exe'
 
 project_name = 'Dashen'
-project_version = ENV['APPVEYOR_BUILD_VERSION'] ||= "1.0.0"
+project_version = "2.0.#{ci_build}"
 
 project_output = 'build/bin'
 package_output = 'build/deploy'
