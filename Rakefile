@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'albacore'
 
-ci_build = ENV['APPVEYOR_BUILD_VERSION'] ||= 0
+ci_build = ENV['APPVEYOR_BUILD_VERSION'] ||= "0"
 
 tool_nuget = 'tools/nuget/nuget.exe'
 tool_xunit = 'tools/xunit/xunit.console.clr4.exe'
