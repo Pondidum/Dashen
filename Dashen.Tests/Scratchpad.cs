@@ -38,6 +38,12 @@ namespace Dashen.Tests
 				model.Text = counter.ToString();
 			});
 
+			dashboard.Add<HtmlModel>(model =>
+			{
+				model.Title = "Html";
+				model.Html = "<b>Test Bold</b>";
+			});
+
 			dashboard.Add<ListModel>(model =>
 			{
 				model.Title = "Listy";
