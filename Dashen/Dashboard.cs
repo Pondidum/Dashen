@@ -28,6 +28,8 @@ namespace Dashen
 			var model = _container.GetInstance<TModel>();
 			var modelID = _generator.NextID();
 
+			model.ID = modelID;
+
 			var info = new ModelInfo
 			{
 				ModelID = modelID,
