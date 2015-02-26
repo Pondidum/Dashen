@@ -50,6 +50,14 @@ namespace Dashen.Tests
 				model.Items = new[] {"First", "Second", "Third"}.ToList();
 			});
 
+			dashboard.Add<GraphModel>(model =>
+			{
+				model.Title = "Graphy";
+				model.Columns = 8;
+				model.Points = new[] {new Pair(1, 1), new Pair(2, 10), new Pair(3, 6), new Pair(4, 2), new Pair(5, 3)};
+				model.XTicks = new[] {new Label(1, "Left"), new Label(3, "Middle"), new Label(5, "Right")};
+			});
+
 			dashboard.Start().Wait();
 
 			while (true)
