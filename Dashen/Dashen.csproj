@@ -62,12 +62,16 @@
     <Compile Include="ComponentName.cs" />
     <Compile Include="Components\FooterComponent.cs" />
     <Compile Include="Components\FooterModel.cs" />
+    <Compile Include="Components\GraphComponent.cs" />
+    <Compile Include="Components\GraphModel.cs" />
     <Compile Include="Components\HeaderComponent.cs" />
     <Compile Include="Components\HeaderModel.cs" />
     <Compile Include="Components\HtmlModel.cs" />
     <Compile Include="Components\HtmlComponent.cs" />
+    <Compile Include="Components\Label.cs" />
     <Compile Include="Components\ListComponent.cs" />
     <Compile Include="Components\ListModel.cs" />
+    <Compile Include="Components\Pair.cs" />
     <Compile Include="Components\TextModel.cs" />
     <Compile Include="DashboardBuilder.cs" />
     <Compile Include="DashboardConfiguration.cs" />
@@ -96,6 +100,7 @@
     <EmbeddedResource Include="Static\js\dashboard.jsx" />
     <EmbeddedResource Include="Static\js\header.jsx" />
     <EmbeddedResource Include="Static\js\footer.jsx" />
+    <EmbeddedResource Include="Static\js\graphComponent.jsx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Static\js\JSXTransformer.js" />
