@@ -25,6 +25,10 @@ var Wrapper = React.createClass({
   render: function () {
     var classes = "medium-" + this.state.model.Columns + " columns";
 
+    if (this.props.isLast) {
+      classes += " end";
+    }
+
     return (
       <div className={classes}>
         <div className="panel widget">

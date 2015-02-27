@@ -20,10 +20,17 @@ var Dashboard = React.createClass({
 
   render: function() {
 
-    var wrapped = this.state.components.map(function(comp) {
+    var components = this.state.components;
+    var last = components[components.length - 1];
+
+    var wrapped = components.map(function(comp) {
+
+      var isLast = comp == last;
+
       return (
-        <Wrapper component={comp.Type} url={comp.Path} interval={5000} />
+        <Wrapper component={comp.Type} url={comp.Path} interval={5000} isLast={isLast} />
       );
+
     });
 
     return (
