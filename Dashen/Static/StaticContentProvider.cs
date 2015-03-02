@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-	
+using Dashen.Infrastructure;
+
 namespace Dashen.Static
 {
 	public class StaticContentProvider
 	{
-		private readonly Dictionary<string, Func<Stream>> _validPaths;
+		private readonly Dictionary<string, Resource> _validPaths;
 
 		public StaticContentProvider()
 		{
@@ -18,18 +19,25 @@ namespace Dashen.Static
 
 			_validPaths = assembly
 				.GetManifestResourceNames()
+				.Select(name => new Resource(
+					name.Replace(prefix, string.Empty),
+					ContentTypeMap.GetMimeType(Path.GetExtension(name)),
+					assembly.GetManifestResourceStream(name)))
 				.ToDictionary(
-					p => p.Replace(prefix, string.Empty),
-					p => new Func<Stream>(() => assembly.GetManifestResourceStream(p)),
+					p => p.Name,
+					p => p,
 					StringComparer.OrdinalIgnoreCase);
 		}
 
-		public Stream GetContent(string directory, string file)
+		public Resource GetContent(string directory, string file)
 		{
 			var path = directory + Type.Delimiter + file;
-			Func<Stream> func;
+			Resource resource;
 
-			return _validPaths.TryGetValue(path, out func) ? func() : Stream.Null;
+			return _validPaths.TryGetValue(path, out resource)
+				? resource
+				: Resource.Empty;
+
 		}
 	}
 }

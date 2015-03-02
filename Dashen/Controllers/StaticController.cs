@@ -18,14 +18,13 @@ namespace Dashen.Controllers
 
 		public HttpResponseMessage Get(string directory, string file)
 		{
-			var content = _cache.GetContent(directory, file);
-			var mime = ContentTypeMap.GetMimeType(Path.GetExtension(file));
+			var resource = _cache.GetContent(directory, file);
 
 			return new HttpResponseMessage
 			{
-				Content = new StreamContent(content)
+				Content = new StreamContent(new MemoryStream(resource.Content))
 				{
-					Headers = { ContentType = new MediaTypeHeaderValue(mime) }
+					Headers = { ContentType = new MediaTypeHeaderValue(resource.MimeType) }
 				}
 			};
 		}

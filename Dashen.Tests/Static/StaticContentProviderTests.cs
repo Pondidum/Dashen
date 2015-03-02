@@ -19,7 +19,7 @@ namespace Dashen.Tests.Static
 		{
 			_provider
 				.GetContent("js", "rrrrrrrrrrrrr.js")
-				.ShouldBe(Stream.Null);
+				.ShouldBe(Resource.Empty);
 		}
 
 		[Fact]
@@ -27,7 +27,7 @@ namespace Dashen.Tests.Static
 		{
 			_provider
 				.GetContent("rrrrrrrrr", "style.css")
-				.ShouldBe(Stream.Null);
+				.ShouldBe(Resource.Empty);
 		}
 
 		[Fact]
@@ -35,6 +35,7 @@ namespace Dashen.Tests.Static
 		{
 			_provider
 				.GetContent("css", "style.css")
+				.Content
 				.Length
 				.ShouldBeGreaterThan(0);
 		}
@@ -44,6 +45,7 @@ namespace Dashen.Tests.Static
 		{
 			_provider
 				.GetContent("CSS", "style.css")
+				.Content
 				.Length
 				.ShouldBeGreaterThan(0);
 		}

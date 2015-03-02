@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using Dashen.Static;
 
 namespace Dashen.Components
@@ -9,11 +10,9 @@ namespace Dashen.Components
 
 		public GraphComponent(StaticContentProvider content)
 		{
-			using (var stream = content.GetContent("js", "graphComponent.jsx"))
-			using (var sr = new StreamReader(stream))
-			{
-				_jsx = sr.ReadToEnd();
-			}
+			var resource = content.GetContent("js", "graphComponent.jsx");
+
+			_jsx = Encoding.UTF8.GetString(resource.Content);
 		}
 
 		public override string GetJsx()
