@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
@@ -8,20 +10,19 @@ namespace Dashen.Controllers
 {
 	public class StaticController : ApiController
 	{
-		private readonly StaticContentProvider _cache;
-		private readonly UserContentProvider _userContent;
+		private readonly List<IStaticContentProvider> _content;
 
-		public StaticController(StaticContentProvider cache, UserContentProvider userContent)
+		public StaticController(StaticContentProvider embeddedContent, UserContentProvider userContent)
 		{
-			_cache = cache;
-			_userContent = userContent;
+			_content = new List<IStaticContentProvider> { userContent, embeddedContent };
 		}
 
 		public HttpResponseMessage Get(string directory, string file)
 		{
-			var resource = _userContent.Handles(directory)
-				? _userContent.GetResource(directory, file)
-				: _cache.GetResource(directory, file);
+			var resource = _content
+				.Where(provider => provider.Handles(directory))
+				.Select(provider => provider.GetResource(directory, file))
+				.FirstOrDefault() ?? Resource.Empty;
 
 			return new HttpResponseMessage
 			{
