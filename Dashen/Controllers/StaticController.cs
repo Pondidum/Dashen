@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
@@ -12,7 +13,7 @@ namespace Dashen.Controllers
 	{
 		private readonly List<IStaticContentProvider> _content;
 
-		public StaticController(StaticContentProvider embeddedContent, UserContentProvider userContent)
+		public StaticController(UserContentProvider userContent, StaticContentProvider embeddedContent)
 		{
 			_content = new List<IStaticContentProvider> { userContent, embeddedContent };
 		}
@@ -23,6 +24,11 @@ namespace Dashen.Controllers
 				.Where(provider => provider.Handles(directory))
 				.Select(provider => provider.GetResource(directory, file))
 				.FirstOrDefault() ?? Resource.Empty;
+
+			if (resource.Content.Any() == false)
+			{
+				return new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
 
 			return new HttpResponseMessage
 			{
