@@ -6,7 +6,7 @@ using Dashen.Infrastructure;
 
 namespace Dashen.Static
 {
-	public class StaticContentProvider
+	public class StaticContentProvider : IStaticContentProvider
 	{
 		private readonly Dictionary<string, Resource> _validPaths;
 
@@ -29,9 +29,14 @@ namespace Dashen.Static
 					StringComparer.OrdinalIgnoreCase);
 		}
 
-		public Resource GetResource(string directory, string file)
+		public bool Handles(string directory)
 		{
-			var path = directory + Type.Delimiter + file;
+			return true;
+		}
+
+		public Resource GetResource(string directory, string filename)
+		{
+			var path = directory + Type.Delimiter + filename;
 			Resource resource;
 
 			return _validPaths.TryGetValue(path, out resource)

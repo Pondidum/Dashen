@@ -20,7 +20,7 @@ namespace Dashen.Controllers
 		public HttpResponseMessage Get(string directory, string file)
 		{
 			var resource = _userContent.Handles(directory)
-				? _userContent.GetResource(file)
+				? _userContent.GetResource(directory, file)
 				: _cache.GetResource(directory, file);
 
 			return new HttpResponseMessage

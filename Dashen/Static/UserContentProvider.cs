@@ -3,7 +3,7 @@ using Dashen.Infrastructure;
 
 namespace Dashen.Static
 {
-	public class UserContentProvider
+	public class UserContentProvider : IStaticContentProvider
 	{
 		private readonly DashboardConfiguration _configuration;
 
@@ -17,11 +17,11 @@ namespace Dashen.Static
 			return directory.EqualsIgnore("user");
 		}
 
-		public Resource GetResource(string name)
+		public Resource GetResource(string directory, string filename)
 		{
 			var resource = _configuration
 				.Resources
-				.FirstOrDefault(r => r.Name.EqualsIgnore(name));
+				.FirstOrDefault(r => r.Name.EqualsIgnore(filename));
 
 			return resource ?? Resource.Empty;
 		}

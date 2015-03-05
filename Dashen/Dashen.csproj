@@ -81,6 +81,7 @@
     <Compile Include="ModelInfoRepository.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ServerBuilder.cs" />
+    <Compile Include="Static\IStaticContentProvider.cs" />
     <Compile Include="Static\StaticContentProvider.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Dashboard.cs" />
