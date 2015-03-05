@@ -21,7 +21,7 @@ namespace Dashen.Controllers
 		{
 			var resource = _userContent.Handles(directory)
 				? _userContent.GetResource(file)
-				: _cache.GetContent(directory, file);
+				: _cache.GetResource(directory, file);
 
 			return new HttpResponseMessage
 			{

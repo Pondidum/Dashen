@@ -10,7 +10,7 @@ namespace Dashen.Components
 
 		public GraphComponent(StaticContentProvider content)
 		{
-			var resource = content.GetContent("js", "graphComponent.jsx");
+			var resource = content.GetResource("js", "graphComponent.jsx");
 
 			_jsx = Encoding.UTF8.GetString(resource.Content);
 		}

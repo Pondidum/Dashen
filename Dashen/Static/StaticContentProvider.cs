@@ -29,7 +29,7 @@ namespace Dashen.Static
 					StringComparer.OrdinalIgnoreCase);
 		}
 
-		public Resource GetContent(string directory, string file)
+		public Resource GetResource(string directory, string file)
 		{
 			var path = directory + Type.Delimiter + file;
 			Resource resource;

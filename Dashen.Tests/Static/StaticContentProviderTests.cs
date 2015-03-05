@@ -18,7 +18,7 @@ namespace Dashen.Tests.Static
 		public void When_fetching_non_existing_file_from_a_valid_directory()
 		{
 			_provider
-				.GetContent("js", "rrrrrrrrrrrrr.js")
+				.GetResource("js", "rrrrrrrrrrrrr.js")
 				.ShouldBe(Resource.Empty);
 		}
 
@@ -26,7 +26,7 @@ namespace Dashen.Tests.Static
 		public void When_fetching_a_file_from_a_non_existing_directory()
 		{
 			_provider
-				.GetContent("rrrrrrrrr", "style.css")
+				.GetResource("rrrrrrrrr", "style.css")
 				.ShouldBe(Resource.Empty);
 		}
 
@@ -34,7 +34,7 @@ namespace Dashen.Tests.Static
 		public void When_fetching_an_existing_resource()
 		{
 			_provider
-				.GetContent("css", "style.css")
+				.GetResource("css", "style.css")
 				.Content
 				.Length
 				.ShouldBeGreaterThan(0);
@@ -44,7 +44,7 @@ namespace Dashen.Tests.Static
 		public void When_fetching_from_a_different_case_directory()
 		{
 			_provider
-				.GetContent("CSS", "style.css")
+				.GetResource("CSS", "style.css")
 				.Content
 				.Length
 				.ShouldBeGreaterThan(0);
