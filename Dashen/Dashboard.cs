@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Http.SelfHost;
 using StructureMap;
 
 namespace Dashen
@@ -11,6 +12,7 @@ namespace Dashen
 		private readonly ServerBuilder _serverBuilder;
 		private readonly ModelInfoRepository _repository;
 		private readonly IDGenerator _generator;
+		private HttpSelfHostServer _server;
 
 		public Dashboard(IContainer container, DashboardConfiguration config, ServerBuilder serverBuilder, ModelInfoRepository repository, IDGenerator generator)
 		{
@@ -21,6 +23,9 @@ namespace Dashen
 			_generator = generator;
 		}
 
+		/// <summary>Adds a widget to the dashboard.</summary>
+		/// <typeparam name="TModel">The type of Widget to add</typeparam>
+		/// <param name="customise">Populates the model.  Runs on each GET to /models/id/{id}</param>
 		public void Add<TModel>(Action<TModel> customise)
 			where TModel : Model
 		{
@@ -44,10 +49,22 @@ namespace Dashen
 			_repository.Register(info);
 		}
 
+		/// <summary>
+		/// Starts the dashboard
+		/// </summary>
 		public Task Start()
 		{
-			var server = _serverBuilder.Create(_config.ListenOn);
-			return server.OpenAsync();
+			_server = _server ?? _serverBuilder.Create(_config.ListenOn);
+
+			return _server.OpenAsync();
+		}
+
+		/// <summary>
+		/// Stops the dashboard
+		/// </summary>
+		public Task Stop()
+		{
+			return _server != null ? _server.CloseAsync() : Task.Delay(0);
 		}
 	}
 }
