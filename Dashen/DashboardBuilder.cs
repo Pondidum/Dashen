@@ -27,7 +27,6 @@ namespace Dashen
 
 			dash.Add<HeaderModel>(model =>
 			{
-				model.Title = "ERMAGHAD";
 				model.AppName = configuration.ApplicationName;
 				model.AppVersion = configuration.ApplicationVersion;
 			});
