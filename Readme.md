@@ -58,5 +58,15 @@ config.ApplicationName = "My Awesome Service";
 >Sets the version header of the dashboard.
 
 ```
-config.Version = typeof(Program).Assembly.Version.ToString();
+config.ApplicationVersion = typeof(Program).Assembly.Version.ToString();
+```
+
+###Resources
+>Allows specifying custom resources, such as images
+
+```
+//this resource will be available under /static/user/test.png
+config.Resources = new[] {
+	new Resrouce("test.png", "image/png", new FileStream(@"c:\test.png"))
+};
 ```
